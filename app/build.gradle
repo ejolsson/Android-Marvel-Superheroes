@@ -1,7 +1,14 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'com.google.dagger.hilt.android' // error: "Plugin [id: 'com.google.dagger.hilt.android'] was not found in any of the following sources:"
+    id("androidx.navigation.safeargs")
+    id "kotlin-kapt" // added for Room, make sure this item is listed last
 }
+
+def localProperties = new Properties()
+localProperties.load(new FileInputStream(rootProject.file("local.properties")))
+// https://blog.mindorks.com/using-local-properties-file-to-avoid-api-keys-check-in-into-version-control-system/
 
 android {
     namespace 'com.ericolsson.marvelsuperheroes'
@@ -21,6 +28,9 @@ android {
     }
 
     buildTypes {
+        debug {
+            resValue("string", "marvel_api_key", localProperties['MARVEL_API_KEY'])
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
@@ -48,14 +58,36 @@ android {
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.8.0'
-    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.1'
-    implementation 'androidx.activity:activity-compose:1.5.1'
+    implementation 'androidx.core:core-ktx:1.8.0' // updating this created a class duplication error
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.1' // updating this created a class duplication error
+    implementation 'androidx.activity:activity-compose:1.5.1' // updating this created a class duplication error
     implementation platform('androidx.compose:compose-bom:2022.10.00')
     implementation 'androidx.compose.ui:ui'
     implementation 'androidx.compose.ui:ui-graphics'
     implementation 'androidx.compose.ui:ui-tooling-preview'
     implementation 'androidx.compose.material3:material3'
+
+    implementation 'com.google.code.gson:gson:2.10.1'
+
+    // Networking
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.moshi:moshi-kotlin:1.14.0")
+    implementation("com.squareup.retrofit2:converter-moshi:2.9.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.3")
+    implementation("com.squareup.retrofit2:converter-scalars:2.1.0") // use for login
+//    kapt("com.squareup.moshi:moshi-kotlin-codegen:$moshi_version") // https://stackoverflow.com/questions/73058197/convert-string-to-object-using-moshi
+    implementation 'com.squareup.okhttp3:okhttp:5.0.0-alpha.3' // not in class example
+
+    // Room
+    implementation("androidx.room:room-runtime:2.5.1") // fm class
+    implementation("androidx.room:room-ktx:2.5.1") // fm class
+    kapt("androidx.room:room-compiler:2.5.1") // fm class
+    //    annotationProcessor 'androidx.room:room-compiler:2.5.1'
+
+    // Dagger Hilt
+    implementation "com.google.dagger:hilt-android:2.45"
+    kapt "com.google.dagger:hilt-compiler:2.45"
+
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'

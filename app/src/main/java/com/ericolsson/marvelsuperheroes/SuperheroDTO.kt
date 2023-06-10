@@ -1,6 +1,6 @@
 package com.ericolsson.marvelsuperheroes
-
-data class Superhero (
+// https://app.quicktype.io/
+data class SuperheroDTO (
     val code: Long,
 //    val status: String,
 //    val copyright: String,
@@ -15,10 +15,10 @@ data class Data (
 //    val limit: Long,
 //    val total: Long,
 //    val count: Long,
-    val results: List<Result>
+    val results: Array<Result>
 )
 
-data class Result (
+data class Result ( // map to data class SuperHeroRemote
     val id: Long,
     val name: String,
     val description: String,
@@ -37,7 +37,7 @@ data class Result (
 data class Comics (
     val available: Long,
     val collectionURI: String,
-    val items: List<ComicsItem>,
+    val items: Array<ComicsItem>,
     val returned: Int//Long
 )
 
@@ -49,7 +49,7 @@ data class ComicsItem (
 data class Stories (
     val available: Long,
     val collectionURI: String,
-    val items: List<StoriesItem>,
+    val items: Array<StoriesItem>,
     val returned: Int// Long
 )
 
@@ -87,36 +87,36 @@ enum class URLType {
     Wiki
 }
 
-val heroDefault = Result(
-    1009368,
-    "Iron Man",
-    "Iron Man...",
-    Thumbnail(
-        "http://i.annihil.us/u/prod/marvel/i/mg/9/c0/527bb7b37ff55",
-        Extension.Jpg
-    ), Comics(
-        659,
-        "http://gateway.marvel.com/v1/public/characters/1009368/series",
-        listOf(
-            ComicsItem(
-                "http://gateway.marvel.com/v1/public/series/16450",
-                "A+X (2012 - 2014)"
-            ),
-            ComicsItem(
-                "http://gateway.marvel.com/v1/public/series/6079",
-                "Adam: Legend of the Blue Marvel (2008)"
-            ),
-            ComicsItem(
-                "http://gateway.marvel.com/v1/public/series/27392",
-                "Aero (2019 - 2020)"
-            ),
-            ComicsItem(
-                "http://gateway.marvel.com/v1/public/series/9790",
-                "Age of Heroes (2010)"
-            )
-        ),
-20)
-)
+//val heroDefault = Result(
+//    1009368,
+//    "Iron Man",
+//    "Iron Man...",
+//    Thumbnail(
+//        "http://i.annihil.us/u/prod/marvel/i/mg/9/c0/527bb7b37ff55",
+//        Extension.Jpg
+//    ), Comics(
+//        659,
+//        "http://gateway.marvel.com/v1/public/characters/1009368/series",
+//        listOf(
+//            ComicsItem(
+//                "http://gateway.marvel.com/v1/public/series/16450",
+//                "A+X (2012 - 2014)"
+//            ),
+//            ComicsItem(
+//                "http://gateway.marvel.com/v1/public/series/6079",
+//                "Adam: Legend of the Blue Marvel (2008)"
+//            ),
+//            ComicsItem(
+//                "http://gateway.marvel.com/v1/public/series/27392",
+//                "Aero (2019 - 2020)"
+//            ),
+//            ComicsItem(
+//                "http://gateway.marvel.com/v1/public/series/9790",
+//                "Age of Heroes (2010)"
+//            )
+//        ),
+//20)
+//)
 
 
 

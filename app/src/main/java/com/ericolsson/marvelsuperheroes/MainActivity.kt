@@ -3,6 +3,7 @@ package com.ericolsson.marvelsuperheroes
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -11,8 +12,17 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.ericolsson.marvelsuperheroes.ui.theme.MarvelSuperheroesTheme
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+//class MainActivity @Inject constructor(private val viewModel: HeroViewModel): ComponentActivity() {
+
+    private val viewModel: HeroViewModel by viewModels()
+    private val hero = "hulk"
+    private val heroId = 1010914
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -23,6 +33,10 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     Greeting("Android")
+//                    viewModel.getHeroes()
+//                    viewModel.getHeroByName(hero)
+                    viewModel.getSeries(heroId)
+//                    viewModel.getHeroes5()
                 }
             }
         }
