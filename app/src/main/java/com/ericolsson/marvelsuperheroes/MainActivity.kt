@@ -35,8 +35,8 @@ class MainActivity : ComponentActivity() {
                     Greeting("Android")
 //                    viewModel.getHeroes()
 //                    viewModel.getHeroByName(hero)
-                    viewModel.getSeries(heroId)
-//                    viewModel.getHeroes5()
+//                    viewModel.getSeries(heroId)
+                    viewModel.getHeroes5()
                 }
             }
         }

@@ -2,34 +2,19 @@ package com.ericolsson.marvelsuperheroes
 // https://app.quicktype.io/
 data class SuperheroDTO (
     val code: Long,
-//    val status: String,
-//    val copyright: String,
-//    val attributionText: String,
-//    val attributionHTML: String,
-//    val etag: String,
     val data: Data
 )
 
 data class Data (
-//    val offset: Long,
-//    val limit: Long,
-//    val total: Long,
-//    val count: Long,
-    val results: Array<Result>
+    var results: Array<Result>
 )
 
 data class Result ( // map to data class SuperHeroRemote
     val id: Long,
     val name: String,
     val description: String,
-//    val modified: String,
     val thumbnail: Thumbnail,
-//    val resourceURI: String,
-//    val comics: Comics,
     val series: Comics,
-//    val stories: Stories,
-//    val events: Comics,
-//    val urls: List<URL>
 )
 
 // MARK: - LIKELY DON'T NEED THE ITEMS BELOW -
@@ -73,7 +58,7 @@ data class Thumbnail (
 )
 
 enum class Extension {
-    Jpg
+    jpg // was Jpg
 }
 
 data class URL (

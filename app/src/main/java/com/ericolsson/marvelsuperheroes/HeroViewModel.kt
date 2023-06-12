@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ericolsson.marvelsuperheroes.data.Repository
 import com.google.gson.Gson
+import com.google.gson.JsonArray
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -19,7 +20,8 @@ import javax.inject.Inject
 @HiltViewModel
 class HeroViewModel @Inject constructor(private val repository: Repository): ViewModel() {
 
-    private val _heroes = MutableLiveData<List<SuperHeroRemote>>()
+    private val _heroesRemote = MutableLiveData<List<SuperHeroRemote>>()
+    private var _heroes = MutableLiveData<SuperheroDTO>()
     private val apiKey = (R.string.marvel_api_key)
 
 //    public static final MARVEL_API_KEY: String = Reso
@@ -38,10 +40,14 @@ class HeroViewModel @Inject constructor(private val repository: Repository): Vie
     fun getHeroes5() {
         viewModelScope.launch {
             val result = withContext(Dispatchers.IO) {
-                repository.getHeroes4()
+                repository.getHeroes4() // type SuperheroDTO
             }
-            _heroes.value = result
-            Log.d("Tag", "HeroVM > fun getHeroes5: List<SuperHero>.first = ${result.first()}")
+//            _heroes.value?.data.results = result.data.results // Only safe (?.) or non-null asserted (!!.) calls are allowed on a nullable receiver of type Data?
+            Log.d("Tag getHeroes5", "HeroVM > fun getHeroes5 > result.data.results.first() = ${result.data.results.first()}") // prints first hero correctly
+
+            val heroes2 = result.data.results.asList() //get("Result") as JsonArray
+            Log.w("Tag", "heroes2 = $heroes2")
+//            _heroesRemote.value = heroes2 // Type mismatch. Req: List<SuperHeroRemote>?, Found: List<Result>
         }
     }
 

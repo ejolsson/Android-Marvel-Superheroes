@@ -14,7 +14,7 @@ interface MarvelApi {
         @Query("hash") hash: String,
         @Query("limit") limit: Int,
         @Query("offset") offset: Int
-    ): List<SuperHeroRemote>
+    ): SuperheroDTO // List<SuperHeroRemote>
 }
 
 // https://square.github.io/retrofit/
