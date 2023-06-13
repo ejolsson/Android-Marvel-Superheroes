@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'com.google.dagger.hilt.android' // error: "Plugin [id: 'com.google.dagger.hilt.android'] was not found in any of the following sources:"
+    id('kotlin-parcelize')
     id("androidx.navigation.safeargs")
     id "kotlin-kapt" // added for Room, make sure this item is listed last
 }
