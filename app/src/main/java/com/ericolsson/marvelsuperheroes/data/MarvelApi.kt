@@ -1,7 +1,6 @@
 package com.ericolsson.marvelsuperheroes.data
 
-import com.ericolsson.marvelsuperheroes.SuperHeroRemote
-import com.ericolsson.marvelsuperheroes.SuperheroDTO
+import com.ericolsson.marvelsuperheroes.MarvelHeroesDTO
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -14,7 +13,7 @@ interface MarvelApi {
         @Query("hash") hash: String,
         @Query("limit") limit: Int,
         @Query("offset") offset: Int
-    ): SuperheroDTO // List<SuperHeroRemote>
+    ): MarvelHeroesDTO // List<SuperHeroRemote>
 }
 
 // https://square.github.io/retrofit/

@@ -1,7 +1,5 @@
 package com.ericolsson.marvelsuperheroes.di
 
-import com.ericolsson.marvelsuperheroes.SuperHeroRemote
-import com.ericolsson.marvelsuperheroes.SuperheroDTO
 import com.ericolsson.marvelsuperheroes.data.MarvelApi
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -13,8 +11,6 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
-import retrofit2.create
-import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)

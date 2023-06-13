@@ -1,5 +1,7 @@
-package com.ericolsson.marvelsuperheroes.data
+package com.ericolsson.marvelsuperheroes.data.repository
 
+import com.ericolsson.marvelsuperheroes.data.remote.RemoteDataSource
+import com.ericolsson.marvelsuperheroes.data.remote.RemoteDataSourceImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

@@ -1,4 +1,4 @@
-package com.ericolsson.marvelsuperheroes
+package com.ericolsson.marvelsuperheroes.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -11,9 +11,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.ericolsson.marvelsuperheroes.ui.theme.MarvelSuperheroesTheme
+import com.ericolsson.marvelsuperheroes.ui.heroes.MarvelSuperheroesTheme
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {

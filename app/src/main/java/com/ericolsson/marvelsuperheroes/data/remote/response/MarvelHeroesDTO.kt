@@ -1,6 +1,6 @@
 package com.ericolsson.marvelsuperheroes
 // https://app.quicktype.io/
-data class SuperheroDTO (
+data class MarvelHeroesDTO (
     val code: Long,
     val data: Data
 )
@@ -72,36 +72,36 @@ enum class URLType {
     Wiki
 }
 
-//val heroDefault = Result(
-//    1009368,
-//    "Iron Man",
-//    "Iron Man...",
-//    Thumbnail(
-//        "http://i.annihil.us/u/prod/marvel/i/mg/9/c0/527bb7b37ff55",
-//        Extension.Jpg
-//    ), Comics(
-//        659,
-//        "http://gateway.marvel.com/v1/public/characters/1009368/series",
-//        listOf(
-//            ComicsItem(
-//                "http://gateway.marvel.com/v1/public/series/16450",
-//                "A+X (2012 - 2014)"
-//            ),
-//            ComicsItem(
-//                "http://gateway.marvel.com/v1/public/series/6079",
-//                "Adam: Legend of the Blue Marvel (2008)"
-//            ),
-//            ComicsItem(
-//                "http://gateway.marvel.com/v1/public/series/27392",
-//                "Aero (2019 - 2020)"
-//            ),
-//            ComicsItem(
-//                "http://gateway.marvel.com/v1/public/series/9790",
-//                "Age of Heroes (2010)"
-//            )
-//        ),
-//20)
-//)
+val heroDefault = Result(
+    1009368,
+    "Iron Man",
+    "Iron Man...",
+    Thumbnail(
+        "http://i.annihil.us/u/prod/marvel/i/mg/9/c0/527bb7b37ff55",
+        Extension.jpg
+    ), Comics(
+        659,
+        "http://gateway.marvel.com/v1/public/characters/1009368/series",
+        arrayOf(
+            ComicsItem(
+                "http://gateway.marvel.com/v1/public/series/16450",
+                "A+X (2012 - 2014)"
+            ),
+            ComicsItem(
+                "http://gateway.marvel.com/v1/public/series/6079",
+                "Adam: Legend of the Blue Marvel (2008)"
+            ),
+            ComicsItem(
+                "http://gateway.marvel.com/v1/public/series/27392",
+                "Aero (2019 - 2020)"
+            ),
+            ComicsItem(
+                "http://gateway.marvel.com/v1/public/series/9790",
+                "Age of Heroes (2010)"
+            )
+        ),
+20)
+)
 
 
 

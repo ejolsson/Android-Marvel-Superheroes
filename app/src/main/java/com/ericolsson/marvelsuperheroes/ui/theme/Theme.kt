@@ -1,4 +1,4 @@
-package com.ericolsson.marvelsuperheroes.ui.theme
+package com.ericolsson.marvelsuperheroes.ui.heroes
 
 import android.app.Activity
 import android.os.Build

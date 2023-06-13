@@ -1,14 +1,21 @@
-package com.ericolsson.marvelsuperheroes
+package com.ericolsson.marvelsuperheroes.ui
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.ericolsson.marvelsuperheroes.data.Repository
+import com.ericolsson.marvelsuperheroes.R
+import com.ericolsson.marvelsuperheroes.Result
+import com.ericolsson.marvelsuperheroes.MarvelSeriesDTO
+import com.ericolsson.marvelsuperheroes.SuperHeroRemote
+import com.ericolsson.marvelsuperheroes.MarvelHeroesDTO
+import com.ericolsson.marvelsuperheroes.data.repository.Repository
 import com.google.gson.Gson
-import com.google.gson.JsonArray
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import okhttp3.FormBody
@@ -21,8 +28,10 @@ import javax.inject.Inject
 class HeroViewModel @Inject constructor(private val repository: Repository): ViewModel() {
 
     private val _heroesRemote = MutableLiveData<List<SuperHeroRemote>>()
-    private var _heroes = MutableLiveData<SuperheroDTO>()
+    private var _heroes = MutableLiveData<MarvelHeroesDTO>()
     private val apiKey = (R.string.marvel_api_key)
+    private val _state = MutableStateFlow<List<Result>>(emptyList())
+    val state: StateFlow<List<Result>> get() = _state
 
 //    public static final MARVEL_API_KEY: String = Reso
 
@@ -40,7 +49,7 @@ class HeroViewModel @Inject constructor(private val repository: Repository): Vie
     fun getHeroes5() {
         viewModelScope.launch {
             val result = withContext(Dispatchers.IO) {
-                repository.getHeroes4() // type SuperheroDTO
+                repository.getHeroes4() // type MarvelHeroesDTO
             }
 //            _heroes.value?.data.results = result.data.results // Only safe (?.) or non-null asserted (!!.) calls are allowed on a nullable receiver of type Data?
             Log.d("Tag getHeroes5", "HeroVM > fun getHeroes5 > result.data.results.first() = ${result.data.results.first()}") // prints first hero correctly
@@ -48,16 +57,18 @@ class HeroViewModel @Inject constructor(private val repository: Repository): Vie
             val heroes2 = result.data.results.asList() //get("Result") as JsonArray
             Log.w("Tag", "heroes2 = $heroes2")
 //            _heroesRemote.value = heroes2 // Type mismatch. Req: List<SuperHeroRemote>?, Found: List<Result>
+
+            _state.update { heroes2 }
         }
     }
 
 
     // fundamentals method
-    private var heroesPresent = listOf<SuperheroDTO>()
-    private var heroToShow: SuperheroDTO? = null
-    private var seriesToShow = listOf<SeriesDTO>()
+    private var heroesPresent = listOf<MarvelHeroesDTO>()
+    private var heroToShow: MarvelHeroesDTO? = null
+    private var seriesToShow = listOf<MarvelSeriesDTO>()
 
-    fun getHeroes() : List<SuperheroDTO> {
+    fun getHeroes() : List<MarvelHeroesDTO> {
         viewModelScope.launch(Dispatchers.IO) {
             Log.w("Tag", "apiKey = $apiKey")
             val client = OkHttpClient()
@@ -100,7 +111,7 @@ class HeroViewModel @Inject constructor(private val repository: Repository): Vie
                     try {
                         val response = responseBody.string()
                         Log.d("Tag", "getHeroes try... response: $response") // prints good response
-                        val getHeroesArray = gson.fromJson(response, SuperheroDTO::class.java)
+                        val getHeroesArray = gson.fromJson(response, MarvelHeroesDTO::class.java)
                         Log.d("Tag", "getHeroesArray.data.results.first().name = ${getHeroesArray.data.results.first().name}")
                     } catch (ex: Exception) {
 //                        _mapState.value= MapState.ErrorJSON("Something went wrong in the fetchHeroes response")
@@ -116,7 +127,7 @@ class HeroViewModel @Inject constructor(private val repository: Repository): Vie
         return heroesPresent
     }
 
-    fun getHeroByName(heroName: String) : SuperheroDTO? {
+    fun getHeroByName(heroName: String) : MarvelHeroesDTO? {
         viewModelScope.launch(Dispatchers.IO) {
             Log.d("Tag", "apiKey = $apiKey")
             val client = OkHttpClient()
@@ -154,7 +165,7 @@ class HeroViewModel @Inject constructor(private val repository: Repository): Vie
                     try {
                         val response = responseBody.string()
                         Log.d("Tag", "getHeroByName try... response: $response") // prints good response
-                        val getHero = gson.fromJson(response, SuperheroDTO::class.java)
+                        val getHero = gson.fromJson(response, MarvelHeroesDTO::class.java)
                         Log.w("Tag", "getHeroByName.data.results = ${getHero.data.results.first()}")
                         Log.d("Tag", "getHero.data.results = ${getHero.data.results.first().name}, ${getHero.data.results.first().description}")
                     } catch (ex: Exception) {
@@ -171,7 +182,7 @@ class HeroViewModel @Inject constructor(private val repository: Repository): Vie
         return heroToShow
     }
 
-    fun getSeries(characterId: Int) : List<SeriesDTO> {
+    fun getSeries(characterId: Int) : List<MarvelSeriesDTO> {
         viewModelScope.launch(Dispatchers.IO) {
             Log.w("Tag", "apiKey = $apiKey")
             val client = OkHttpClient()
@@ -209,7 +220,7 @@ class HeroViewModel @Inject constructor(private val repository: Repository): Vie
                     try {
                         val response = responseBody.string()
                         Log.d("Tag", "try... response: $response")
-                        val getSeriesArray = gson.fromJson(response, SeriesDTO::class.java)
+                        val getSeriesArray = gson.fromJson(response, MarvelSeriesDTO::class.java)
                         Log.w("Tag", "getHero.data.results.first = ${getSeriesArray.data.results.first()}")
 //                        Log.d("Tag", "getHero.data.results = ${getHero.data.results.first().name}, ${getHero.data.results.first().description}")
                     } catch (ex: Exception) {

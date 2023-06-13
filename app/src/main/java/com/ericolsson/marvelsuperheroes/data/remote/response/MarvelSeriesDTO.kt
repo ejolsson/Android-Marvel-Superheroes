@@ -1,6 +1,6 @@
 package com.ericolsson.marvelsuperheroes
 
-data class SeriesDTO (
+data class MarvelSeriesDTO (
     val code: Long,
 //    val status: String,
 //    val copyright: String,
