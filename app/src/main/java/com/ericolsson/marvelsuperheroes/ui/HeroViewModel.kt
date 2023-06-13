@@ -7,7 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.ericolsson.marvelsuperheroes.R
 import com.ericolsson.marvelsuperheroes.Result
 import com.ericolsson.marvelsuperheroes.MarvelSeriesDTO
-import com.ericolsson.marvelsuperheroes.SuperHeroRemote
+import com.ericolsson.marvelsuperheroes.data.remote.response.SuperHeroRemote
 import com.ericolsson.marvelsuperheroes.MarvelHeroesDTO
 import com.ericolsson.marvelsuperheroes.data.repository.Repository
 import com.google.gson.Gson
@@ -28,7 +28,7 @@ import javax.inject.Inject
 class HeroViewModel @Inject constructor(private val repository: Repository): ViewModel() {
 
     private val _heroesRemote = MutableLiveData<List<SuperHeroRemote>>()
-    private var _heroes = MutableLiveData<MarvelHeroesDTO>()
+    private var _heroes = MutableLiveData<SuperHeroRemote>()
     private val apiKey = (R.string.marvel_api_key)
     private val _state = MutableStateFlow<List<Result>>(emptyList())
     val state: StateFlow<List<Result>> get() = _state
@@ -54,11 +54,12 @@ class HeroViewModel @Inject constructor(private val repository: Repository): Vie
 //            _heroes.value?.data.results = result.data.results // Only safe (?.) or non-null asserted (!!.) calls are allowed on a nullable receiver of type Data?
             Log.d("Tag getHeroes5", "HeroVM > fun getHeroes5 > result.data.results.first() = ${result.data.results.first()}") // prints first hero correctly
 
-            val heroes2 = result.data.results.asList() //get("Result") as JsonArray
+//            val heroes2 = result.data.results.asList() // success printout of list as desired
+            val heroes2 = result.data.results.asList()
             Log.w("Tag", "heroes2 = $heroes2")
 //            _heroesRemote.value = heroes2 // Type mismatch. Req: List<SuperHeroRemote>?, Found: List<Result>
 
-            _state.update { heroes2 }
+//            _state.update { heroes2 } // todo
         }
     }
 

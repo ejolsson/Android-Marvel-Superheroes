@@ -3,13 +3,14 @@ package com.ericolsson.marvelsuperheroes.data.repository
 import android.util.Log
 import com.ericolsson.marvelsuperheroes.MarvelHeroesDTO
 import com.ericolsson.marvelsuperheroes.data.remote.RemoteDataSource
+import com.ericolsson.marvelsuperheroes.data.remote.response.SuperHeroRemote
 import javax.inject.Inject
 
 class RepositoryImpl @Inject constructor(
     private val remoteDataSource: RemoteDataSource
 ): Repository {
 
-    override suspend fun getHeroes4(): MarvelHeroesDTO {
+    override suspend fun getHeroes4(): SuperHeroRemote {
         Log.w("Tag getHeroes2", "remoteDataSource.getHeroes2(): ${remoteDataSource.getHeroes2()}")
         return remoteDataSource.getHeroes2()
         /* TODO: add the following
