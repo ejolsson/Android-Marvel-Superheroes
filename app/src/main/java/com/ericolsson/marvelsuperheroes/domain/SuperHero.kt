@@ -7,5 +7,6 @@ import kotlinx.parcelize.Parcelize
 data class SuperHero(
     val id: Long,
     val name: String,
-    val photo: String
+    val photo: String,
+    val description: String
 ) : Parcelable

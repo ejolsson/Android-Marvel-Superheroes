@@ -7,16 +7,16 @@ import javax.inject.Inject
 
 class RemoteToLocalMapper @Inject constructor() {
 
-    fun mapSuperHeroRemote(getHeroesResponse: SuperHeroRemote): List<SuperHeroLocal> {
-        return getHeroesResponse.data.results.map { map(it) }
+    fun mapSuperHeroRemote(superHeroRemote: SuperHeroRemote): List<SuperHeroLocal> {
+        return superHeroRemote.data.results.map { map(it) }
     }
 
-    private fun map (getHeroesResponse: Result): SuperHeroLocal {
+    private fun map (marvelHeroesResponse: Result): SuperHeroLocal {
         return SuperHeroLocal(
-            id = getHeroesResponse.id,
-            name = getHeroesResponse.name,
-            photo = getHeroesResponse.thumbnail.path,
-        description = getHeroesResponse.description,
+            id = marvelHeroesResponse.id,
+            name = marvelHeroesResponse.name,
+            photo = marvelHeroesResponse.thumbnail.path,
+        description = marvelHeroesResponse.description,
             favorite = false
         )
     }
