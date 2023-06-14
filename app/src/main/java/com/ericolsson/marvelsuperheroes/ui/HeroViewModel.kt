@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ericolsson.marvelsuperheroes.R
 import com.ericolsson.marvelsuperheroes.Result
-import com.ericolsson.marvelsuperheroes.MarvelSeriesDTO
+import com.ericolsson.marvelsuperheroes.SeriesRemote
 import com.ericolsson.marvelsuperheroes.data.remote.response.SuperHeroRemote
 import com.ericolsson.marvelsuperheroes.MarvelHeroesDTO
 import com.ericolsson.marvelsuperheroes.data.repository.Repository
@@ -15,7 +15,6 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import okhttp3.FormBody
@@ -32,19 +31,6 @@ class HeroViewModel @Inject constructor(private val repository: Repository): Vie
     private val apiKey = (R.string.marvel_api_key)
     private val _state = MutableStateFlow<List<Result>>(emptyList())
     val state: StateFlow<List<Result>> get() = _state
-
-//    public static final MARVEL_API_KEY: String = Reso
-
-    /*
-    var urlComponents = URLComponents()
-        urlComponents.queryItems = [
-            URLQueryItem(name: "ts", value: "1"),
-            URLQueryItem(name: "apikey", value: "f0c5210c2332d5d32edc3a40552edb27"),
-            URLQueryItem(name: "hash", value: "a4d396a1143f5258c6cced5dc9863a84"),
-            URLQueryItem(name: "limit", value: "1"),
-            URLQueryItem(name: "offset", value: "200")]
-        // prints: ?ts=1&apikey=f0...&hash=a4d....a84&limit=1&offset=200
-     */
 
     fun getHeroes5() {
         viewModelScope.launch {
@@ -64,10 +50,34 @@ class HeroViewModel @Inject constructor(private val repository: Repository): Vie
     }
 
 
+    fun getSeries5(heroId: Long) {
+        viewModelScope.launch {
+            val result = withContext(Dispatchers.IO) {
+                repository.getSeries4(heroId)
+            }
+            Log.w("Tag", "series = ${result.data.results.asList()}")
+        }
+    }
+
+//    fun getHeroByName2(heroName: String): SuperHeroRemote {
+//        viewModelScope.launch {
+//            val result = withContext(Dispatchers.IO) {
+//                repository.getHeroes4()
+//            }
+//        }
+//    }
+
+
+
+
+
+
+
+
     // fundamentals method
     private var heroesPresent = listOf<MarvelHeroesDTO>()
     private var heroToShow: MarvelHeroesDTO? = null
-    private var seriesToShow = listOf<MarvelSeriesDTO>()
+    private var seriesToShow = listOf<SeriesRemote>()
 
     fun getHeroes() : List<MarvelHeroesDTO> {
         viewModelScope.launch(Dispatchers.IO) {
@@ -183,7 +193,7 @@ class HeroViewModel @Inject constructor(private val repository: Repository): Vie
         return heroToShow
     }
 
-    fun getSeries(characterId: Int) : List<MarvelSeriesDTO> {
+    fun getSeries(characterId: Int) : List<SeriesRemote> {
         viewModelScope.launch(Dispatchers.IO) {
             Log.w("Tag", "apiKey = $apiKey")
             val client = OkHttpClient()
@@ -221,7 +231,7 @@ class HeroViewModel @Inject constructor(private val repository: Repository): Vie
                     try {
                         val response = responseBody.string()
                         Log.d("Tag", "try... response: $response")
-                        val getSeriesArray = gson.fromJson(response, MarvelSeriesDTO::class.java)
+                        val getSeriesArray = gson.fromJson(response, SeriesRemote::class.java)
                         Log.w("Tag", "getHero.data.results.first = ${getSeriesArray.data.results.first()}")
 //                        Log.d("Tag", "getHero.data.results = ${getHero.data.results.first().name}, ${getHero.data.results.first().description}")
                     } catch (ex: Exception) {

@@ -20,7 +20,7 @@ class MainActivity : ComponentActivity() {
 
     private val viewModel: HeroViewModel by viewModels()
     private val hero = "hulk"
-    private val heroId = 1010914
+    private val heroId: Long = 1010914
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,6 +36,7 @@ class MainActivity : ComponentActivity() {
 //                    viewModel.getHeroByName(hero)
 //                    viewModel.getSeries(heroId)
                     viewModel.getHeroes5()
+                    viewModel.getSeries5(heroId)
                 }
             }
         }
