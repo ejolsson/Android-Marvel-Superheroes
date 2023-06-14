@@ -59,6 +59,14 @@ class HeroViewModel @Inject constructor(private val repository: Repository): Vie
         }
     }
 
+    fun getComics5(heroId: Long) {
+        viewModelScope.launch {
+            val result = withContext(Dispatchers.IO) {
+                repository.getComics4(heroId)
+            }
+            Log.w("Tag", "comics = ${result.data.results.asList()}")
+        }
+    }
 //    fun getHeroByName2(heroName: String): SuperHeroRemote {
 //        viewModelScope.launch {
 //            val result = withContext(Dispatchers.IO) {

@@ -37,6 +37,7 @@ class MainActivity : ComponentActivity() {
 //                    viewModel.getSeries(heroId)
                     viewModel.getHeroes5()
                     viewModel.getSeries5(heroId)
+                    viewModel.getComics5(heroId)
                 }
             }
         }
