@@ -1,6 +1,5 @@
 package com.ericolsson.marvelsuperheroes.data.remote
 
-import com.ericolsson.marvelsuperheroes.MarvelHeroesDTO
 import com.ericolsson.marvelsuperheroes.data.MarvelApi
 import com.ericolsson.marvelsuperheroes.data.remote.response.SuperHeroRemote
 import javax.inject.Inject
@@ -12,6 +11,11 @@ class RemoteDataSourceImpl @Inject constructor(private val api: MarvelApi): Remo
 
     override suspend fun getHeroes2(): SuperHeroRemote { // List<SuperHeroRemote>
         return api.getHeroes1(1,apikey, hash, 3, 800)
+    }
+
+    suspend fun getHeroes3(): SuperHeroRemote { // todo: for testing
+        return api.getHeroes1(1, apikey, hash, 3, 800)
+        // return result.filter { it.name.startsWith("B") }
     }
 
 }

@@ -5,7 +5,7 @@ import javax.inject.Inject
 class LocalDataSourceImpl @Inject constructor(
     private val dao: SuperHeroDAO
 ) : LocalDataSource {
-    override fun getHeroes(): List<SuperHeroLocal> {
+    override fun getHeroes3(): List<SuperHeroLocal> {
         return dao.getAllSuperheros()
     }
 

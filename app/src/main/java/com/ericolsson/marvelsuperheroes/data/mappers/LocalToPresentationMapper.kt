@@ -6,7 +6,7 @@ import javax.inject.Inject
 
 class LocalToPresentationMapper @Inject constructor() {
 
-    fun map(superHeroList: List<SuperHeroLocal>): List<SuperHero> {
+    fun mapLocalSuperHeroes(superHeroList: List<SuperHeroLocal>): List<SuperHero> {
         return superHeroList.map { map(it) }
     }
 

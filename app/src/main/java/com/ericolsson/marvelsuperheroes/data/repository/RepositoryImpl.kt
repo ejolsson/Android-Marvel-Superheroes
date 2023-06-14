@@ -9,6 +9,7 @@ import com.ericolsson.marvelsuperheroes.data.mappers.RemoteToLocalMapper
 import com.ericolsson.marvelsuperheroes.data.mappers.RemoteToPresentationMapper
 import com.ericolsson.marvelsuperheroes.data.remote.RemoteDataSource
 import com.ericolsson.marvelsuperheroes.data.remote.response.SuperHeroRemote
+import com.ericolsson.marvelsuperheroes.domain.SuperHero
 import javax.inject.Inject
 
 class RepositoryImpl @Inject constructor(
@@ -20,18 +21,17 @@ class RepositoryImpl @Inject constructor(
     private val presentationToLocalMapper: PresentationToLocalMapper
 ): Repository {
 
-    override suspend fun getHeroes4(): SuperHeroRemote {
+    override suspend fun getHeroes4(): List<SuperHero> {
+
         Log.w("Tag getHeroes2", "remoteDataSource.getHeroes2(): ${remoteDataSource.getHeroes2()}")
-        return remoteDataSource.getHeroes2()
-        /* TODO: add the following
+
         if (localDataSource.getHeroes3().isEmpty()) {
             Log.w("Tag", "No heroes stored locally. Going the fetch them!")
-            Log.d("Tag", "getHeroes4 token = $token")
-            val remoteSuperHeroes = remoteDataSource.getHeroes2(token)
+            val remoteSuperHeroes = remoteDataSource.getHeroes2()
 
-            localDataSource.insertHeroes(remoteToLocalMapper.mapGetHeroResponse(remoteSuperHeroes))
+            localDataSource.insertHeroes(remoteToLocalMapper.mapSuperHeroRemote(remoteSuperHeroes))
         }
         return localToPresentationMapper.mapLocalSuperHeroes(localDataSource.getHeroes3())
-         */
+
     }
 }
