@@ -10,11 +10,13 @@ import com.ericolsson.marvelsuperheroes.SeriesRemote
 import com.ericolsson.marvelsuperheroes.data.remote.response.SuperHeroRemote
 import com.ericolsson.marvelsuperheroes.MarvelHeroesDTO
 import com.ericolsson.marvelsuperheroes.data.repository.Repository
+import com.ericolsson.marvelsuperheroes.domain.SuperHero
 import com.google.gson.Gson
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import okhttp3.FormBody
@@ -29,8 +31,10 @@ class HeroViewModel @Inject constructor(private val repository: Repository): Vie
     private val _heroesRemote = MutableLiveData<List<SuperHeroRemote>>()
     private var _heroes = MutableLiveData<SuperHeroRemote>()
     private val apiKey = (R.string.marvel_api_key)
-    private val _state = MutableStateFlow<List<Result>>(emptyList())
-    val state: StateFlow<List<Result>> get() = _state
+    private val _state = MutableStateFlow<List<SuperHero>>(emptyList())
+    val state: StateFlow<List<SuperHero>> get() = _state
+    private val _favs = MutableStateFlow(0)
+    val favs: StateFlow<Int> get() = _favs
 
     fun getHeroes5() {
         viewModelScope.launch {
@@ -45,11 +49,19 @@ class HeroViewModel @Inject constructor(private val repository: Repository): Vie
             Log.w("Tag", "heroes2 = $heroes2")
 //            _heroesRemote.value = heroes2 // Type mismatch. Req: List<SuperHeroRemote>?, Found: List<Result>
 
-//            _state.update { heroes2 } // todo
+            _state.update { result }
+
+//            launch(Dispatchers.IO) {
+//                repository.getLocalHeros(TBD)
+//            }
         }
     }
 
-
+    fun insertSuperhero(hero: SuperHero) {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.insertHero(hero)
+        }
+    }
     fun getSeries5(heroId: Long) {
         viewModelScope.launch {
             val result = withContext(Dispatchers.IO) {

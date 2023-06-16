@@ -4,6 +4,7 @@ import android.util.Log
 import com.ericolsson.marvelsuperheroes.MarvelHeroesDTO
 import com.ericolsson.marvelsuperheroes.SeriesRemote
 import com.ericolsson.marvelsuperheroes.data.local.LocalDataSource
+import com.ericolsson.marvelsuperheroes.data.local.SuperHeroDAO
 import com.ericolsson.marvelsuperheroes.data.mappers.LocalToPresentationMapper
 import com.ericolsson.marvelsuperheroes.data.mappers.PresentationToLocalMapper
 import com.ericolsson.marvelsuperheroes.data.mappers.RemoteToLocalMapper
@@ -21,7 +22,8 @@ class RepositoryImpl @Inject constructor(
     private val remoteToPresentationMapper: RemoteToPresentationMapper,
     private val remoteToLocalMapper: RemoteToLocalMapper,
     private val localToPresentationMapper: LocalToPresentationMapper,
-    private val presentationToLocalMapper: PresentationToLocalMapper
+    private val presentationToLocalMapper: PresentationToLocalMapper,
+    private val dao: SuperHeroDAO
 ): Repository {
 
     override suspend fun getHeroes4(): List<SuperHero> {
@@ -35,6 +37,10 @@ class RepositoryImpl @Inject constructor(
             localDataSource.insertHeroes(remoteToLocalMapper.mapSuperHeroRemote(remoteSuperHeroes))
         }
         return localToPresentationMapper.mapLocalSuperHeroes(localDataSource.getHeroes3())
+    }
+
+    override suspend fun insertHero(hero: SuperHero) {
+        dao.insertSuperhero(hero)
     }
 
     suspend fun getHeroByName4(heroName: String){//}: SuperHero {
