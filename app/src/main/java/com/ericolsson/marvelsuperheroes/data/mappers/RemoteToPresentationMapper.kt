@@ -15,7 +15,7 @@ class RemoteToPresentationMapper @Inject constructor() {
         return SuperHero(
             id = superHero.id,
             name = superHero.name,
-            photo = superHero.thumbnail.path,
+            photo = "${superHero.thumbnail.path}.${superHero.thumbnail.extension}",
             description = superHero.description
         )
     }

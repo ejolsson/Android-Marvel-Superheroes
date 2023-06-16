@@ -15,7 +15,7 @@ class RemoteToLocalMapper @Inject constructor() {
         return SuperHeroLocal(
             id = marvelHeroesResponse.id,
             name = marvelHeroesResponse.name,
-            photo = marvelHeroesResponse.thumbnail.path,
+            photo = "${marvelHeroesResponse.thumbnail.path}.${marvelHeroesResponse.thumbnail.extension}",
         description = marvelHeroesResponse.description,
             favorite = false
         )
