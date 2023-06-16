@@ -1,5 +1,6 @@
 package com.ericolsson.marvelsuperheroes
 
+import com.ericolsson.marvelsuperheroes.data.remote.response.Thumbnail
 import com.squareup.moshi.Json
 
 data class SeriesRemote (
@@ -18,7 +19,7 @@ data class SeriesData (
 data class SeriesResult (
     @Json(name = "id") val id: Long,
     @Json(name = "title") val title: String,
-    @Json(name = "description") val description: String? = null,
+    @Json(name = "description") val description: String,//? = null,
     @Json(name = "thumbnail") val thumbnail: Thumbnail
 )
 

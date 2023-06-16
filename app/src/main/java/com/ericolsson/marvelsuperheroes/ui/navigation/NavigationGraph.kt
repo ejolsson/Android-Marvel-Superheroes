@@ -4,11 +4,14 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.ericolsson.marvelsuperheroes.domain.SuperHero
 import com.ericolsson.marvelsuperheroes.ui.heroes.SuperHeroListScreen
 import com.ericolsson.marvelsuperheroes.ui.navigation.Screens
 
 @Composable
 fun NavigationGraph(viewModel: HeroViewModel) {
+
+    var hero: SuperHero? = null
 
     val navController = rememberNavController()
     NavHost(navController = navController, startDestination = Screens.SuperHeroListScreen.route) {
@@ -18,7 +21,9 @@ fun NavigationGraph(viewModel: HeroViewModel) {
             }
         }
         composable(Screens.SuperHeroDetailScreen.route) {
-            SuperHeroDetailScreen(viewModel = viewModel)
+            if (hero != null) {
+                SuperHeroDetailScreen(viewModel = viewModel, hero)
+            }
         }
     }
 }

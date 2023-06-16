@@ -1,6 +1,5 @@
 package com.ericolsson.marvelsuperheroes.data.remote
 
-import com.ericolsson.marvelsuperheroes.MarvelHeroesDTO
 import com.ericolsson.marvelsuperheroes.SeriesRemote
 import com.ericolsson.marvelsuperheroes.data.remote.response.ComicsRemote
 import com.ericolsson.marvelsuperheroes.data.remote.response.SuperHeroRemote

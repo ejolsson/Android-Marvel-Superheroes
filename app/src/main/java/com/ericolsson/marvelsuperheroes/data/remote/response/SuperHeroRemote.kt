@@ -1,8 +1,8 @@
 package com.ericolsson.marvelsuperheroes.data.remote.response
 
-import com.ericolsson.marvelsuperheroes.ComicsItem
-import com.ericolsson.marvelsuperheroes.StoriesItem
-import com.ericolsson.marvelsuperheroes.Thumbnail
+//import com.ericolsson.marvelsuperheroes.ComicsItem
+//import com.ericolsson.marvelsuperheroes.StoriesItem
+//import com.ericolsson.marvelsuperheroes.Thumbnail
 import com.squareup.moshi.Json
 
 data class SuperHeroRemote( // not used prior to reorg

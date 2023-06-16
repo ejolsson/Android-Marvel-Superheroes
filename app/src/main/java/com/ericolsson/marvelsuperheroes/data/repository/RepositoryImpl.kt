@@ -1,7 +1,6 @@
 package com.ericolsson.marvelsuperheroes.data.repository
 
 import android.util.Log
-import com.ericolsson.marvelsuperheroes.MarvelHeroesDTO
 import com.ericolsson.marvelsuperheroes.SeriesRemote
 import com.ericolsson.marvelsuperheroes.data.local.LocalDataSource
 import com.ericolsson.marvelsuperheroes.data.local.SuperHeroDAO

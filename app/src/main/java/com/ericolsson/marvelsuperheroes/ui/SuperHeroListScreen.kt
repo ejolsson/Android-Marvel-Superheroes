@@ -34,12 +34,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.ericolsson.marvelsuperheroes.ui.HeroViewModel
-import com.ericolsson.marvelsuperheroes.MarvelHeroesDTO
 import com.ericolsson.marvelsuperheroes.domain.SuperHero
-import com.ericolsson.marvelsuperheroes.heroDefault
-
-//val heroes = listOf(MarvelHeroesDTO.data.results)() // unable to drilldown MarvelHeroesDTO...
-//val heroes = heroDefault
 
 @Composable // done
 fun SuperHeroListScreen (viewModel: HeroViewModel, onHeroClick: (SuperHero) -> Unit) {
@@ -47,15 +42,6 @@ fun SuperHeroListScreen (viewModel: HeroViewModel, onHeroClick: (SuperHero) -> U
     val state by viewModel.state.collectAsState()
     val favs by viewModel.favs.collectAsState()
 
-    // Screen 1 Login way
-//    LaunchedEffect(state) {
-//        viewModel.getHeroes5()
-//        if (state == true) {
-//            onHeroClick(SuperHero)
-//        }
-//    }
-
-    // Screen - HeroList way
     LaunchedEffect(Unit) {
         viewModel.getHeroes5()
     }
@@ -153,7 +139,7 @@ fun SuperHeroItem(hero: SuperHero, modifier: Modifier = Modifier, onHeroClick: (
     }
 }
 
-
+@Preview(showBackground = true)
 @Composable // done, not used??
 fun SuperHeroItem_Preview() {
     SuperHeroItem(SuperHero(123,"Thor","http://i.annihil.us/u/prod/marvel/i/mg/d/d0/5269657a74350.jpg", "God of Lightening...")) { }
@@ -162,5 +148,26 @@ fun SuperHeroItem_Preview() {
 @Preview(showBackground = true) // done
 @Composable
 fun SuperHeroListScreen_Preview() {
-    SuperHeroListScreenContent(emptyList(),0) { }
+    SuperHeroListScreenContent(heroesSample,0) { }
 }
+
+val heroesSample = listOf(
+    SuperHero(
+        id = 1009664,
+        name = "Thor",
+        photo = "http://i.annihil.us/u/prod/marvel/i/mg/d/d0/5269657a74350.jpg",
+        description = "God of lightning"
+    ),
+    SuperHero(
+        id = 1009368,
+        name = "Iron Man",
+        photo = "http://i.annihil.us/u/prod/marvel/i/mg/9/c0/527bb7b37ff55.jpg",
+        description = "Billionaire, genius, industrialist"
+    ),
+    SuperHero(
+        id = 1009282,
+        name = "Doctor Strange",
+        photo = "http://i.annihil.us/u/prod/marvel/i/mg/5/f0/5261a85a501fe.jpg",
+        description = "Genius magician"
+    )
+)

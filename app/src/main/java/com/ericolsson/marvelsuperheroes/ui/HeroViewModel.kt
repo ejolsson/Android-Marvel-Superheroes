@@ -5,10 +5,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ericolsson.marvelsuperheroes.R
-import com.ericolsson.marvelsuperheroes.Result
+//import com.ericolsson.marvelsuperheroes.Result
 import com.ericolsson.marvelsuperheroes.SeriesRemote
 import com.ericolsson.marvelsuperheroes.data.remote.response.SuperHeroRemote
-import com.ericolsson.marvelsuperheroes.MarvelHeroesDTO
 import com.ericolsson.marvelsuperheroes.data.repository.Repository
 import com.ericolsson.marvelsuperheroes.domain.SuperHero
 import com.google.gson.Gson
@@ -39,7 +38,7 @@ class HeroViewModel @Inject constructor(private val repository: Repository): Vie
     fun getHeroes5() {
         viewModelScope.launch {
             val result = withContext(Dispatchers.IO) {
-                repository.getHeroes4() // type MarvelHeroesDTO
+                repository.getHeroes4()
             }
 //            _heroes.value?.data.results = result.data.results // Only safe (?.) or non-null asserted (!!.) calls are allowed on a nullable receiver of type Data?
             Log.d("Tag getHeroes5", "HeroVM > fun getHeroes5 > result.data.results.first() = ${result.first()}") // prints first hero correctly
@@ -95,11 +94,11 @@ class HeroViewModel @Inject constructor(private val repository: Repository): Vie
 
 
     // fundamentals method
-    private var heroesPresent = listOf<MarvelHeroesDTO>()
-    private var heroToShow: MarvelHeroesDTO? = null
+    private var heroesPresent = listOf<SuperHeroRemote>()
+    private var heroToShow: SuperHeroRemote? = null
     private var seriesToShow = listOf<SeriesRemote>()
 
-    fun getHeroes() : List<MarvelHeroesDTO> {
+    fun getHeroes() : List<SuperHeroRemote> {
         viewModelScope.launch(Dispatchers.IO) {
             Log.w("Tag", "apiKey = $apiKey")
             val client = OkHttpClient()
@@ -142,7 +141,7 @@ class HeroViewModel @Inject constructor(private val repository: Repository): Vie
                     try {
                         val response = responseBody.string()
                         Log.d("Tag", "getHeroes try... response: $response") // prints good response
-                        val getHeroesArray = gson.fromJson(response, MarvelHeroesDTO::class.java)
+                        val getHeroesArray = gson.fromJson(response, SuperHeroRemote::class.java)
                         Log.d("Tag", "getHeroesArray.data.results.first().name = ${getHeroesArray.data.results.first().name}")
                     } catch (ex: Exception) {
 //                        _mapState.value= MapState.ErrorJSON("Something went wrong in the fetchHeroes response")
@@ -158,7 +157,7 @@ class HeroViewModel @Inject constructor(private val repository: Repository): Vie
         return heroesPresent
     }
 
-    fun getHeroByName(heroName: String) : MarvelHeroesDTO? {
+    fun getHeroByName(heroName: String) : SuperHeroRemote? {
         viewModelScope.launch(Dispatchers.IO) {
             Log.d("Tag", "apiKey = $apiKey")
             val client = OkHttpClient()
@@ -196,7 +195,7 @@ class HeroViewModel @Inject constructor(private val repository: Repository): Vie
                     try {
                         val response = responseBody.string()
                         Log.d("Tag", "getHeroByName try... response: $response") // prints good response
-                        val getHero = gson.fromJson(response, MarvelHeroesDTO::class.java)
+                        val getHero = gson.fromJson(response, SuperHeroRemote::class.java)
                         Log.w("Tag", "getHeroByName.data.results = ${getHero.data.results.first()}")
                         Log.d("Tag", "getHero.data.results = ${getHero.data.results.first().name}, ${getHero.data.results.first().description}")
                     } catch (ex: Exception) {
