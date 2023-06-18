@@ -2,7 +2,6 @@ package com.ericolsson.marvelsuperheroes.data.mappers
 
 import com.ericolsson.marvelsuperheroes.SeriesRemote
 import com.ericolsson.marvelsuperheroes.SeriesResult
-import com.ericolsson.marvelsuperheroes.data.remote.response.Comics
 import com.ericolsson.marvelsuperheroes.data.remote.response.ComicsRemote
 import com.ericolsson.marvelsuperheroes.data.remote.response.ComicsResult
 import com.ericolsson.marvelsuperheroes.data.remote.response.Result

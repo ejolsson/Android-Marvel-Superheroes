@@ -10,9 +10,7 @@ import com.ericolsson.marvelsuperheroes.data.mappers.RemoteToLocalMapper
 import com.ericolsson.marvelsuperheroes.data.mappers.RemoteToPresentationMapper
 import com.ericolsson.marvelsuperheroes.data.remote.RemoteDataSource
 import com.ericolsson.marvelsuperheroes.data.remote.response.ComicsRemote
-import com.ericolsson.marvelsuperheroes.data.remote.response.SuperHeroRemote
 import com.ericolsson.marvelsuperheroes.domain.SuperHero
-import retrofit2.HttpException
 import javax.inject.Inject
 
 class RepositoryImpl @Inject constructor(
@@ -27,10 +25,8 @@ class RepositoryImpl @Inject constructor(
 
     override suspend fun getHeroes4(): List<SuperHero> {
 
-        Log.w("Tag getHeroes2", "remoteDataSource.getHeroes2(): ${remoteDataSource.getHeroes2()}")
-
         if (localDataSource.getHeroes3().isEmpty()) {
-            Log.w("Tag", "No heroes stored locally. Going the fetch them!")
+            Log.d("Tag", "No heroes stored locally. Going the fetch them!")
             val remoteSuperHeroes = remoteDataSource.getHeroes2()
 
             localDataSource.insertHeroes(remoteToLocalMapper.mapSuperHeroRemote(remoteSuperHeroes))
@@ -44,7 +40,7 @@ class RepositoryImpl @Inject constructor(
 
     suspend fun getHeroByName4(heroName: String){//}: SuperHero {
         // All heroes should be locally stored at this point
-        Log.w("Tag getHeroes2", "remoteDataSource.getHeroByName2(): ${remoteDataSource.getHeroByName2(heroName)}")
+        Log.d("Tag getHeroes2", "remoteDataSource.getHeroByName2(): ${remoteDataSource.getHeroByName2(heroName)}")
 
 //        return remoteDataSource.getHeroByName2(heroName)
 

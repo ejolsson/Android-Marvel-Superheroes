@@ -24,15 +24,15 @@ class MainActivity : ComponentActivity() {
 //class MainActivity @Inject constructor(private val viewModel: HeroViewModel): ComponentActivity() {
 
     private val viewModel: HeroViewModel by viewModels()
-    private val hero = "hulk"
-    private val heroId: Long = 1010914
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             MarvelSuperheroesTheme {
-                NavigationGraph(viewModel = viewModel)
-
+//                NavigationGraph(viewModel = viewModel)
+                Surface(color = Color.DarkGray) {
+                    NavigationGraph(viewModel = viewModel)
+                }
             }
         }
     }

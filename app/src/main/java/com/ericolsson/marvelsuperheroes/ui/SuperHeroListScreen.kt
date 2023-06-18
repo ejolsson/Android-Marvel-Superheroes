@@ -1,5 +1,6 @@
 package com.ericolsson.marvelsuperheroes.ui.heroes
 
+import android.util.Log
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -37,7 +38,7 @@ import com.ericolsson.marvelsuperheroes.ui.HeroViewModel
 import com.ericolsson.marvelsuperheroes.domain.SuperHero
 
 @Composable // done
-fun SuperHeroListScreen (viewModel: HeroViewModel, onHeroClick: (SuperHero) -> Unit) {
+fun SuperHeroListScreen (viewModel: HeroViewModel, onHeroClick: (Long) -> Unit) { // was onHeroClick: (Long) -> Unit = { _ ->}
 
     val state by viewModel.state.collectAsState()
     val favs by viewModel.favs.collectAsState()
@@ -47,13 +48,16 @@ fun SuperHeroListScreen (viewModel: HeroViewModel, onHeroClick: (SuperHero) -> U
     }
 
     SuperHeroListScreenContent(state, favs) { hero ->
-        viewModel.insertSuperhero(hero)
+        onHeroClick(hero) // onHeroClick has no idea what id to use...
+        Log.d("Tag", "$hero cell clicked") // good print
+//        Log.d("Tag", "state: $state, favs: $favs") // state: hero data
+//        viewModel.insertSuperhero(hero)
     }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SuperHeroListScreenContent(heroes: List<SuperHero>, favs: Int, onSuperHeroListClicked: (SuperHero) -> Unit) {
+fun SuperHeroListScreenContent(heroes: List<SuperHero>, favs: Int, onSuperHeroListClicked: (Long) -> Unit) {
 
     val scaffoldS = rememberScaffoldState()
 
@@ -69,6 +73,7 @@ fun SuperHeroListScreenContent(heroes: List<SuperHero>, favs: Int, onSuperHeroLi
         LazyColumn(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(16.dp), contentPadding = it) {
             items(heroes, key = { it.id }) { hero ->
                 SuperHeroItem(hero = hero, onHeroClick = onSuperHeroListClicked)
+//                Log.d("Tag", "LazyColumn > items > hero: $hero")
             }
         }
     }
@@ -120,12 +125,12 @@ fun MyTopBar_Preview() {
 }
 
 @Composable // done
-fun SuperHeroItem(hero: SuperHero, modifier: Modifier = Modifier, onHeroClick: (SuperHero) -> Unit) {
+fun SuperHeroItem(hero: SuperHero, modifier: Modifier = Modifier, onHeroClick: (Long) -> Unit) {
     Card(
         modifier = modifier
             .fillMaxWidth()
             .height(300.dp)
-            .clickable { onHeroClick(hero) }
+            .clickable { onHeroClick(hero.id) } // should pass hero
     ) {
         AsyncImage(
             model = hero.photo, // hardcode: heroDefault.thumbnail.path,

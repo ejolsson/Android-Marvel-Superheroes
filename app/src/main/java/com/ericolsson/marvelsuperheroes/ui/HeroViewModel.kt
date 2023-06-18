@@ -41,11 +41,11 @@ class HeroViewModel @Inject constructor(private val repository: Repository): Vie
                 repository.getHeroes4()
             }
 //            _heroes.value?.data.results = result.data.results // Only safe (?.) or non-null asserted (!!.) calls are allowed on a nullable receiver of type Data?
-            Log.d("Tag getHeroes5", "HeroVM > fun getHeroes5 > result.data.results.first() = ${result.first()}") // prints first hero correctly
+//            Log.d("Tag getHeroes5", "HeroVM > fun getHeroes5 > result.data.results.first() = ${result.first()}") // prints first hero correctly
 
 //            val heroes2 = result.data.results.asList() // success printout of list as desired
             val heroes2 = result//.data.results.asList()
-            Log.w("Tag", "heroes2 = $heroes2")
+            Log.d("Tag", "heroes2 = $heroes2")
 //            _heroesRemote.value = heroes2 // Type mismatch. Req: List<SuperHeroRemote>?, Found: List<Result>
 
             _state.update { result }
@@ -66,7 +66,7 @@ class HeroViewModel @Inject constructor(private val repository: Repository): Vie
             val result = withContext(Dispatchers.IO) {
                 repository.getSeries4(heroId)
             }
-            Log.w("Tag", "series = ${result.data.results.asList()}")
+            Log.d("Tag", "series = ${result.data.results.asList()}")
         }
     }
 
@@ -75,7 +75,7 @@ class HeroViewModel @Inject constructor(private val repository: Repository): Vie
             val result = withContext(Dispatchers.IO) {
                 repository.getComics4(heroId)
             }
-            Log.w("Tag", "comics = ${result.data.results.asList()}")
+            Log.d("Tag", "comics = ${result.data.results.asList()}")
         }
     }
 //    fun getHeroByName2(heroName: String): SuperHeroRemote {

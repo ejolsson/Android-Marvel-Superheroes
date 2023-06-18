@@ -16,7 +16,7 @@ data class SuperHeroDetail(
 data class SeriesPresent(
     val id: Long,
     val title: String,
-    val description: String,
+    val description: String?,
     val photo: String
 ) : Parcelable
 
@@ -24,6 +24,6 @@ data class SeriesPresent(
 data class ComicsPresent(
     val id: Long,
     val title: String,
-    val description: String,
+    val description: String?,
     val photo: String
 ) : Parcelable
