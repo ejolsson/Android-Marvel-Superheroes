@@ -21,7 +21,6 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
-//class MainActivity @Inject constructor(private val viewModel: HeroViewModel): ComponentActivity() {
 
     private val viewModel: HeroViewModel by viewModels()
 
@@ -35,18 +34,5 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
-    }
-}
-
-
-
-@Composable
-fun Screen1(onClickListener: ()-> (Unit) ) {
-    Box(modifier = Modifier
-        .fillMaxSize()
-        .background(Color.DarkGray), contentAlignment = Alignment.Center) {
-        Text(text = "Screen1", modifier = Modifier.clickable {
-            onClickListener()
-        })
     }
 }

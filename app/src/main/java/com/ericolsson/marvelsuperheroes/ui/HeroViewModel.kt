@@ -1,14 +1,16 @@
 package com.ericolsson.marvelsuperheroes.ui
 
 import android.util.Log
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ericolsson.marvelsuperheroes.R
-//import com.ericolsson.marvelsuperheroes.Result
 import com.ericolsson.marvelsuperheroes.SeriesRemote
+import com.ericolsson.marvelsuperheroes.data.mappers.ComicsRemoteToPresentationMapper
+import com.ericolsson.marvelsuperheroes.data.mappers.SeriesRemoteToPresentationMapper
 import com.ericolsson.marvelsuperheroes.data.remote.response.SuperHeroRemote
 import com.ericolsson.marvelsuperheroes.data.repository.Repository
+import com.ericolsson.marvelsuperheroes.domain.ComicsPresent
+import com.ericolsson.marvelsuperheroes.domain.SeriesPresent
 import com.ericolsson.marvelsuperheroes.domain.SuperHero
 import com.google.gson.Gson
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -25,13 +27,23 @@ import java.lang.Exception
 import javax.inject.Inject
 
 @HiltViewModel
-class HeroViewModel @Inject constructor(private val repository: Repository): ViewModel() {
+class HeroViewModel @Inject constructor(
+    private val repository: Repository,
+    private val seriesRemoteToPresentationMapper: SeriesRemoteToPresentationMapper,
+    private val comicsRemoteToPresentationMapper: ComicsRemoteToPresentationMapper
+    ): ViewModel() {
 
-    private val _heroesRemote = MutableLiveData<List<SuperHeroRemote>>()
-    private var _heroes = MutableLiveData<SuperHeroRemote>()
     private val apiKey = (R.string.marvel_api_key)
-    private val _state = MutableStateFlow<List<SuperHero>>(emptyList())
-    val state: StateFlow<List<SuperHero>> get() = _state
+
+    private val _heroState = MutableStateFlow<List<SuperHero>>(emptyList())
+    val heroState: StateFlow<List<SuperHero>> get() = _heroState
+
+    private val _seriesState = MutableStateFlow<List<SeriesPresent>>(emptyList())
+    val seriesState: StateFlow<List<SeriesPresent>> get() = _seriesState
+
+    private val _comicsState = MutableStateFlow<List<ComicsPresent>>(emptyList())
+    val comicsState: StateFlow<List<ComicsPresent>> get() = _comicsState
+
     private val _favs = MutableStateFlow(0)
     val favs: StateFlow<Int> get() = _favs
 
@@ -40,19 +52,8 @@ class HeroViewModel @Inject constructor(private val repository: Repository): Vie
             val result = withContext(Dispatchers.IO) {
                 repository.getHeroes4()
             }
-//            _heroes.value?.data.results = result.data.results // Only safe (?.) or non-null asserted (!!.) calls are allowed on a nullable receiver of type Data?
-//            Log.d("Tag getHeroes5", "HeroVM > fun getHeroes5 > result.data.results.first() = ${result.first()}") // prints first hero correctly
-
-//            val heroes2 = result.data.results.asList() // success printout of list as desired
-            val heroes2 = result//.data.results.asList()
-            Log.d("Tag", "heroes2 = $heroes2")
-//            _heroesRemote.value = heroes2 // Type mismatch. Req: List<SuperHeroRemote>?, Found: List<Result>
-
-            _state.update { result }
-
-//            launch(Dispatchers.IO) {
-//                repository.getLocalHeros(TBD)
-//            }
+            _heroState.update { result } // point where api data gets assigned
+            Log.w("Tag", "_heroState: ${_heroState.value}")
         }
     }
 
@@ -66,7 +67,9 @@ class HeroViewModel @Inject constructor(private val repository: Repository): Vie
             val result = withContext(Dispatchers.IO) {
                 repository.getSeries4(heroId)
             }
-            Log.d("Tag", "series = ${result.data.results.asList()}")
+            _seriesState.update { seriesRemoteToPresentationMapper.map(result) } // point where api data gets assigned
+//            Log.d("Tag", "series = ${result.data.results.asList()}")
+            Log.d("Tag", "_seriesState: ${_seriesState.value}")
         }
     }
 
@@ -75,21 +78,10 @@ class HeroViewModel @Inject constructor(private val repository: Repository): Vie
             val result = withContext(Dispatchers.IO) {
                 repository.getComics4(heroId)
             }
-            Log.d("Tag", "comics = ${result.data.results.asList()}")
+            _comicsState.update { comicsRemoteToPresentationMapper.map(result) }
+            Log.d("Tag", "_comicsState: ${_comicsState.value}")
         }
     }
-//    fun getHeroByName2(heroName: String): SuperHeroRemote {
-//        viewModelScope.launch {
-//            val result = withContext(Dispatchers.IO) {
-//                repository.getHeroes4()
-//            }
-//        }
-//    }
-
-
-
-
-
 
 
 

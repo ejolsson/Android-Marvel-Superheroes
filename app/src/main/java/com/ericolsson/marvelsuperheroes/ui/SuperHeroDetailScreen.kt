@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.material3.Card
 import androidx.compose.material3.CenterAlignedTopAppBar
@@ -18,6 +19,8 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.tooling.preview.Preview
@@ -31,19 +34,15 @@ import com.ericolsson.marvelsuperheroes.ui.heroes.MyTopBar
 @Composable
 fun SuperHeroDetailScreen (viewModel: HeroViewModel, id: Long) { // was hero: SuperHero
 
-//    val state by viewModel.state
-    var detailSeries = listOf<SeriesPresent>()
-    var detailComics = listOf<ComicsPresent>()
+    val seriesState by viewModel.seriesState.collectAsState()
+    val comicsState by viewModel.comicsState.collectAsState()
 
     LaunchedEffect(Unit) {
-        Log.w("Tag", "SuperHeroDetailScreen...")
         viewModel.getSeries5(id)
         viewModel.getComics5(id)
-//        detailSeries = viewModel.getSeries5(hero.id)
-//        detailComics = viewModel.getComics5(hero.id)
     }
 
-    SuperHeroDetailScreenContent(id, series = detailSeries, comics = detailComics, fav = false)
+    SuperHeroDetailScreenContent(id, series = seriesState, comics = comicsState, fav = false)
 //    SuperHeroDetailScreenContentSample()
 
 }
@@ -61,8 +60,26 @@ fun SuperHeroDetailScreenContent(id: Long, series: List<SeriesPresent>, comics: 
         }
     ) {
         LazyColumn(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(16.dp), contentPadding = it) {
+            item {
+                Text(
+                    text = "Series",
+                    style = MaterialTheme.typography.h5,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(16.dp)
+                )
+            }
             items(series, key = { it.id}) { series ->
                 SeriesItem(series)
+            }
+            item {
+                Text(
+                    text = "Comics",
+                    style = MaterialTheme.typography.h5,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(16.dp)
+                )
             }
             items(comics, key = { it.id}) { comics ->
                 ComicsItem(comics)
