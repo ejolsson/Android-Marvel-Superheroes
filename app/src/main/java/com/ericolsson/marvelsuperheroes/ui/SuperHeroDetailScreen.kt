@@ -1,6 +1,5 @@
 package com.ericolsson.marvelsuperheroes.ui
 
-import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -34,36 +33,50 @@ import com.ericolsson.marvelsuperheroes.ui.heroes.MyTopBar
 @Composable
 fun SuperHeroDetailScreen (viewModel: HeroViewModel, id: Long) { // was hero: SuperHero
 
+    val heroState by viewModel.heroState.collectAsState()
     val seriesState by viewModel.seriesState.collectAsState()
     val comicsState by viewModel.comicsState.collectAsState()
 
     LaunchedEffect(Unit) {
+        viewModel.getHeroByName5(id) // from local
         viewModel.getSeries5(id)
         viewModel.getComics5(id)
     }
 
-    SuperHeroDetailScreenContent(id, series = seriesState, comics = comicsState, fav = false)
+    SuperHeroDetailScreenContent(hero = heroState, series = seriesState, comics = comicsState, fav = false)
 //    SuperHeroDetailScreenContentSample()
 
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SuperHeroDetailScreenContent(id: Long, series: List<SeriesPresent>, comics: List<ComicsPresent>, fav: Boolean) {
+fun SuperHeroDetailScreenContent(hero: SuperHero, series: List<SeriesPresent>, comics: List<ComicsPresent>, fav: Boolean) {
 
     val scaffoldS = rememberScaffoldState()
 
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         topBar = {
-            MyTopBar("$id") // todo: get hero name
+            MyTopBar("${hero.name}") // todo: get hero name
         }
     ) {
         LazyColumn(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(16.dp), contentPadding = it) {
             item {
                 Text(
+                    text = "Details",
+                    style = MaterialTheme.typography.h4,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(16.dp)
+                )
+            }
+            item {
+                heroDetailItem(hero = hero)
+            }
+            item {
+                Text(
                     text = "Series",
-                    style = MaterialTheme.typography.h5,
+                    style = MaterialTheme.typography.h4,
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(16.dp)
@@ -75,7 +88,7 @@ fun SuperHeroDetailScreenContent(id: Long, series: List<SeriesPresent>, comics: 
             item {
                 Text(
                     text = "Comics",
-                    style = MaterialTheme.typography.h5,
+                    style = MaterialTheme.typography.h4,
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(16.dp)
@@ -105,12 +118,33 @@ fun SuperHeroDetailScreenContentSample() {
 //    Image(painter = painterResource(id = R.drawable.ic_launcher_background), contentDescription ="Comics picture")
     }
 }
+
+@Composable
+fun heroDetailItem(hero: SuperHero, modifier: Modifier = Modifier) {
+    Card(
+        modifier = modifier
+            .fillMaxWidth()
+            .height(450.dp)
+//            .clickable { onHeroClick(series) }
+    ) {
+//        Text(text = hero.description, style = typography.headlineMedium, modifier = Modifier.padding(8.dp))
+        AsyncImage(
+            model = hero.photo,
+            contentDescription = hero.description,
+            modifier = Modifier
+                .fillMaxSize()
+                .weight(1f),
+            contentScale = ContentScale.Crop
+        )
+        Text(text = hero.description.toString(), style = typography.headlineSmall, modifier = Modifier.padding(8.dp))
+    }
+}
 @Composable
 fun SeriesItem(series: SeriesPresent, modifier: Modifier = Modifier) {
     Card(
         modifier = modifier
             .fillMaxWidth()
-            .height(300.dp)
+            .height(450.dp)
 //            .clickable { onHeroClick(series) }
     ) {
         Text(text = series.title, style = typography.headlineMedium, modifier = Modifier.padding(8.dp))
@@ -131,7 +165,7 @@ fun ComicsItem(comics: ComicsPresent, modifier: Modifier = Modifier) {
     Card(
         modifier = modifier
             .fillMaxWidth()
-            .height(300.dp)
+            .height(450.dp)
 //            .clickable { onHeroClick(series) }
     ) {
         Text(text = comics.title, style = typography.headlineMedium, modifier = Modifier.padding(8.dp))
@@ -167,7 +201,7 @@ fun MyTopBar_Preview() {
 @Composable
 fun SuperHeroDetailScreen_Preview() {
 
-    SuperHeroDetailScreenContent(heroSample.id, seriesSample, comicsSample, false)
+    SuperHeroDetailScreenContent(heroSample, seriesSample, comicsSample, false)
 }
 
 val heroSample = SuperHero(

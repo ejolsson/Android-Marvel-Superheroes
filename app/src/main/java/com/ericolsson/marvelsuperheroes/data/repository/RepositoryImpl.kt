@@ -38,24 +38,8 @@ class RepositoryImpl @Inject constructor(
         dao.insertSuperhero(hero)
     }
 
-    suspend fun getHeroByName4(heroName: String){//}: SuperHero {
-        // All heroes should be locally stored at this point
-        Log.d("Tag getHeroes2", "remoteDataSource.getHeroByName2(): ${remoteDataSource.getHeroByName2(heroName)}")
-
-//        return remoteDataSource.getHeroByName2(heroName)
-
-//         val result = remoteDataSource.getHeroByName2(heroName).also {
-//             if (it.isSuccess){
-//                 it.getOrNull()?.let { superHeroDetailRemote ->
-//                     if (superHeroDetailRemote.favorite) {
-//                         localDataSource.insertHero(remoteToLocalMapper.map(superHeroDetailRemote))
-//                     } else {
-//                         localDataSource.deleteHero(remoteToLocalMapper.map(superHeroDetailRemote))
-//                     }
-//                 }
-//             }
-//        }
-//        return result.getOrNull()?.let { remoteToPresentationMapper.map(it) }
+    override suspend fun getHeroByName4(heroId: Long): SuperHero {
+        return localToPresentationMapper.map(localDataSource.getHeroByName3(heroId))
     }
 
     override suspend fun getSeries4(id: Long): SeriesRemote {

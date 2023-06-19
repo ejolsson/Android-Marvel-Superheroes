@@ -35,8 +35,11 @@ class HeroViewModel @Inject constructor(
 
     private val apiKey = (R.string.marvel_api_key)
 
-    private val _heroState = MutableStateFlow<List<SuperHero>>(emptyList())
-    val heroState: StateFlow<List<SuperHero>> get() = _heroState
+    private val _heroListState = MutableStateFlow<List<SuperHero>>(emptyList())
+    val heroListState: StateFlow<List<SuperHero>> get() = _heroListState
+
+    private var _heroState = MutableStateFlow<SuperHero>(heroSample)
+    val heroState: StateFlow<SuperHero> get() = _heroState
 
     private val _seriesState = MutableStateFlow<List<SeriesPresent>>(emptyList())
     val seriesState: StateFlow<List<SeriesPresent>> get() = _seriesState
@@ -52,11 +55,20 @@ class HeroViewModel @Inject constructor(
             val result = withContext(Dispatchers.IO) {
                 repository.getHeroes4()
             }
-            _heroState.update { result } // point where api data gets assigned
-            Log.w("Tag", "_heroState: ${_heroState.value}")
+            _heroListState.update { result } // point where api data gets assigned
+            Log.w("Tag", "_heroListState: ${_heroListState.value}")
         }
     }
 
+    fun getHeroByName5(id: Long) {
+        viewModelScope.launch {
+            val result = withContext(Dispatchers.IO) {
+                repository.getHeroByName4(id)
+            }
+            _heroState.update { result }
+            Log.d("Tag", "_heroState: ${_heroState.value}")
+        }
+    }
     fun insertSuperhero(hero: SuperHero) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.insertHero(hero)

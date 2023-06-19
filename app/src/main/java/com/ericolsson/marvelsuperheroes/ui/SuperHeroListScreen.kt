@@ -40,18 +40,16 @@ import com.ericolsson.marvelsuperheroes.domain.SuperHero
 @Composable // done
 fun SuperHeroListScreen (viewModel: HeroViewModel, onHeroClick: (Long) -> Unit) { // was onHeroClick: (Long) -> Unit = { _ ->}
 
-    val state by viewModel.heroState.collectAsState() // this is where hero list values get stored
+    val state by viewModel.heroListState.collectAsState() // this is where hero list values get stored
     val favs by viewModel.favs.collectAsState()
 
     LaunchedEffect(Unit) {
         viewModel.getHeroes5()
     }
 
-    SuperHeroListScreenContent(state, favs) { hero ->
-        onHeroClick(hero)
-        Log.d("Tag", "$hero cell clicked") // good print
-//        Log.d("Tag", "state: $state, favs: $favs") // state: hero data
-//        viewModel.insertSuperhero(hero)
+    SuperHeroListScreenContent(state, favs) { id ->
+        onHeroClick(id)
+        Log.d("Tag", "$id cell clicked") // good print
     }
 }
 

@@ -12,6 +12,9 @@ interface SuperHeroDAO {
     @Query("SELECT * FROM superheros")
     fun getAllSuperheros(): List<SuperHeroLocal>
 
+    @Query("SELECT * FROM superheros WHERE id = :id")
+    fun getHeroByName(id: Long): SuperHeroLocal
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(superHero: List<SuperHeroLocal>) // (varag users: SuperHero)
 

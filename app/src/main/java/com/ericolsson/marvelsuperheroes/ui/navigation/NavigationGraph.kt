@@ -7,14 +7,11 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.ericolsson.marvelsuperheroes.domain.SuperHero
 import com.ericolsson.marvelsuperheroes.ui.heroes.SuperHeroListScreen
 import com.ericolsson.marvelsuperheroes.ui.navigation.Screens
 
 @Composable
-fun NavigationGraph(viewModel: HeroViewModel) {
-
-    var hero: SuperHero? = null
+fun NavigationGraph(viewModel: HeroViewModel) { // called in MainActivity, always runs/listens?
 
     val navController = rememberNavController()
 

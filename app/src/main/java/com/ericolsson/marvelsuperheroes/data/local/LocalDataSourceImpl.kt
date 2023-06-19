@@ -12,8 +12,8 @@ class LocalDataSourceImpl @Inject constructor(
 //    override fun getSeries3(): List<SeriesLocal> {
 //        TODO("Not yet implemented")
 //    }
-    override fun getHeroByName3(): SuperHeroLocal {
-        TODO("Not yet implemented")
+    override fun getHeroByName3(id: Long): SuperHeroLocal {
+        return dao.getHeroByName(id)
     }
     override fun insertHeroes(remoteSuperHeros: List<SuperHeroLocal>) {
         dao.insertAll(remoteSuperHeros)
