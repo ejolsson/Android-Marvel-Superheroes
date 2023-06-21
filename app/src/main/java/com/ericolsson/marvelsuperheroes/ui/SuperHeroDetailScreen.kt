@@ -110,24 +110,7 @@ fun SuperHeroDetailScreenContent(hero: SuperHero, series: List<SeriesPresent>, c
     }
 }
 
-@Composable
-fun SuperHeroDetailScreenContentSample() {
-    Column(
-        modifier = Modifier.padding(16.dp)
-    )
-    {
-        Text(text = "Hero Name")
-//    Image(painter = painterResource(id = R.drawable.ic_launcher_background), contentDescription ="hero picture")
-        Text(text = "Description")
-        Text(text = "SERIES")
-        Text(text = "Series Title 1")
-//    Image(painter = painterResource(id = R.drawable.ic_launcher_background), contentDescription ="Series picture")
-        Text(text = "COMICS")
-        Text(text = "Comics Title 1")
-//    Image(painter = painterResource(id = R.drawable.ic_launcher_background), contentDescription ="Comics picture")
-    }
-}
-
+// Content
 @Composable
 fun HeroDetailItem(hero: SuperHero, modifier: Modifier = Modifier) {
     Card(
@@ -147,6 +130,7 @@ fun HeroDetailItem(hero: SuperHero, modifier: Modifier = Modifier) {
         Text(text = hero.description.toString(), style = typography.headlineSmall, modifier = Modifier.padding(8.dp))
     }
 }
+
 @Composable
 fun SeriesItem(series: SeriesPresent, modifier: Modifier = Modifier) {
     Card(
@@ -187,36 +171,7 @@ fun ComicsItem(comics: ComicsPresent, modifier: Modifier = Modifier) {
     }
 }
 
-@Composable
-fun FavoriteHeart(hero: SuperHero, onFavClick1: (Boolean) -> Unit) { // Lvl 1, child to DetailTopBar
-
-//    val isFavorite by remember { mutableStateOf(false) } // not used..?
-
-    Row (
-        verticalAlignment = Alignment.CenterVertically,
-//        modifier = Modifier.clickable { isFavorite = !isFavorite}
-        modifier = Modifier.clickable {
-            Log.w("Tag", "onFavClick1, ${hero.name} fav status: ${hero.favorite}")
-            onFavClick1(hero.favorite)} // todo: add toggle logic
-    ) {
-        Icon(
-            imageVector = Icons.Default.Favorite,
-            contentDescription = "Favorite",
-//            tint = if (isFavorite) MaterialTheme.colors.primary else Color.LightGray,
-            tint = if (hero.favorite) Color.Yellow else Color.LightGray,
-            modifier = Modifier.size(32.dp)
-        )
-        Spacer(modifier = Modifier.width(4.dp))
-        Text(text = if (hero.favorite) "Favorite" else "Not favorite")
-    }
-}
-
-//@Preview
-//@Composable
-//fun FavoriteHeart_Preview(hero: SuperHero, onFavClick2: (Boolean) -> Unit) {
-//    FavoriteHeart(heroSample, true)
-//}
-
+// TopBar
 @OptIn(ExperimentalMaterial3Api::class) // done
 @Composable
 fun DetailTopBar(hero: SuperHero, onFavClick2: (Boolean) -> Unit) { // Lvl 2, child to _
@@ -258,6 +213,35 @@ fun DetailTopBar_Preview() {
     DetailTopBar(heroSample, onFavClick)
 }
 
+@Composable
+fun FavoriteHeart(hero: SuperHero, onFavClick1: (Boolean) -> Unit) { // Lvl 1, child to DetailTopBar
+
+//    val isFavorite by remember { mutableStateOf(false) } // not used..?
+
+    Row (
+        verticalAlignment = Alignment.CenterVertically,
+//        modifier = Modifier.clickable { isFavorite = !isFavorite}
+        modifier = Modifier.clickable {
+            Log.w("Tag", "onFavClick1, ${hero.name} fav status: ${hero.favorite}")
+            onFavClick1(hero.favorite)} // todo: add toggle logic
+    ) {
+        Icon(
+            imageVector = Icons.Default.Favorite,
+            contentDescription = "Favorite",
+//            tint = if (isFavorite) MaterialTheme.colors.primary else Color.LightGray,
+            tint = if (hero.favorite) Color.Yellow else Color.LightGray,
+            modifier = Modifier.size(32.dp)
+        )
+        Spacer(modifier = Modifier.width(4.dp))
+        Text(text = if (hero.favorite) "Favorite" else "Not favorite")
+    }
+}
+
+//@Preview
+//@Composable
+//fun FavoriteHeart_Preview(hero: SuperHero, onFavClick2: (Boolean) -> Unit) {
+//    FavoriteHeart(heroSample, true)
+//}
 
 @Preview(showBackground = true)
 @Composable
@@ -271,7 +255,7 @@ val heroSample = SuperHero(
     name = "Thor",
     photo = "\"http://i.annihil.us/u/prod/marvel/i/mg/d/d0/5269657a74350.jpg",
     description = "God of lightening",
-    favorite = false
+    favorite = true
 )
 val seriesSample = listOf(
     SeriesPresent(

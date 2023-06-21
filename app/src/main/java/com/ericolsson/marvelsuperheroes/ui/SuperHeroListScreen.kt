@@ -53,6 +53,12 @@ fun SuperHeroListScreen (viewModel: HeroViewModel, onHeroClick3: (Long) -> Unit)
     }
 }
 
+@Preview(showBackground = true) // done
+@Composable
+fun SuperHeroListScreen_Preview() {
+    SuperHeroListScreenContent(heroesSample,0) { }
+}
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SuperHeroListScreenContent(heroes: List<SuperHero>, favs: Int, onHeroClick2: (Long) -> Unit) {
@@ -75,51 +81,6 @@ fun SuperHeroListScreenContent(heroes: List<SuperHero>, favs: Int, onHeroClick2:
             }
         }
     }
-}
-
-@Composable // done
-fun BottomBarItem(text: String, icon: ImageVector) {
-    Column(horizontalAlignment = Alignment.CenterHorizontally) {
-        Icon(imageVector = icon, contentDescription = icon.name)
-        Text(text = text)        
-    }
-}
-
-@Preview // done
-@Composable
-fun BottomBarItem_Preview() {
-    BottomBarItem(text = "Home", icon = Icons.Default.Home)
-}
-
-@Composable // done
-fun ListBottomBar() {
-    BottomAppBar() {
-        Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceAround) {
-            BottomBarItem(text = "Home", icon = Icons.Default.Home)
-            BottomBarItem(text = "Favs", icon = Icons.Default.Favorite)
-        }
-    }
-}
-
-@Preview // done
-@Composable
-fun MyBottomBar_Preview() {
-    ListBottomBar()
-}
-
-@OptIn(ExperimentalMaterial3Api::class) // done
-@Composable
-fun ListTopBar(favs: Int = 0) {
-
-    CenterAlignedTopAppBar(title = {
-        Text(text = "Superheroes: $favs")
-    })
-}
-
-@Preview
-@Composable // done
-fun ListTopBar_Preview() {
-    ListTopBar()
 }
 
 @Composable // done
@@ -151,14 +112,55 @@ fun SuperHeroItem_Preview() {
             "Thor",
             "http://i.annihil.us/u/prod/marvel/i/mg/d/d0/5269657a74350.jpg",
             "God of Lightening...",
-        favorite = false
+            favorite = false
         )) { }
 }
 
-@Preview(showBackground = true) // done
+// TopBar
+@OptIn(ExperimentalMaterial3Api::class) // done
 @Composable
-fun SuperHeroListScreen_Preview() {
-    SuperHeroListScreenContent(heroesSample,0) { }
+fun ListTopBar(favs: Int = 0) {
+
+    CenterAlignedTopAppBar(title = {
+        Text(text = "Marvel Superheroes", style = androidx.compose.material3.MaterialTheme.typography.headlineLarge, modifier = Modifier.padding(8.dp))
+    })
+}
+
+@Preview
+@Composable // done
+fun ListTopBar_Preview() {
+    ListTopBar()
+}
+
+// BottomBar
+@Composable // done
+fun ListBottomBar(favs: Int = 0) {
+    BottomAppBar() {
+        Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceAround) {
+            BottomBarItem(text = "Home", icon = Icons.Default.Home)
+            BottomBarItem(text = "Favs ($favs)", icon = Icons.Default.Favorite)
+        }
+    }
+}
+
+@Preview // done
+@Composable
+fun MyBottomBar_Preview() {
+    ListBottomBar()
+}
+
+@Composable // done
+fun BottomBarItem(text: String, icon: ImageVector) {
+    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+        Icon(imageVector = icon, contentDescription = icon.name)
+        Text(text = text)        
+    }
+}
+
+@Preview // done
+@Composable
+fun BottomBarItem_Preview() {
+    BottomBarItem(text = "Home", icon = Icons.Default.Home)
 }
 
 val heroesSample = listOf(
