@@ -38,7 +38,7 @@ import com.ericolsson.marvelsuperheroes.ui.HeroViewModel
 import com.ericolsson.marvelsuperheroes.domain.SuperHero
 
 @Composable // done
-fun SuperHeroListScreen (viewModel: HeroViewModel, onHeroClick: (Long) -> Unit) { // was onHeroClick: (Long) -> Unit = { _ ->}
+fun SuperHeroListScreen (viewModel: HeroViewModel, onHeroClick3: (Long) -> Unit) { // was onHeroClick: (Long) -> Unit = { _ ->}
 
     val state by viewModel.heroListState.collectAsState() // this is where hero list values get stored
     val favs by viewModel.favs.collectAsState()
@@ -48,29 +48,29 @@ fun SuperHeroListScreen (viewModel: HeroViewModel, onHeroClick: (Long) -> Unit) 
     }
 
     SuperHeroListScreenContent(state, favs) { id ->
-        onHeroClick(id)
+        onHeroClick3(id)
         Log.d("Tag", "$id cell clicked") // good print
     }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SuperHeroListScreenContent(heroes: List<SuperHero>, favs: Int, onSuperHeroListClicked: (Long) -> Unit) {
+fun SuperHeroListScreenContent(heroes: List<SuperHero>, favs: Int, onHeroClick2: (Long) -> Unit) {
 
     val scaffoldS = rememberScaffoldState()
 
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         topBar = {
-            MyTopBar(favs)
+            ListTopBar(favs)
         },
         bottomBar = {
-            MyBottomBar()
+            ListBottomBar()
         }
     ) {
         LazyColumn(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(16.dp), contentPadding = it) {
             items(heroes, key = { it.id }) { hero ->
-                SuperHeroItem(hero = hero, onHeroClick = onSuperHeroListClicked)
+                SuperHeroItem(hero = hero, onHeroClick1 = onHeroClick2)
 //                Log.d("Tag", "LazyColumn > items > hero: $hero")
             }
         }
@@ -92,7 +92,7 @@ fun BottomBarItem_Preview() {
 }
 
 @Composable // done
-fun MyBottomBar() {
+fun ListBottomBar() {
     BottomAppBar() {
         Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceAround) {
             BottomBarItem(text = "Home", icon = Icons.Default.Home)
@@ -104,12 +104,12 @@ fun MyBottomBar() {
 @Preview // done
 @Composable
 fun MyBottomBar_Preview() {
-    MyBottomBar()
+    ListBottomBar()
 }
 
 @OptIn(ExperimentalMaterial3Api::class) // done
 @Composable
-fun MyTopBar(favs: Int = 0) {
+fun ListTopBar(favs: Int = 0) {
 
     CenterAlignedTopAppBar(title = {
         Text(text = "Superheroes: $favs")
@@ -118,17 +118,17 @@ fun MyTopBar(favs: Int = 0) {
 
 @Preview
 @Composable // done
-fun MyTopBar_Preview() {
-    MyTopBar()
+fun ListTopBar_Preview() {
+    ListTopBar()
 }
 
 @Composable // done
-fun SuperHeroItem(hero: SuperHero, modifier: Modifier = Modifier, onHeroClick: (Long) -> Unit) {
+fun SuperHeroItem(hero: SuperHero, modifier: Modifier = Modifier, onHeroClick1: (Long) -> Unit) {
     Card(
         modifier = modifier
             .fillMaxWidth()
             .height(300.dp)
-            .clickable { onHeroClick(hero.id) } // should pass hero
+            .clickable { onHeroClick1(hero.id) } // should pass hero
     ) {
         AsyncImage(
             model = hero.photo, // hardcode: heroDefault.thumbnail.path,
@@ -145,7 +145,14 @@ fun SuperHeroItem(hero: SuperHero, modifier: Modifier = Modifier, onHeroClick: (
 @Preview(showBackground = true)
 @Composable // done, not used??
 fun SuperHeroItem_Preview() {
-    SuperHeroItem(SuperHero(123,"Thor","http://i.annihil.us/u/prod/marvel/i/mg/d/d0/5269657a74350.jpg", "God of Lightening...")) { }
+    SuperHeroItem(
+        SuperHero(
+            123,
+            "Thor",
+            "http://i.annihil.us/u/prod/marvel/i/mg/d/d0/5269657a74350.jpg",
+            "God of Lightening...",
+        favorite = false
+        )) { }
 }
 
 @Preview(showBackground = true) // done
@@ -159,18 +166,21 @@ val heroesSample = listOf(
         id = 1009664,
         name = "Thor",
         photo = "http://i.annihil.us/u/prod/marvel/i/mg/d/d0/5269657a74350.jpg",
-        description = "God of lightning"
+        description = "God of lightning",
+        favorite = false
     ),
     SuperHero(
         id = 1009368,
         name = "Iron Man",
         photo = "http://i.annihil.us/u/prod/marvel/i/mg/9/c0/527bb7b37ff55.jpg",
-        description = "Billionaire, genius, industrialist"
+        description = "Billionaire, genius, industrialist",
+        favorite = false
     ),
     SuperHero(
         id = 1009282,
         name = "Doctor Strange",
         photo = "http://i.annihil.us/u/prod/marvel/i/mg/5/f0/5261a85a501fe.jpg",
-        description = "Genius magician"
+        description = "Genius magician",
+        favorite = false
     )
 )
