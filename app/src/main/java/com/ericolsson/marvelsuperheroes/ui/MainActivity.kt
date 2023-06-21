@@ -35,4 +35,9 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
+//    override fun onBackPressed() {
+//        if (!navController.popBackStack()) {
+//            super.onBackPressed()
+//        }
+//    }
 }

@@ -11,5 +11,6 @@ data class SuperHero(
     @PrimaryKey val id: Long,
     val name: String,
     val photo: String,
-    val description: String
+    val description: String,
+    val favorite: Boolean
 ) : Parcelable

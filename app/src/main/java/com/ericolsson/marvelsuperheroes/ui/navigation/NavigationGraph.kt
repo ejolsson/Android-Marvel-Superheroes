@@ -34,12 +34,16 @@ fun NavigationGraph(viewModel: HeroViewModel) { // called in MainActivity, alway
              * id to receive it's value from the called for screen id "ARG_ID
              */
             val id = it.arguments?.getLong(Screens.SuperHeroDetailScreen.ARG_ID)
+            val onFavClick: (Boolean) -> Unit = {}
             if (id != null) { // id: 1009664 is thor
                 // actually call the detail screen
-                SuperHeroDetailScreen(viewModel = viewModel, id)
+                SuperHeroDetailScreen(viewModel = viewModel, id, onFavClick)
             } else {
                 navController.navigateUp()
             }
         }
+//        composable(Screens.SuperHeroListScreen.route) { backStackEntry ->
+//            val
+//        }
     }
 }

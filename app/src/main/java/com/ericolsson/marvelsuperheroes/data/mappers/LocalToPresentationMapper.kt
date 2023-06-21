@@ -15,7 +15,8 @@ class LocalToPresentationMapper @Inject constructor() {
             id = superHero.id,
             name = superHero.name,
             photo = superHero.photo,
-            description = superHero.description
+            description = superHero.description,
+            favorite = superHero.favorite
         )
     }
 }

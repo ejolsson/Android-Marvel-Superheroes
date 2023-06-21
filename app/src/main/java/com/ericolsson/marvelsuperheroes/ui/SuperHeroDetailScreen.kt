@@ -1,18 +1,26 @@
 package com.ericolsson.marvelsuperheroes.ui
 
+import android.util.Log
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.material3.Card
-import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme.typography
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -20,7 +28,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -28,10 +38,9 @@ import coil.compose.AsyncImage
 import com.ericolsson.marvelsuperheroes.domain.ComicsPresent
 import com.ericolsson.marvelsuperheroes.domain.SeriesPresent
 import com.ericolsson.marvelsuperheroes.domain.SuperHero
-import com.ericolsson.marvelsuperheroes.ui.heroes.MyTopBar
 
 @Composable
-fun SuperHeroDetailScreen (viewModel: HeroViewModel, id: Long) { // was hero: SuperHero
+fun SuperHeroDetailScreen (viewModel: HeroViewModel, id: Long, onFavClick4: (Boolean) -> Unit) {
 
     val heroState by viewModel.heroState.collectAsState()
     val seriesState by viewModel.seriesState.collectAsState()
@@ -43,21 +52,21 @@ fun SuperHeroDetailScreen (viewModel: HeroViewModel, id: Long) { // was hero: Su
         viewModel.getComics5(id)
     }
 
-    SuperHeroDetailScreenContent(hero = heroState, series = seriesState, comics = comicsState, fav = false)
+    SuperHeroDetailScreenContent(hero = heroState, series = seriesState, comics = comicsState, onFavClick3 = onFavClick4)
 //    SuperHeroDetailScreenContentSample()
 
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SuperHeroDetailScreenContent(hero: SuperHero, series: List<SeriesPresent>, comics: List<ComicsPresent>, fav: Boolean) {
+fun SuperHeroDetailScreenContent(hero: SuperHero, series: List<SeriesPresent>, comics: List<ComicsPresent>, onFavClick3: (Boolean) -> Unit) {
 
     val scaffoldS = rememberScaffoldState()
 
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         topBar = {
-            MyTopBar("${hero.name}") // todo: get hero name
+            DetailTopBar(hero, onFavClick2 = onFavClick3)
         }
     ) {
         LazyColumn(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(16.dp), contentPadding = it) {
@@ -71,7 +80,7 @@ fun SuperHeroDetailScreenContent(hero: SuperHero, series: List<SeriesPresent>, c
                 )
             }
             item {
-                heroDetailItem(hero = hero)
+                HeroDetailItem(hero = hero)
             }
             item {
                 Text(
@@ -120,12 +129,11 @@ fun SuperHeroDetailScreenContentSample() {
 }
 
 @Composable
-fun heroDetailItem(hero: SuperHero, modifier: Modifier = Modifier) {
+fun HeroDetailItem(hero: SuperHero, modifier: Modifier = Modifier) {
     Card(
         modifier = modifier
             .fillMaxWidth()
             .height(450.dp)
-//            .clickable { onHeroClick(series) }
     ) {
 //        Text(text = hero.description, style = typography.headlineMedium, modifier = Modifier.padding(8.dp))
         AsyncImage(
@@ -145,7 +153,6 @@ fun SeriesItem(series: SeriesPresent, modifier: Modifier = Modifier) {
         modifier = modifier
             .fillMaxWidth()
             .height(450.dp)
-//            .clickable { onHeroClick(series) }
     ) {
         Text(text = series.title, style = typography.headlineMedium, modifier = Modifier.padding(8.dp))
         AsyncImage(
@@ -166,7 +173,6 @@ fun ComicsItem(comics: ComicsPresent, modifier: Modifier = Modifier) {
         modifier = modifier
             .fillMaxWidth()
             .height(450.dp)
-//            .clickable { onHeroClick(series) }
     ) {
         Text(text = comics.title, style = typography.headlineMedium, modifier = Modifier.padding(8.dp))
         AsyncImage(
@@ -181,34 +187,91 @@ fun ComicsItem(comics: ComicsPresent, modifier: Modifier = Modifier) {
     }
 }
 
+@Composable
+fun FavoriteHeart(hero: SuperHero, onFavClick1: (Boolean) -> Unit) { // Lvl 1, child to DetailTopBar
+
+//    val isFavorite by remember { mutableStateOf(false) } // not used..?
+
+    Row (
+        verticalAlignment = Alignment.CenterVertically,
+//        modifier = Modifier.clickable { isFavorite = !isFavorite}
+        modifier = Modifier.clickable {
+            Log.w("Tag", "onFavClick1, ${hero.name} fav status: ${hero.favorite}")
+            onFavClick1(hero.favorite)} // todo: add toggle logic
+    ) {
+        Icon(
+            imageVector = Icons.Default.Favorite,
+            contentDescription = "Favorite",
+//            tint = if (isFavorite) MaterialTheme.colors.primary else Color.LightGray,
+            tint = if (hero.favorite) Color.Yellow else Color.LightGray,
+            modifier = Modifier.size(32.dp)
+        )
+        Spacer(modifier = Modifier.width(4.dp))
+        Text(text = if (hero.favorite) "Favorite" else "Not favorite")
+    }
+}
+
+//@Preview
+//@Composable
+//fun FavoriteHeart_Preview(hero: SuperHero, onFavClick2: (Boolean) -> Unit) {
+//    FavoriteHeart(heroSample, true)
+//}
+
 @OptIn(ExperimentalMaterial3Api::class) // done
 @Composable
-fun MyTopBar(heroName: String) {
+fun DetailTopBar(hero: SuperHero, onFavClick2: (Boolean) -> Unit) { // Lvl 2, child to _
 
-    CenterAlignedTopAppBar(title = {
-        Text(text = "$heroName", style = typography.headlineLarge)
-    })
+//    TopAppBar(title = { // was CenterAlignedTopAppBar
+//        Row (horizontalArrangement =
+//
+//                ){
+//
+//        }
+//        Text(text = "$heroName", style = typography.headlineLarge)
+//        FavoriteHeart()
+//    })
+
+    androidx.compose.material.TopAppBar(
+        title = { androidx.compose.material.Text(
+            text = hero.name, style = androidx.compose.material3.MaterialTheme.typography.headlineLarge, modifier = Modifier.padding(8.dp)
+        ) },
+//        navigationIcon = {
+//            val onBackClick
+//            IconButton(onClick = onBackClick) {
+//                androidx.compose.material.Icon(
+//                    imageVector = Icons.Default.KeyboardArrowLeft,
+//                    contentDescription = "Back"
+//                )
+//            }
+//        },
+        actions = {
+            FavoriteHeart(hero = hero, onFavClick1 = onFavClick2)
+        }
+    )
+
 }
 
 @Preview
 @Composable // done
-fun MyTopBar_Preview() {
-    MyTopBar()
+fun DetailTopBar_Preview() {
+    val onFavClick: (Boolean) -> Unit = {}
+    DetailTopBar(heroSample, onFavClick)
 }
 
 
 @Preview(showBackground = true)
 @Composable
 fun SuperHeroDetailScreen_Preview() {
-
-    SuperHeroDetailScreenContent(heroSample, seriesSample, comicsSample, false)
+    val onFavClick: (Boolean) -> Unit = {}
+    SuperHeroDetailScreenContent(heroSample, seriesSample, comicsSample, onFavClick)
 }
 
 val heroSample = SuperHero(
     id = 1009664,
     name = "Thor",
     photo = "\"http://i.annihil.us/u/prod/marvel/i/mg/d/d0/5269657a74350.jpg",
-    description = "God of lightening"
+    description = "God of lightening",
+    favorite = false
 )
 val seriesSample = listOf(
     SeriesPresent(
