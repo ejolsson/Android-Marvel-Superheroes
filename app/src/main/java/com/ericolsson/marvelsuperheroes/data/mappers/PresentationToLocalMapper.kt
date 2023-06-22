@@ -1,9 +1,11 @@
 package com.ericolsson.marvelsuperheroes.data.mappers
 
 import com.ericolsson.marvelsuperheroes.data.local.SuperHeroDetailLocal
+import com.ericolsson.marvelsuperheroes.domain.SuperHero
 import com.ericolsson.marvelsuperheroes.domain.SuperHeroDetail
 import javax.inject.Inject
-
+// SuperHeroDetail → SuperHeroDetailLocal // class way
+// SuperHero → SuperHeroDetailLocal // my way
 class PresentationToLocalMapper @Inject constructor() {
 
     fun map(superHeroList: List<SuperHeroDetail>): List<SuperHeroDetailLocal> {
@@ -17,6 +19,15 @@ class PresentationToLocalMapper @Inject constructor() {
             description = superHeroDetail.description,
             photo = superHeroDetail.photo,
             favorite = superHeroDetail.favorite
+        )
+    }
+    fun map2(superHero: SuperHero): SuperHeroDetailLocal {
+        return SuperHeroDetailLocal(
+            id = superHero.id,
+            name = superHero.name,
+            description = superHero.description,
+            photo = superHero.photo,
+            favorite = superHero.favorite
         )
     }
 }

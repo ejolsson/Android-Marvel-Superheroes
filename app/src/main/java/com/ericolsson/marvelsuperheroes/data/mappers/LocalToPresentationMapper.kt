@@ -3,7 +3,7 @@ package com.ericolsson.marvelsuperheroes.data.mappers
 import com.ericolsson.marvelsuperheroes.data.local.SuperHeroLocal
 import com.ericolsson.marvelsuperheroes.domain.SuperHero
 import javax.inject.Inject
-
+// SuperHeroLocal(s) → SuperHero(s)
 class LocalToPresentationMapper @Inject constructor() {
 
     fun mapLocalSuperHeroes(superHeroList: List<SuperHeroLocal>): List<SuperHero> {

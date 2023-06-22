@@ -4,6 +4,7 @@ import android.util.Log
 import com.ericolsson.marvelsuperheroes.SeriesRemote
 import com.ericolsson.marvelsuperheroes.data.local.LocalDataSource
 import com.ericolsson.marvelsuperheroes.data.local.SuperHeroDAO
+import com.ericolsson.marvelsuperheroes.data.mappers.LocalDetailToPresentationMapper
 import com.ericolsson.marvelsuperheroes.data.mappers.LocalToPresentationMapper
 import com.ericolsson.marvelsuperheroes.data.mappers.PresentationToLocalMapper
 import com.ericolsson.marvelsuperheroes.data.mappers.RemoteToLocalMapper
@@ -11,6 +12,7 @@ import com.ericolsson.marvelsuperheroes.data.mappers.RemoteToPresentationMapper
 import com.ericolsson.marvelsuperheroes.data.remote.RemoteDataSource
 import com.ericolsson.marvelsuperheroes.data.remote.response.ComicsRemote
 import com.ericolsson.marvelsuperheroes.domain.SuperHero
+import com.ericolsson.marvelsuperheroes.domain.SuperHeroDetail
 import javax.inject.Inject
 
 class RepositoryImpl @Inject constructor(
@@ -20,9 +22,10 @@ class RepositoryImpl @Inject constructor(
     private val remoteToLocalMapper: RemoteToLocalMapper,
     private val localToPresentationMapper: LocalToPresentationMapper,
     private val presentationToLocalMapper: PresentationToLocalMapper,
+    private val localDetailToPresentationMapper: LocalDetailToPresentationMapper,
     private val dao: SuperHeroDAO
 ): Repository {
-
+    // region Non-focus
     override suspend fun getHeroes4(): List<SuperHero> {
 
         if (localDataSource.getHeroes3().isEmpty()) {
@@ -48,5 +51,17 @@ class RepositoryImpl @Inject constructor(
 
     override suspend fun getComics4(id: Long): ComicsRemote {
         return remoteDataSource.getComics2(id)
+    }
+    // endregion
+    // Insert "favorite" SuperHero to SuperHeroDetailLocal
+    override suspend fun insertFav(superHero: SuperHero) {
+        localDataSource.insertHero(presentationToLocalMapper.map2(superHero))//.also {
+//            localDataSource.insertHero()
+//        }
+//        superHeroDetail.favorite
+    }
+
+    override suspend fun deleteFav(superHero: SuperHero) {
+        localDataSource.deleteHero(presentationToLocalMapper.map2(superHero))
     }
 }

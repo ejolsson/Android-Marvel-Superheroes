@@ -5,6 +5,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ericolsson.marvelsuperheroes.R
 import com.ericolsson.marvelsuperheroes.SeriesRemote
+import com.ericolsson.marvelsuperheroes.data.local.SuperHeroDetailLocal
+import com.ericolsson.marvelsuperheroes.data.local.SuperHeroLocal
 import com.ericolsson.marvelsuperheroes.data.mappers.ComicsRemoteToPresentationMapper
 import com.ericolsson.marvelsuperheroes.data.mappers.SeriesRemoteToPresentationMapper
 import com.ericolsson.marvelsuperheroes.data.remote.response.SuperHeroRemote
@@ -12,6 +14,7 @@ import com.ericolsson.marvelsuperheroes.data.repository.Repository
 import com.ericolsson.marvelsuperheroes.domain.ComicsPresent
 import com.ericolsson.marvelsuperheroes.domain.SeriesPresent
 import com.ericolsson.marvelsuperheroes.domain.SuperHero
+import com.ericolsson.marvelsuperheroes.domain.SuperHeroDetail
 import com.google.gson.Gson
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -33,11 +36,14 @@ class HeroViewModel @Inject constructor(
     private val comicsRemoteToPresentationMapper: ComicsRemoteToPresentationMapper
     ): ViewModel() {
 
+    // region state management
     private val apiKey = (R.string.marvel_api_key)
 
+    // HeroList
     private val _heroListState = MutableStateFlow<List<SuperHero>>(emptyList())
     val heroListState: StateFlow<List<SuperHero>> get() = _heroListState
 
+    // HeroDetail
     private var _heroState = MutableStateFlow<SuperHero>(heroSample)
     val heroState: StateFlow<SuperHero> get() = _heroState
 
@@ -50,6 +56,7 @@ class HeroViewModel @Inject constructor(
     private val _favs = MutableStateFlow(0)
     val favs: StateFlow<Int> get() = _favs
 
+    // endregion
     fun getHeroes5() {
         viewModelScope.launch {
             val result = withContext(Dispatchers.IO) {
@@ -60,7 +67,7 @@ class HeroViewModel @Inject constructor(
         }
     }
 
-    fun getHeroByName5(id: Long) {
+    fun getHeroByName5(id: Long) { // SuperHeroDetail
         viewModelScope.launch {
             val result = withContext(Dispatchers.IO) {
                 repository.getHeroByName4(id)
@@ -95,9 +102,39 @@ class HeroViewModel @Inject constructor(
         }
     }
 
+    // Complex method
+    fun toggleFavorite(hero: SuperHero) {
+        viewModelScope.launch {
+            Log.w("Tag", "hero.fav before: ${hero.favorite}")
+            val heroTemp = hero
+            var hero = withContext(Dispatchers.Default) {
+                val hero = heroTemp.copy(
+                    favorite = !heroTemp.favorite
+                ).also { superHero ->
+                    if (heroTemp.favorite) {
+                        repository.insertFav(superHero)
+                    } else {
+                        repository.deleteFav(superHero)
+                    }
+                }
+                hero
+                Log.w("Tag", "hero.fav after: ${hero.favorite}")
+            }
+        }
+    }
+    // Simple method
+    fun toggleFav(hero: SuperHero) {
+        viewModelScope.launch {
+            Log.w("Tag", "hero.fav before: ${hero.favorite}")
+            val hero = withContext(Dispatchers.Default) {
+                hero.copy(favorite = !hero.favorite)
+            }
+            Log.w("Tag", "hero.fav after: ${hero.favorite}")
+        }
+    }
 
 
-    // fundamentals method
+    // region fundamentals methods
     private var heroesPresent = listOf<SuperHeroRemote>()
     private var heroToShow: SuperHeroRemote? = null
     private var seriesToShow = listOf<SeriesRemote>()
@@ -270,4 +307,6 @@ class HeroViewModel @Inject constructor(
         }
         return seriesToShow
     }
+
+    // endregion
 }

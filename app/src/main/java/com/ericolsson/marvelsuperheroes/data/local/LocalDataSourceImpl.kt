@@ -5,6 +5,7 @@ import javax.inject.Inject
 class LocalDataSourceImpl @Inject constructor(
     private val dao: SuperHeroDAO
 ) : LocalDataSource {
+    // region Non-focus
     override fun getHeroes3(): List<SuperHeroLocal> {
         return dao.getAllSuperheros()
     }
@@ -12,11 +13,12 @@ class LocalDataSourceImpl @Inject constructor(
 //    override fun getSeries3(): List<SeriesLocal> {
 //        TODO("Not yet implemented")
 //    }
+    // endregion
     override fun getHeroByName3(id: Long): SuperHeroLocal {
         return dao.getHeroByName(id)
     }
-    override fun insertHeroes(remoteSuperHeros: List<SuperHeroLocal>) {
-        dao.insertAll(remoteSuperHeros)
+    override fun insertHeroes(remoteSuperHeroes: List<SuperHeroLocal>) {
+        dao.insertAll(remoteSuperHeroes)
     }
 
     override fun insertHero(superHeroDetailLocal: SuperHeroDetailLocal) {

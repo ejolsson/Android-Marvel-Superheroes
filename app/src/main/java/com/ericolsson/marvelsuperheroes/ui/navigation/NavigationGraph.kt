@@ -37,7 +37,7 @@ fun NavigationGraph(viewModel: HeroViewModel) { // called in MainActivity, alway
             val onFavClick: (Boolean) -> Unit = {}
             if (id != null) { // id: 1009664 is thor
                 // actually call the detail screen
-                SuperHeroDetailScreen(viewModel = viewModel, id, onFavClick)
+                SuperHeroDetailScreen(viewModel = viewModel, id)
             } else {
                 navController.navigateUp()
             }
