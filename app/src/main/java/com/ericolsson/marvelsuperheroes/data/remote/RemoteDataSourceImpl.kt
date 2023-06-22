@@ -12,7 +12,7 @@ class RemoteDataSourceImpl @Inject constructor(private val api: MarvelApi): Remo
     val hash: String = "a4d396a1143f5258c6cced5dc9863a84"
 
     override suspend fun getHeroes2(): SuperHeroRemote { // List<SuperHeroRemote>
-        return api.getHeroes1(1,apikey, hash, 3, 800)
+        return api.getHeroes1(1,apikey, hash, 5, 400) // 3, 800
     }
 
     override suspend fun getHeroByName2(name: String): SuperHeroRemote {

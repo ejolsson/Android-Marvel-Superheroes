@@ -105,7 +105,7 @@ class HeroViewModel @Inject constructor(
     // Complex method
     fun toggleFavorite(hero: SuperHero) {
         viewModelScope.launch {
-            Log.w("Tag", "hero.fav before: ${hero.favorite}")
+            Log.w("Tag", "hero.Favorite before: ${hero.favorite}")
             val heroTemp = hero
             var hero = withContext(Dispatchers.Default) {
                 val hero = heroTemp.copy(
@@ -118,8 +118,9 @@ class HeroViewModel @Inject constructor(
                     }
                 }
                 hero
-                Log.w("Tag", "hero.fav after: ${hero.favorite}")
             }
+            _heroState.value = hero
+            Log.w("Tag", "hero.Favorite after: ${hero.favorite}")
         }
     }
     // Simple method
@@ -129,6 +130,15 @@ class HeroViewModel @Inject constructor(
             val hero = withContext(Dispatchers.Default) {
                 hero.copy(favorite = !hero.favorite)
             }
+            Log.w("Tag", "hero.fav after: ${hero.favorite}")
+        }
+    }
+
+    fun toggleF(hero: SuperHero) {
+        viewModelScope.launch {
+            Log.w("Tag", "hero.fav before: ${hero.favorite}")
+            hero.favorite = true
+            _heroState.value.favorite = hero.favorite
             Log.w("Tag", "hero.fav after: ${hero.favorite}")
         }
     }

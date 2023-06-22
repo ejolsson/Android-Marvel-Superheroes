@@ -19,8 +19,8 @@ object NetworkModule {
     val ts: Int = 1
     val apikey: String = "f0c5210c2332d5d32edc3a40552edb27"
     val hash: String = "a4d396a1143f5258c6cced5dc9863a84"
-    val limit: Int = 3
-    val offset: Int = 800
+    val limit: Int = 5 // 3
+    val offset: Int = 400 // 800
 
     @Provides
     fun providesMoshi(): Moshi {

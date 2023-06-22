@@ -71,7 +71,7 @@ fun SuperHeroDetailScreen (viewModel: HeroViewModel, id: Long) { //}, onFavClick
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SuperHeroDetailScreenContent(hero: SuperHero, series: List<SeriesPresent>, comics: List<ComicsPresent>, onFavClick3: (Long) -> Unit) {
+fun SuperHeroDetailScreenContent(hero: SuperHero, series: List<SeriesPresent>, comics: List<ComicsPresent>, onFavClick3: (SuperHero) -> Unit) {
 
     val scaffoldS = rememberScaffoldState()
 
@@ -189,7 +189,7 @@ fun ComicsItem(comics: ComicsPresent, modifier: Modifier = Modifier) {
 // TopBar
 @OptIn(ExperimentalMaterial3Api::class) // done
 @Composable
-fun DetailTopBar(hero: SuperHero, onFavClick2: (Long) -> Unit) {
+fun DetailTopBar(hero: SuperHero, onFavClick2: (SuperHero) -> Unit) {
 
     TopAppBar(
         title = { androidx.compose.material.Text(
@@ -212,12 +212,12 @@ fun DetailTopBar(hero: SuperHero, onFavClick2: (Long) -> Unit) {
 }
 
 @Composable
-fun FavoriteHeart(hero: SuperHero, modifier: Modifier = Modifier, onFavClick1: (Long) -> Unit) {
+fun FavoriteHeart(hero: SuperHero, modifier: Modifier = Modifier, onFavClick1: (SuperHero) -> Unit) {
 
     Row (
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier.clickable {
-                onFavClick1(hero.id) // SuperHero.id
+                onFavClick1(hero) // SuperHero.id
             Log.w("Tag", "onFavClick1, ${hero.name} fav status: ${hero.favorite}") // print works
         }
     ) {
@@ -238,14 +238,14 @@ fun FavoriteHeart(hero: SuperHero, modifier: Modifier = Modifier, onFavClick1: (
 @Preview(showBackground = true)
 @Composable
 fun SuperHeroDetailScreen_Preview() {
-    val onFavClick: (Long) -> Unit = {}
+    val onFavClick: (SuperHero) -> Unit = {}
     SuperHeroDetailScreenContent(heroSample, seriesSample, comicsSample, onFavClick)
 }
 
 @Preview
 @Composable // done
 fun DetailTopBar_Preview() {
-    val onFavClick: (Long) -> Unit = {}
+    val onFavClick: (SuperHero) -> Unit = {}
     DetailTopBar(heroSample, onFavClick)
 }
 
