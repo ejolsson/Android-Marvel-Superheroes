@@ -49,7 +49,7 @@ class RepositoryImpl @Inject constructor(
     }
 
     override suspend fun getSeries4(id: Long): SeriesRemote {
-        return remoteDataSource.getSeries2(id) // no need add other logic, will call on the spot
+        return remoteDataSource.getSeries2(id)
     }
 
     override suspend fun getComics4(id: Long): ComicsRemote {
@@ -64,4 +64,8 @@ class RepositoryImpl @Inject constructor(
     override suspend fun deleteFav(superHeroLocal: SuperHeroLocal) {
         localDataSource.deleteHero(superHeroLocal)
     }
+
+//    override suspend fun countFavs(superHeroLocalList: List<SuperHeroLocal>): Int {
+//        return localDataSource.countFavs(superHeroLocalList)
+//    }
 }

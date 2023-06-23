@@ -5,7 +5,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ericolsson.marvelsuperheroes.R
 import com.ericolsson.marvelsuperheroes.SeriesRemote
-import com.ericolsson.marvelsuperheroes.data.local.SuperHeroDetailLocal
 import com.ericolsson.marvelsuperheroes.data.local.SuperHeroLocal
 import com.ericolsson.marvelsuperheroes.data.mappers.ComicsRemoteToPresentationMapper
 import com.ericolsson.marvelsuperheroes.data.mappers.SeriesRemoteToPresentationMapper
@@ -13,13 +12,12 @@ import com.ericolsson.marvelsuperheroes.data.remote.response.SuperHeroRemote
 import com.ericolsson.marvelsuperheroes.data.repository.Repository
 import com.ericolsson.marvelsuperheroes.domain.ComicsPresent
 import com.ericolsson.marvelsuperheroes.domain.SeriesPresent
-import com.ericolsson.marvelsuperheroes.domain.SuperHero
-import com.ericolsson.marvelsuperheroes.domain.SuperHeroDetail
 import com.google.gson.Gson
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.count
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -53,8 +51,8 @@ class HeroViewModel @Inject constructor(
     private val _comicsState = MutableStateFlow<List<ComicsPresent>>(emptyList())
     val comicsState: StateFlow<List<ComicsPresent>> get() = _comicsState
 
-    private val _favs = MutableStateFlow(0)
-    val favs: StateFlow<Int> get() = _favs
+    private var _favCountState = MutableStateFlow(0)
+    val favCountState: StateFlow<Int> get() = _favCountState
 
     // endregion
     fun getHeroes5() {
@@ -116,6 +114,17 @@ class HeroViewModel @Inject constructor(
         }
     }
 
+//    fun countFavorites(heroes: List<SuperHeroLocal>) {
+//        viewModelScope.launch {
+//            val heroes = heroListState.value
+//            val result = withContext(Dispatchers.Default) {
+//                repository.countFavs(heroes)
+//            }
+//            _favCountState.update { result }
+//            Log.w("Tag Fav", "countFavorites = $result")
+////            _favCountState.value = result
+//        }
+//    }
 
     // region fundamentals methods
     private var heroesPresent = listOf<SuperHeroRemote>()

@@ -25,4 +25,7 @@ interface SuperHeroDAO {
 
     @Delete
     fun deleteSuperHeroLocal(superHeroLocal: SuperHeroLocal)
+
+//    @Query("SELECT COUNT(*) FROM superheros WHERE favorite = 1")
+//    fun countAllFavs(superHeroLocalList: List<SuperHeroLocal>): Int
 }

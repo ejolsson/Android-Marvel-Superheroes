@@ -1,6 +1,5 @@
 package com.ericolsson.marvelsuperheroes.ui.heroes
 
-import android.util.Log
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -10,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
@@ -31,23 +31,26 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.layout.HorizontalAlignmentLine
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.ericolsson.marvelsuperheroes.data.local.SuperHeroLocal
+import com.ericolsson.marvelsuperheroes.ui.FavoriteHeart
 import com.ericolsson.marvelsuperheroes.ui.HeroViewModel
 
 @Composable // done
 fun SuperHeroListScreen (viewModel: HeroViewModel, onHeroClick3: (Long) -> Unit) {
 
-    val state by viewModel.heroListState.collectAsState()
-    val favs by viewModel.favs.collectAsState()
+    val heroListState by viewModel.heroListState.collectAsState()
+    val favCount by viewModel.favCountState.collectAsState()
 
     LaunchedEffect(Unit) {
         viewModel.getHeroes5()
+//        viewModel.countFavorites(heroListState)
     }
 
-    SuperHeroListScreenContent(state, favs) { id ->
+    SuperHeroListScreenContent(heroListState, favCount) { id ->
         onHeroClick3(id)
 //        Log.d("Tag", "$id cell clicked")
     }
@@ -99,7 +102,16 @@ fun SuperHeroItem(hero: SuperHeroLocal, modifier: Modifier = Modifier, onHeroCli
                 .weight(1f),
             contentScale = ContentScale.Crop
         )
-        Text(text = hero.name, style = MaterialTheme.typography.headlineLarge, modifier = Modifier.padding(8.dp))
+        LazyRow(Modifier.padding(16.dp), verticalAlignment = Alignment.CenterVertically) {
+                item {
+                    Text(text = hero.name, style = MaterialTheme.typography.headlineLarge, modifier = Modifier.padding(8.dp))
+                }
+            item {
+                val onFavClick2: (SuperHeroLocal) -> Unit = {}
+                FavoriteHeart(hero = hero, onFavClick1 = onFavClick2)
+            }
+        }
+
     }
 }
 

@@ -17,8 +17,8 @@ class LocalDataSourceImpl @Inject constructor(
     override fun getHeroByName3(id: Long): SuperHeroLocal {
         return dao.getHeroByName(id)
     }
-    override fun insertHeroes(remoteSuperHeroes: List<SuperHeroLocal>) {
-        dao.insertAll(remoteSuperHeroes)
+    override fun insertHeroes(superHeroLocalList: List<SuperHeroLocal>) {
+        dao.insertAll(superHeroLocalList)
     }
     // endregion
     override fun insertHero(superHeroLocal: SuperHeroLocal) {
@@ -28,4 +28,8 @@ class LocalDataSourceImpl @Inject constructor(
     override fun deleteHero(superHeroLocal: SuperHeroLocal) {
         dao.deleteSuperHeroLocal(superHeroLocal)
     }
+
+//    override fun countFavs(superHeroLocalList: List<SuperHeroLocal>): Int {
+//        return dao.countAllFavs(superHeroLocalList)
+//    }
 }

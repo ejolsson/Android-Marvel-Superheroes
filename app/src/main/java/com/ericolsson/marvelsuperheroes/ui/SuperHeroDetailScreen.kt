@@ -229,8 +229,8 @@ fun FavoriteHeart(hero: SuperHeroLocal, modifier: Modifier = Modifier, onFavClic
             tint = if (hero.favorite) Color.Yellow else Color.LightGray,
             modifier = Modifier.size(32.dp)
         )
-        Spacer(modifier = Modifier.width(4.dp))
-        Text(text = if (hero.favorite) "Favorite" else "Not favorite")
+//        Spacer(modifier = Modifier.width(4.dp))
+//        Text(text = if (hero.favorite) "Favorite" else "Not favorite")
     }
 }
 
