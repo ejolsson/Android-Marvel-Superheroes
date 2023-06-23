@@ -4,7 +4,9 @@ import android.util.Log
 import com.ericolsson.marvelsuperheroes.SeriesRemote
 import com.ericolsson.marvelsuperheroes.data.local.LocalDataSource
 import com.ericolsson.marvelsuperheroes.data.local.SuperHeroDAO
+import com.ericolsson.marvelsuperheroes.data.local.SuperHeroLocal
 import com.ericolsson.marvelsuperheroes.data.mappers.LocalDetailToPresentationMapper
+import com.ericolsson.marvelsuperheroes.data.mappers.LocalToLocalDetailMapper
 import com.ericolsson.marvelsuperheroes.data.mappers.LocalToPresentationMapper
 import com.ericolsson.marvelsuperheroes.data.mappers.PresentationToLocalMapper
 import com.ericolsson.marvelsuperheroes.data.mappers.RemoteToLocalMapper
@@ -12,7 +14,6 @@ import com.ericolsson.marvelsuperheroes.data.mappers.RemoteToPresentationMapper
 import com.ericolsson.marvelsuperheroes.data.remote.RemoteDataSource
 import com.ericolsson.marvelsuperheroes.data.remote.response.ComicsRemote
 import com.ericolsson.marvelsuperheroes.domain.SuperHero
-import com.ericolsson.marvelsuperheroes.domain.SuperHeroDetail
 import javax.inject.Inject
 
 class RepositoryImpl @Inject constructor(
@@ -23,10 +24,11 @@ class RepositoryImpl @Inject constructor(
     private val localToPresentationMapper: LocalToPresentationMapper,
     private val presentationToLocalMapper: PresentationToLocalMapper,
     private val localDetailToPresentationMapper: LocalDetailToPresentationMapper,
+    private val localToLocalDetailMapper: LocalToLocalDetailMapper,
     private val dao: SuperHeroDAO
 ): Repository {
     // region Non-focus
-    override suspend fun getHeroes4(): List<SuperHero> {
+    override suspend fun getHeroes4(): List<SuperHeroLocal> {
 
         if (localDataSource.getHeroes3().isEmpty()) {
             Log.d("Tag", "No heroes stored locally. Going the fetch them!")
@@ -34,15 +36,16 @@ class RepositoryImpl @Inject constructor(
 
             localDataSource.insertHeroes(remoteToLocalMapper.mapSuperHeroRemote(remoteSuperHeroes))
         }
-        return localToPresentationMapper.mapLocalSuperHeroes(localDataSource.getHeroes3())
+        return localDataSource.getHeroes3() //localToPresentationMapper.mapLocalSuperHeroes(localDataSource.getHeroes3())
     }
 
-    override suspend fun insertHero(hero: SuperHero) {
+    override suspend fun insertHero(hero: SuperHeroLocal) {
         dao.insertSuperhero(hero)
     }
 
-    override suspend fun getHeroByName4(heroId: Long): SuperHero {
-        return localToPresentationMapper.map(localDataSource.getHeroByName3(heroId))
+    override suspend fun getHeroByName4(heroId: Long): SuperHeroLocal {
+//        return localToPresentationMapper.map(localDataSource.getHeroByName3(heroId))
+        return localDataSource.getHeroByName3(heroId)
     }
 
     override suspend fun getSeries4(id: Long): SeriesRemote {
@@ -54,14 +57,11 @@ class RepositoryImpl @Inject constructor(
     }
     // endregion
     // Insert "favorite" SuperHero to SuperHeroDetailLocal
-    override suspend fun insertFav(superHero: SuperHero) {
-        localDataSource.insertHero(presentationToLocalMapper.map2(superHero))//.also {
-//            localDataSource.insertHero()
-//        }
-//        superHeroDetail.favorite
+    override suspend fun insertFav(superHeroLocal: SuperHeroLocal) {
+        localDataSource.insertHero(superHeroLocal)
     }
 
-    override suspend fun deleteFav(superHero: SuperHero) {
-        localDataSource.deleteHero(presentationToLocalMapper.map2(superHero))
+    override suspend fun deleteFav(superHeroLocal: SuperHeroLocal) {
+        localDataSource.deleteHero(superHeroLocal)
     }
 }

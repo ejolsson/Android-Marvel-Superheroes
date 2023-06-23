@@ -9,7 +9,7 @@ data class SuperHeroDetail(
     val name: String,
     val photo: String,
     val description: String,
-    val favorite: Boolean
+    var favorite: Boolean
 ) : Parcelable
 
 @Parcelize

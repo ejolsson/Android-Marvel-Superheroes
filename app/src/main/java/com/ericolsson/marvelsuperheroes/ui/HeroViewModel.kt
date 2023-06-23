@@ -40,12 +40,12 @@ class HeroViewModel @Inject constructor(
     private val apiKey = (R.string.marvel_api_key)
 
     // HeroList
-    private val _heroListState = MutableStateFlow<List<SuperHero>>(emptyList())
-    val heroListState: StateFlow<List<SuperHero>> get() = _heroListState
+    private val _heroListState = MutableStateFlow<List<SuperHeroLocal>>(emptyList())
+    val heroListState: StateFlow<List<SuperHeroLocal>> get() = _heroListState
 
     // HeroDetail
-    private var _heroState = MutableStateFlow<SuperHero>(heroSample)
-    val heroState: StateFlow<SuperHero> get() = _heroState
+    private var _heroState = MutableStateFlow<SuperHeroLocal>(heroSample)
+    val heroState: StateFlow<SuperHeroLocal> get() = _heroState
 
     private val _seriesState = MutableStateFlow<List<SeriesPresent>>(emptyList())
     val seriesState: StateFlow<List<SeriesPresent>> get() = _seriesState
@@ -73,14 +73,14 @@ class HeroViewModel @Inject constructor(
                 repository.getHeroByName4(id)
             }
             _heroState.update { result }
-            Log.d("Tag", "_heroState: ${_heroState.value}")
+            Log.d("Tag Fav", "_heroState: ${_heroState.value}")
         }
     }
-    fun insertSuperhero(hero: SuperHero) {
-        viewModelScope.launch(Dispatchers.IO) {
-            repository.insertHero(hero)
-        }
-    }
+//    fun insertSuperhero(hero: SuperHero) {
+//        viewModelScope.launch(Dispatchers.IO) {
+//            repository.insertHero(hero)
+//        }
+//    }
     fun getSeries5(heroId: Long) {
         viewModelScope.launch {
             val result = withContext(Dispatchers.IO) {
@@ -102,44 +102,17 @@ class HeroViewModel @Inject constructor(
         }
     }
 
-    // Complex method
-    fun toggleFavorite(hero: SuperHero) {
+    fun toggleFavorite(hero: SuperHeroLocal) {
         viewModelScope.launch {
-            Log.w("Tag", "hero.Favorite before: ${hero.favorite}")
-            val heroTemp = hero
-            var hero = withContext(Dispatchers.Default) {
-                val hero = heroTemp.copy(
-                    favorite = !heroTemp.favorite
-                ).also { superHero ->
-                    if (heroTemp.favorite) {
-                        repository.insertFav(superHero)
-                    } else {
-                        repository.deleteFav(superHero)
-                    }
-                }
+            Log.d("Tag Fav", "hero.fav before: $hero")
+            val heroTemp = heroState.value
+            val hero = withContext(Dispatchers.Default) {
+                val hero = heroTemp.copy(favorite = !heroTemp.favorite)
+                repository.insertFav(hero)
                 hero
             }
             _heroState.value = hero
-            Log.w("Tag", "hero.Favorite after: ${hero.favorite}")
-        }
-    }
-    // Simple method
-    fun toggleFav(hero: SuperHero) {
-        viewModelScope.launch {
-            Log.w("Tag", "hero.fav before: ${hero.favorite}")
-            val hero = withContext(Dispatchers.Default) {
-                hero.copy(favorite = !hero.favorite)
-            }
-            Log.w("Tag", "hero.fav after: ${hero.favorite}")
-        }
-    }
-
-    fun toggleF(hero: SuperHero) {
-        viewModelScope.launch {
-            Log.w("Tag", "hero.fav before: ${hero.favorite}")
-            hero.favorite = true
-            _heroState.value.favorite = hero.favorite
-            Log.w("Tag", "hero.fav after: ${hero.favorite}")
+            Log.w("Tag Fav", "hero.fav after: $hero")
         }
     }
 

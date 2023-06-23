@@ -1,17 +1,18 @@
 package com.ericolsson.marvelsuperheroes.data.mappers
 
+import com.ericolsson.marvelsuperheroes.data.local.SuperHeroDetailLocal
 import com.ericolsson.marvelsuperheroes.data.local.SuperHeroLocal
-import com.ericolsson.marvelsuperheroes.domain.SuperHero
 import javax.inject.Inject
-// SuperHeroLocal(s) → SuperHero(s)
-class LocalToPresentationMapper @Inject constructor() {
 
-    fun mapLocalSuperHeroes(superHeroLocalList: List<SuperHeroLocal>): List<SuperHero> {
+// SuperHeroLocal(s) → SuperHeroDetailLocal(s)
+class LocalToLocalDetailMapper @Inject constructor() {
+
+    fun map(superHeroLocalList: List<SuperHeroLocal>): List<SuperHeroDetailLocal> {
         return superHeroLocalList.map { map(it) }
     }
 
-    fun map(superHeroLocal: SuperHeroLocal): SuperHero {
-        return SuperHero(
+    fun map(superHeroLocal: SuperHeroLocal): SuperHeroDetailLocal {
+        return SuperHeroDetailLocal(
             id = superHeroLocal.id,
             name = superHeroLocal.name,
             photo = superHeroLocal.photo,

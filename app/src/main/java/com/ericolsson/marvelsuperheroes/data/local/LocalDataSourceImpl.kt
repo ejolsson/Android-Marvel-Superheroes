@@ -20,12 +20,12 @@ class LocalDataSourceImpl @Inject constructor(
     override fun insertHeroes(remoteSuperHeroes: List<SuperHeroLocal>) {
         dao.insertAll(remoteSuperHeroes)
     }
-
-    override fun insertHero(superHeroDetailLocal: SuperHeroDetailLocal) {
-        dao.insertSuperheroDetail(superHeroDetailLocal)
+    // endregion
+    override fun insertHero(superHeroLocal: SuperHeroLocal) {
+        dao.insertSuperHeroLocal(superHeroLocal)
     }
 
-    override fun deleteHero(superHeroDetailLocal: SuperHeroDetailLocal) {
-        dao.deleteSuperHeroDetail(superHeroDetailLocal)
+    override fun deleteHero(superHeroLocal: SuperHeroLocal) {
+        dao.deleteSuperHeroLocal(superHeroLocal)
     }
 }

@@ -34,13 +34,13 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
+import com.ericolsson.marvelsuperheroes.data.local.SuperHeroLocal
 import com.ericolsson.marvelsuperheroes.ui.HeroViewModel
-import com.ericolsson.marvelsuperheroes.domain.SuperHero
 
 @Composable // done
-fun SuperHeroListScreen (viewModel: HeroViewModel, onHeroClick3: (Long) -> Unit) { // was onHeroClick: (Long) -> Unit = { _ ->}
+fun SuperHeroListScreen (viewModel: HeroViewModel, onHeroClick3: (Long) -> Unit) {
 
-    val state by viewModel.heroListState.collectAsState() // this is where hero list values get stored
+    val state by viewModel.heroListState.collectAsState()
     val favs by viewModel.favs.collectAsState()
 
     LaunchedEffect(Unit) {
@@ -49,11 +49,11 @@ fun SuperHeroListScreen (viewModel: HeroViewModel, onHeroClick3: (Long) -> Unit)
 
     SuperHeroListScreenContent(state, favs) { id ->
         onHeroClick3(id)
-        Log.d("Tag", "$id cell clicked") // good print
+//        Log.d("Tag", "$id cell clicked")
     }
 }
 
-@Preview(showBackground = true) // done
+@Preview(showBackground = true)
 @Composable
 fun SuperHeroListScreen_Preview() {
     SuperHeroListScreenContent(heroesSample,0) { }
@@ -61,7 +61,7 @@ fun SuperHeroListScreen_Preview() {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SuperHeroListScreenContent(heroes: List<SuperHero>, favs: Int, onHeroClick2: (Long) -> Unit) {
+fun SuperHeroListScreenContent(heroes: List<SuperHeroLocal>, favs: Int, onHeroClick2: (Long) -> Unit) {
 
     val scaffoldS = rememberScaffoldState()
 
@@ -84,7 +84,7 @@ fun SuperHeroListScreenContent(heroes: List<SuperHero>, favs: Int, onHeroClick2:
 }
 
 @Composable // done
-fun SuperHeroItem(hero: SuperHero, modifier: Modifier = Modifier, onHeroClick1: (Long) -> Unit) {
+fun SuperHeroItem(hero: SuperHeroLocal, modifier: Modifier = Modifier, onHeroClick1: (Long) -> Unit) {
     Card(
         modifier = modifier
             .fillMaxWidth()
@@ -107,7 +107,7 @@ fun SuperHeroItem(hero: SuperHero, modifier: Modifier = Modifier, onHeroClick1: 
 @Composable // done, not used??
 fun SuperHeroItem_Preview() {
     SuperHeroItem(
-        SuperHero(
+        SuperHeroLocal(
             123,
             "Thor",
             "http://i.annihil.us/u/prod/marvel/i/mg/d/d0/5269657a74350.jpg",
@@ -164,21 +164,21 @@ fun BottomBarItem_Preview() {
 }
 
 val heroesSample = listOf(
-    SuperHero(
+    SuperHeroLocal(
         id = 1009664,
         name = "Thor",
         photo = "http://i.annihil.us/u/prod/marvel/i/mg/d/d0/5269657a74350.jpg",
         description = "God of lightning",
         favorite = false
     ),
-    SuperHero(
+    SuperHeroLocal(
         id = 1009368,
         name = "Iron Man",
         photo = "http://i.annihil.us/u/prod/marvel/i/mg/9/c0/527bb7b37ff55.jpg",
         description = "Billionaire, genius, industrialist",
         favorite = false
     ),
-    SuperHero(
+    SuperHeroLocal(
         id = 1009282,
         name = "Doctor Strange",
         photo = "http://i.annihil.us/u/prod/marvel/i/mg/5/f0/5261a85a501fe.jpg",

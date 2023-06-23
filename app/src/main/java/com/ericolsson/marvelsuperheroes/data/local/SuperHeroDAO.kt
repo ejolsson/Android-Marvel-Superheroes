@@ -5,7 +5,6 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.ericolsson.marvelsuperheroes.domain.SuperHero
 
 @Dao
 interface SuperHeroDAO {
@@ -16,14 +15,14 @@ interface SuperHeroDAO {
     fun getHeroByName(id: Long): SuperHeroLocal
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertAll(superHero: List<SuperHeroLocal>) // (varag users: SuperHero)
+    fun insertAll(superHeroLocal: List<SuperHeroLocal>)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertSuperhero(superHero: SuperHero) // was SuperHeroLocal
+    fun insertSuperhero(superHeroLocal: SuperHeroLocal)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertSuperheroDetail(superHeroDetailLocal: SuperHeroDetailLocal)
+    fun insertSuperHeroLocal(superHeroLocal: SuperHeroLocal)
 
     @Delete
-    fun deleteSuperHeroDetail(superHeroDetailLocal: SuperHeroDetailLocal)
+    fun deleteSuperHeroLocal(superHeroLocal: SuperHeroLocal)
 }

@@ -38,6 +38,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
 import com.ericolsson.marvelsuperheroes.data.local.SuperHeroDetailLocal
+import com.ericolsson.marvelsuperheroes.data.local.SuperHeroLocal
 import com.ericolsson.marvelsuperheroes.data.mappers.ComicsRemoteToPresentationMapper
 import com.ericolsson.marvelsuperheroes.data.mappers.SeriesRemoteToPresentationMapper
 import com.ericolsson.marvelsuperheroes.data.repository.Repository
@@ -47,7 +48,7 @@ import com.ericolsson.marvelsuperheroes.domain.SuperHero
 import com.ericolsson.marvelsuperheroes.domain.SuperHeroDetail
 
 @Composable
-fun SuperHeroDetailScreen (viewModel: HeroViewModel, id: Long) { //}, onFavClick4: () -> Unit) {
+fun SuperHeroDetailScreen (viewModel: HeroViewModel, id: Long) {
 
     val heroState by viewModel.heroState.collectAsState() // SuperHeroDetail
     val seriesState by viewModel.seriesState.collectAsState()
@@ -59,19 +60,19 @@ fun SuperHeroDetailScreen (viewModel: HeroViewModel, id: Long) { //}, onFavClick
         viewModel.getComics5(id)
     }
 
-    SuperHeroDetailScreenContent(hero = heroState, series = seriesState, comics = comicsState) { _ ->//}, onFavClick3 = onFavClick4)
-        viewModel.toggleFavorite(heroState) // heroState = SuperHero
+    SuperHeroDetailScreenContent(hero = heroState, series = seriesState, comics = comicsState) {
+        viewModel.toggleFavorite(heroState)
     }
-//    SuperHeroDetailScreenContentSample()
-
-//    fun toggleFav(hero: SuperHero) { // SuperHero v SuperHeroDetail?
-//        viewModel.toggleFav(hero)
-//    }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SuperHeroDetailScreenContent(hero: SuperHero, series: List<SeriesPresent>, comics: List<ComicsPresent>, onFavClick3: (SuperHero) -> Unit) {
+fun SuperHeroDetailScreenContent(
+    hero: SuperHeroLocal,
+    series: List<SeriesPresent>,
+    comics: List<ComicsPresent>,
+    onFavClick3: (SuperHeroLocal) -> Unit)
+{
 
     val scaffoldS = rememberScaffoldState()
 
@@ -125,7 +126,7 @@ fun SuperHeroDetailScreenContent(hero: SuperHero, series: List<SeriesPresent>, c
 // region Detail items
 // Content
 @Composable
-fun HeroDetailItem(hero: SuperHero, modifier: Modifier = Modifier) {
+fun HeroDetailItem(hero: SuperHeroLocal, modifier: Modifier = Modifier) {
     Card(
         modifier = modifier
             .fillMaxWidth()
@@ -189,7 +190,7 @@ fun ComicsItem(comics: ComicsPresent, modifier: Modifier = Modifier) {
 // TopBar
 @OptIn(ExperimentalMaterial3Api::class) // done
 @Composable
-fun DetailTopBar(hero: SuperHero, onFavClick2: (SuperHero) -> Unit) {
+fun DetailTopBar(hero: SuperHeroLocal, onFavClick2: (SuperHeroLocal) -> Unit) {
 
     TopAppBar(
         title = { androidx.compose.material.Text(
@@ -212,13 +213,13 @@ fun DetailTopBar(hero: SuperHero, onFavClick2: (SuperHero) -> Unit) {
 }
 
 @Composable
-fun FavoriteHeart(hero: SuperHero, modifier: Modifier = Modifier, onFavClick1: (SuperHero) -> Unit) {
+fun FavoriteHeart(hero: SuperHeroLocal, modifier: Modifier = Modifier, onFavClick1: (SuperHeroLocal) -> Unit) {
 
     Row (
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier.clickable {
                 onFavClick1(hero) // SuperHero.id
-            Log.w("Tag", "onFavClick1, ${hero.name} fav status: ${hero.favorite}") // print works
+//            Log.d("Tag Fav", "onFavClick1, ${hero.name} fav status: ${hero.favorite}")
         }
     ) {
         Icon(
@@ -238,14 +239,14 @@ fun FavoriteHeart(hero: SuperHero, modifier: Modifier = Modifier, onFavClick1: (
 @Preview(showBackground = true)
 @Composable
 fun SuperHeroDetailScreen_Preview() {
-    val onFavClick: (SuperHero) -> Unit = {}
+    val onFavClick: (SuperHeroLocal) -> Unit = {}
     SuperHeroDetailScreenContent(heroSample, seriesSample, comicsSample, onFavClick)
 }
 
 @Preview
 @Composable // done
 fun DetailTopBar_Preview() {
-    val onFavClick: (SuperHero) -> Unit = {}
+    val onFavClick: (SuperHeroLocal) -> Unit = {}
     DetailTopBar(heroSample, onFavClick)
 }
 
@@ -255,7 +256,7 @@ fun DetailTopBar_Preview() {
 //    FavoriteHeart(heroSample, true)
 //}
 
-val heroSample = SuperHero(
+val heroSample = SuperHeroLocal(
     id = 1009664,
     name = "Thor",
     photo = "\"http://i.annihil.us/u/prod/marvel/i/mg/d/d0/5269657a74350.jpg",
