@@ -2,7 +2,7 @@ package com.ericolsson.marvelsuperheroes.data
 
 import com.ericolsson.marvelsuperheroes.SeriesRemote
 import com.ericolsson.marvelsuperheroes.data.remote.response.ComicsRemote
-import com.ericolsson.marvelsuperheroes.data.remote.response.SuperHeroRemote
+import com.ericolsson.marvelsuperheroes.data.remote.response.MarvelResponseObject
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
@@ -16,7 +16,7 @@ interface MarvelApi {
         @Query("hash") hash: String,
         @Query("limit") limit: Int,
         @Query("offset") offset: Int
-    ): SuperHeroRemote // List<SuperHeroRemote>
+    ): MarvelResponseObject
 
     @GET("/v1/public/characters")
     suspend fun getHeroByName1(
@@ -25,7 +25,7 @@ interface MarvelApi {
         @Query("hash") hash: String,
         @Query("name") name: String,
 //        @Query("characterId") characterId: Int
-    ): SuperHeroRemote
+    ): MarvelResponseObject
 
     @GET("/v1/public/characters/{characterId}/series")
     suspend fun getSeries1(
@@ -45,5 +45,3 @@ interface MarvelApi {
         @Query("limit") limit: Int
     ): ComicsRemote
 }
-
-// https://square.github.io/retrofit/

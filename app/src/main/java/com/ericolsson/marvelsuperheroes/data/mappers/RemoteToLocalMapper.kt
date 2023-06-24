@@ -1,22 +1,22 @@
 package com.ericolsson.marvelsuperheroes.data.mappers
 
 import com.ericolsson.marvelsuperheroes.data.local.SuperHeroLocal
-import com.ericolsson.marvelsuperheroes.data.remote.response.Result
 import com.ericolsson.marvelsuperheroes.data.remote.response.SuperHeroRemote
+import com.ericolsson.marvelsuperheroes.data.remote.response.MarvelResponseObject
 import javax.inject.Inject
 
 class RemoteToLocalMapper @Inject constructor() {
 
-    fun mapSuperHeroRemote(superHeroRemote: SuperHeroRemote): List<SuperHeroLocal> {
-        return superHeroRemote.data.results.map { map(it) }
+    fun mapList(marvelResponseObject: MarvelResponseObject): List<SuperHeroLocal> {
+        return marvelResponseObject.data.results.map { mapList(it) }
     }
 
-    private fun map (marvelHeroesResponse: Result): SuperHeroLocal {
+    private fun mapList (superHeroRemote: SuperHeroRemote): SuperHeroLocal {
         return SuperHeroLocal(
-            id = marvelHeroesResponse.id,
-            name = marvelHeroesResponse.name,
-            photo = "${marvelHeroesResponse.thumbnail.path}.${marvelHeroesResponse.thumbnail.extension}",
-        description = marvelHeroesResponse.description,
+            id = superHeroRemote.id,
+            name = superHeroRemote.name,
+            photo = "${superHeroRemote.thumbnail.path}.${superHeroRemote.thumbnail.extension}",
+        description = superHeroRemote.description,
             favorite = false
         )
     }

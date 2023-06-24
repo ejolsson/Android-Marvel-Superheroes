@@ -4,8 +4,8 @@ import com.ericolsson.marvelsuperheroes.SeriesRemote
 import com.ericolsson.marvelsuperheroes.SeriesResult
 import com.ericolsson.marvelsuperheroes.data.remote.response.ComicsRemote
 import com.ericolsson.marvelsuperheroes.data.remote.response.ComicsResult
-import com.ericolsson.marvelsuperheroes.data.remote.response.Result
 import com.ericolsson.marvelsuperheroes.data.remote.response.SuperHeroRemote
+import com.ericolsson.marvelsuperheroes.data.remote.response.MarvelResponseObject
 import com.ericolsson.marvelsuperheroes.domain.ComicsPresent
 import com.ericolsson.marvelsuperheroes.domain.SeriesPresent
 import com.ericolsson.marvelsuperheroes.domain.SuperHero
@@ -13,16 +13,16 @@ import javax.inject.Inject
 
 class RemoteToPresentationMapper @Inject constructor() {
 
-    fun map(superHeroRemote: SuperHeroRemote): List<SuperHero> {
-        return superHeroRemote.data.results.map { map(it) }
+    fun mapList(marvelResponseObject: MarvelResponseObject): List<SuperHero> {
+        return marvelResponseObject.data.results.map { mapItem(it) }
     }
 
-    private fun map(superHero: Result): SuperHero {
+    private fun mapItem(superHeroRemote: SuperHeroRemote): SuperHero {
         return SuperHero(
-            id = superHero.id,
-            name = superHero.name,
-            photo = "${superHero.thumbnail.path}.${superHero.thumbnail.extension}",
-            description = superHero.description,
+            id = superHeroRemote.id,
+            name = superHeroRemote.name,
+            photo = "${superHeroRemote.thumbnail.path}.${superHeroRemote.thumbnail.extension}",
+            description = superHeroRemote.description,
             favorite = false // todo: not sure to do this... leave off?
         )
     }
@@ -30,27 +30,27 @@ class RemoteToPresentationMapper @Inject constructor() {
 
 class SeriesRemoteToPresentationMapper @Inject constructor() {
 
-    fun map(seriesRemote: SeriesRemote): List<SeriesPresent> {
-        return seriesRemote.data.results.map { map(it) }
+    fun mapList(seriesRemote: SeriesRemote): List<SeriesPresent> {
+        return seriesRemote.data.results.map { mapItem(it) }
     }
 
-    private fun map(series: SeriesResult): SeriesPresent {
+    private fun mapItem(seriesResult: SeriesResult): SeriesPresent {
         return SeriesPresent(
-            id = series.id,
-            title = series.title,
-            photo = "${series.thumbnail.path}.${series.thumbnail.extension}",
-            description = series.description
+            id = seriesResult.id,
+            title = seriesResult.title,
+            photo = "${seriesResult.thumbnail.path}.${seriesResult.thumbnail.extension}",
+            description = seriesResult.description
         )
     }
 }
 
 class ComicsRemoteToPresentationMapper @Inject constructor() {
 
-    fun map(comicsRemote: ComicsRemote): List<ComicsPresent> {
-        return comicsRemote.data.results.map { map(it) }
+    fun mapList(comicsRemote: ComicsRemote): List<ComicsPresent> {
+        return comicsRemote.data.results.map { mapItem(it) }
     }
 
-    private fun map(comics: ComicsResult): ComicsPresent {
+    private fun mapItem(comics: ComicsResult): ComicsPresent {
         return ComicsPresent(
             id = comics.id,
             title = comics.title,

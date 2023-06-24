@@ -13,7 +13,6 @@ import com.ericolsson.marvelsuperheroes.data.mappers.RemoteToLocalMapper
 import com.ericolsson.marvelsuperheroes.data.mappers.RemoteToPresentationMapper
 import com.ericolsson.marvelsuperheroes.data.remote.RemoteDataSource
 import com.ericolsson.marvelsuperheroes.data.remote.response.ComicsRemote
-import com.ericolsson.marvelsuperheroes.domain.SuperHero
 import javax.inject.Inject
 
 class RepositoryImpl @Inject constructor(
@@ -34,7 +33,7 @@ class RepositoryImpl @Inject constructor(
             Log.d("Tag", "No heroes stored locally. Going the fetch them!")
             val remoteSuperHeroes = remoteDataSource.getHeroes2()
 
-            localDataSource.insertHeroes(remoteToLocalMapper.mapSuperHeroRemote(remoteSuperHeroes))
+            localDataSource.insertHeroes(remoteToLocalMapper.mapList(remoteSuperHeroes))
         }
         return localDataSource.getHeroes3() //localToPresentationMapper.mapLocalSuperHeroes(localDataSource.getHeroes3())
     }
