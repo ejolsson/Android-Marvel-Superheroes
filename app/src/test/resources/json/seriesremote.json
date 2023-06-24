@@ -1,0 +1,871 @@
+[
+    {
+        "id": 832,
+        "title": "Captain America (2004 - 2011)",
+        "description": "Steve Rogers was a product of World War II-era American ingenuity and enthusiasm, carrying those ideals into the 21st Century as Captain America. With Cap's mantle (and shield) passed to his former partner, Bucky Barnes, now is the perfect time to jump on to this highly acclaimed series as the new Captain America keeps the dream alive for a new generation!",
+        "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/series\/832",
+        "urls": [
+            {
+                "type": "detail",
+                "url": "http:\/\/marvel.com\/comics\/series\/832\/captain_america_2004_-_2011?utm_campaign=apiRef&utm_source=f0c5210c2332d5d32edc3a40552edb27"
+            }
+        ],
+        "startYear": 2004,
+        "endYear": 2011,
+        "rating": "",
+        "type": "",
+        "modified": "2018-02-19T18:45:15-0500",
+        "thumbnail": {
+            "path": "http:\/\/i.annihil.us\/u\/prod\/marvel\/i\/mg\/f\/a0\/5130f45221c81",
+            "extension": "jpg"
+        },
+        "creators": {
+            "available": 67,
+            "collectionURI": "http:\/\/gateway.marvel.com\/v1\/public\/series\/832\/creators",
+            "items": [
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/creators\/1004",
+                    "name": "Daniel Acuna",
+                    "role": "penciller"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/creators\/9799",
+                    "name": "David Baldeon",
+                    "role": "penciller"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/creators\/12203",
+                    "name": "Filipe Daniel Moreno De Andrade",
+                    "role": "penciller"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/creators\/750",
+                    "name": "David Aja",
+                    "role": "inker"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/creators\/13349",
+                    "name": "Inactive Rafael Albuquerque",
+                    "role": "inker"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/creators\/13098",
+                    "name": "Rafael Albuquerque",
+                    "role": "inker"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/creators\/4994",
+                    "name": "Kalman Andrasofszky",
+                    "role": "inker"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/creators\/969",
+                    "name": "Mitch Breitweiser",
+                    "role": "inker"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/creators\/808",
+                    "name": "Howard Chaykin",
+                    "role": "inker"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/creators\/9127",
+                    "name": "Mike Benson",
+                    "role": "writer"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/creators\/367",
+                    "name": "Ed Brubaker",
+                    "role": "writer"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/creators\/10023",
+                    "name": "Cullen Bunn",
+                    "role": "writer"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/creators\/13309",
+                    "name": "Elizabeth Dismang Breitweiser",
+                    "role": "colorist"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/creators\/8504",
+                    "name": "Frank D'ARMATA",
+                    "role": "colorist"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/creators\/430",
+                    "name": "Edgar Delgado",
+                    "role": "colorist"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/creators\/2133",
+                    "name": "Tom Brevoort",
+                    "role": "editor"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/creators\/452",
+                    "name": "Virtual Calligr",
+                    "role": "letterer"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/creators\/5251",
+                    "name": "Vc Joe Caramagna",
+                    "role": "letterer"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/creators\/5127",
+                    "name": "Travis Charest",
+                    "role": "penciller (cover)"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/creators\/270",
+                    "name": "Gene Colan",
+                    "role": "penciler (cover)"
+                }
+            ],
+            "returned": 20
+        },
+        "characters": {
+            "available": 49,
+            "collectionURI": "http:\/\/gateway.marvel.com\/v1\/public\/series\/832\/characters",
+            "items": [
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1009740",
+                    "name": "Arnim Zola"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1009170",
+                    "name": "Baron Zemo (Heinrich Zemo)"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1010906",
+                    "name": "Baron Zemo (Helmut Zemo)"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1009189",
+                    "name": "Black Widow"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1009211",
+                    "name": "Bucky"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1010887",
+                    "name": "Bulldozer"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1009220",
+                    "name": "Captain America"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1010914",
+                    "name": "Captain America (House of M)"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1009252",
+                    "name": "Crossbones"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1011206",
+                    "name": "Doctor Faustus"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1009297",
+                    "name": "Falcon"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1010880",
+                    "name": "Fixer (Paul Norbert Ebersol)"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1009338",
+                    "name": "Hawkeye"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1011371",
+                    "name": "Henry Peter Gyrich"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1010722",
+                    "name": "Human Robot"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1009356",
+                    "name": "Human Torch"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1009367",
+                    "name": "Iron Fist (Danny Rand)"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1009368",
+                    "name": "Iron Man"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1010329",
+                    "name": "Jane Foster"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1009378",
+                    "name": "Jessica Jones"
+                }
+            ],
+            "returned": 20
+        },
+        "stories": {
+            "available": 218,
+            "collectionURI": "http:\/\/gateway.marvel.com\/v1\/public\/series\/832\/stories",
+            "items": [
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/4227",
+                    "name": "Cover for Captain America (2004) #1, Cover #4227",
+                    "type": "cover"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/4228",
+                    "name": "Interior #4228",
+                    "type": "interiorStory"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/4229",
+                    "name": "2 of 8 - Out of Time",
+                    "type": "cover"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/4230",
+                    "name": "2 of 8 - Out of Time",
+                    "type": "interiorStory"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/4231",
+                    "name": "3 of 8 - Out of Time",
+                    "type": "cover"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/4232",
+                    "name": "3 of 8 - Out of Time",
+                    "type": "interiorStory"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/4233",
+                    "name": "Cover: Captain America (2004) #4 of 8 - Out of Time",
+                    "type": "cover"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/4234",
+                    "name": "4 of 8 - Out of Time",
+                    "type": "interiorStory"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/4235",
+                    "name": "Cover: Captain America (2004) #5 of 8 - Out of Time",
+                    "type": "cover"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/4236",
+                    "name": "5 of 8 - Out of Time",
+                    "type": "interiorStory"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/4237",
+                    "name": "Cover: Captain America (2004) #6 of 6 - Out of Time",
+                    "type": "cover"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/4238",
+                    "name": "6 of 6 - Out of Time",
+                    "type": "interiorStory"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/4239",
+                    "name": "Cover: Captain America (2004) 1 of 1 - Nomad",
+                    "type": "cover"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/4240",
+                    "name": "1 of 1 - Nomad",
+                    "type": "interiorStory"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/4241",
+                    "name": "1 of 6 - Winter Soldier",
+                    "type": "cover"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/4242",
+                    "name": "1 of 6 - Winter Soldier",
+                    "type": "interiorStory"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/4243",
+                    "name": "2 of 6 - Winter Soldier",
+                    "type": "cover"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/4244",
+                    "name": "2 of 6 - Winter Soldier",
+                    "type": "interiorStory"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/4245",
+                    "name": "House of M tie-in",
+                    "type": "cover"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/4246",
+                    "name": "House of M tie-in",
+                    "type": "interiorStory"
+                }
+            ],
+            "returned": 20
+        },
+        "comics": {
+            "available": 90,
+            "collectionURI": "http:\/\/gateway.marvel.com\/v1\/public\/series\/832\/comics",
+            "items": [
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/91",
+                    "name": "Captain America (2004) #1"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/1492",
+                    "name": "Captain America (2004) #2"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/1579",
+                    "name": "Captain America (2004) #3"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/1668",
+                    "name": "Captain America (2004) #4"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/1764",
+                    "name": "Captain America (2004) #5"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/1870",
+                    "name": "Captain America (2004) #6"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/1978",
+                    "name": "Captain America (2004) #7"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/2190",
+                    "name": "Captain America (2004) #8"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/2308",
+                    "name": "Captain America (2004) #9"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/2420",
+                    "name": "Captain America (2004) #10"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/2421",
+                    "name": "Captain America (2004) #11"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/2422",
+                    "name": "Captain America (2004) #12"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/3084",
+                    "name": "Captain America (2004) #13"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/3188",
+                    "name": "Captain America (2004) #14"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/3503",
+                    "name": "Captain America (2004) #15"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/3910",
+                    "name": "Captain America (2004) #16"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/4040",
+                    "name": "Captain America (2004) #17"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/4152",
+                    "name": "Captain America (2004) #18"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/4326",
+                    "name": "Captain America (2004) #19"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/4482",
+                    "name": "Captain America (2004) #20"
+                }
+            ],
+            "returned": 20
+        },
+        "events": {
+            "available": 3,
+            "collectionURI": "http:\/\/gateway.marvel.com\/v1\/public\/series\/832\/events",
+            "items": [
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/events\/238",
+                    "name": "Civil War"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/events\/302",
+                    "name": "Fear Itself"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/events\/251",
+                    "name": "House of M"
+                }
+            ],
+            "returned": 3
+        },
+        "next": null,
+        "previous": {
+            "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/series\/485",
+            "name": "Captain America (2002 - 2004)"
+        }
+    },
+    {
+        "id": 1613,
+        "title": "Captain America: Winter Soldier Vol. 2 (2006)",
+        "description": null,
+        "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/series\/1613",
+        "urls": [
+            {
+                "type": "detail",
+                "url": "http:\/\/marvel.com\/comics\/series\/1613\/captain_america_winter_soldier_vol_2_2006?utm_campaign=apiRef&utm_source=f0c5210c2332d5d32edc3a40552edb27"
+            }
+        ],
+        "startYear": 2006,
+        "endYear": 2006,
+        "rating": "RATED T+",
+        "type": "collection",
+        "modified": "-0001-11-30T00:00:00-0500",
+        "thumbnail": {
+            "path": "http:\/\/i.annihil.us\/u\/prod\/marvel\/i\/mg\/4\/10\/4bc357760939f",
+            "extension": "jpg"
+        },
+        "creators": {
+            "available": 9,
+            "collectionURI": "http:\/\/gateway.marvel.com\/v1\/public\/series\/1613\/creators",
+            "items": [
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/creators\/367",
+                    "name": "Ed Brubaker",
+                    "role": "writer"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/creators\/8504",
+                    "name": "Frank D'ARMATA",
+                    "role": "colorist"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/creators\/6146",
+                    "name": "Avalon Studios",
+                    "role": "colorist"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/creators\/889",
+                    "name": "Jesse Delperdang",
+                    "role": "inker"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/creators\/509",
+                    "name": "Michael Lark",
+                    "role": "inker"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/creators\/708",
+                    "name": "Mike Perkins",
+                    "role": "inker"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/creators\/374",
+                    "name": "Steve Epting",
+                    "role": "penciler"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/creators\/8991",
+                    "name": "Lee Weeks",
+                    "role": "penciler"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/creators\/8635",
+                    "name": "Vc Randy Gentile",
+                    "role": "letterer"
+                }
+            ],
+            "returned": 9
+        },
+        "characters": {
+            "available": 14,
+            "collectionURI": "http:\/\/gateway.marvel.com\/v1\/public\/series\/1613\/characters",
+            "items": [
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1009170",
+                    "name": "Baron Zemo (Heinrich Zemo)"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1009220",
+                    "name": "Captain America"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1010914",
+                    "name": "Captain America (House of M)"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1009252",
+                    "name": "Crossbones"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1009297",
+                    "name": "Falcon"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1009356",
+                    "name": "Human Torch"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1009368",
+                    "name": "Iron Man"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1010945",
+                    "name": "Magneto (House of M)"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1009471",
+                    "name": "Nick Fury"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1009552",
+                    "name": "S.H.I.E.L.D."
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1009228",
+                    "name": "Sharon Carter"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1010791",
+                    "name": "Sub-Mariner"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1011309",
+                    "name": "Toro (Thomas Raymond)"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1010740",
+                    "name": "Winter Soldier"
+                }
+            ],
+            "returned": 14
+        },
+        "stories": {
+            "available": 17,
+            "collectionURI": "http:\/\/gateway.marvel.com\/v1\/public\/series\/1613\/stories",
+            "items": [
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/4241",
+                    "name": "1 of 6 - Winter Soldier",
+                    "type": "cover"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/4242",
+                    "name": "1 of 6 - Winter Soldier",
+                    "type": "interiorStory"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/4243",
+                    "name": "2 of 6 - Winter Soldier",
+                    "type": "cover"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/4244",
+                    "name": "2 of 6 - Winter Soldier",
+                    "type": "interiorStory"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/4245",
+                    "name": "House of M tie-in",
+                    "type": "cover"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/4246",
+                    "name": "House of M tie-in",
+                    "type": "interiorStory"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/4247",
+                    "name": "3 of 6 - Winter Soldier",
+                    "type": "cover"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/4248",
+                    "name": "3 of 6 - Winter Soldier",
+                    "type": "interiorStory"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/4249",
+                    "name": "4 of 6 - Winter Soldier",
+                    "type": "cover"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/4250",
+                    "name": "4 of 6 - Winter Soldier",
+                    "type": "interiorStory"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/4253",
+                    "name": "5 of 6 - Winter Soldier",
+                    "type": "cover"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/4254",
+                    "name": "5 of 6 - Winter Soldier",
+                    "type": "interiorStory"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/4255",
+                    "name": "6 of 6 - Winter Soldier",
+                    "type": "cover"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/4256",
+                    "name": "6 of 6 - Winter Soldier",
+                    "type": "interiorStory"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/65953",
+                    "name": "CAPTAIN AMERICA: WINTER SOLDIER VOL. 2 0 cover",
+                    "type": "cover"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/106154",
+                    "name": "cover from Captain America: Winter Soldier Vol. 2 #0",
+                    "type": "cover"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/171376",
+                    "name": "story from CAPTAIN AMERICA: WINTER SOLDIER VOL. 2 TPB (2013) #2",
+                    "type": "interiorStory"
+                }
+            ],
+            "returned": 17
+        },
+        "comics": {
+            "available": 2,
+            "collectionURI": "http:\/\/gateway.marvel.com\/v1\/public\/series\/1613\/comics",
+            "items": [
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/5195",
+                    "name": "Captain America: Winter Soldier Vol. 2 (Trade Paperback)"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/41932",
+                    "name": "Captain America: Winter Soldier Vol. 2 (Trade Paperback)"
+                }
+            ],
+            "returned": 2
+        },
+        "events": {
+            "available": 0,
+            "collectionURI": "http:\/\/gateway.marvel.com\/v1\/public\/series\/1613\/events",
+            "items": [],
+            "returned": 0
+        },
+        "next": null,
+        "previous": null
+    },
+    {
+        "id": 1614,
+        "title": "HOUSE OF M: WORLD OF M FEATURING WOLVERINE TPB (2006)",
+        "description": null,
+        "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/series\/1614",
+        "urls": [
+            {
+                "type": "detail",
+                "url": "http:\/\/marvel.com\/comics\/series\/1614\/house_of_m_world_of_m_featuring_wolverine_tpb_2006?utm_campaign=apiRef&utm_source=f0c5210c2332d5d32edc3a40552edb27"
+            }
+        ],
+        "startYear": 2006,
+        "endYear": 2006,
+        "rating": "T",
+        "type": "collection",
+        "modified": "-0001-11-30T00:00:00-0500",
+        "thumbnail": {
+            "path": "http:\/\/i.annihil.us\/u\/prod\/marvel\/i\/mg\/9\/60\/4bc62e83db473",
+            "extension": "jpg"
+        },
+        "creators": {
+            "available": 6,
+            "collectionURI": "http:\/\/gateway.marvel.com\/v1\/public\/series\/1614\/creators",
+            "items": [
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/creators\/367",
+                    "name": "Ed Brubaker",
+                    "role": "writer"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/creators\/889",
+                    "name": "Jesse Delperdang",
+                    "role": "inker"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/creators\/708",
+                    "name": "Mike Perkins",
+                    "role": "inker"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/creators\/8635",
+                    "name": "Vc Randy Gentile",
+                    "role": "letterer"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/creators\/6146",
+                    "name": "Avalon Studios",
+                    "role": "colorist"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/creators\/8991",
+                    "name": "Lee Weeks",
+                    "role": "penciler"
+                }
+            ],
+            "returned": 6
+        },
+        "characters": {
+            "available": 11,
+            "collectionURI": "http:\/\/gateway.marvel.com\/v1\/public\/series\/1614\/characters",
+            "items": [
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1009170",
+                    "name": "Baron Zemo (Heinrich Zemo)"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1009187",
+                    "name": "Black Panther"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1009220",
+                    "name": "Captain America"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1010914",
+                    "name": "Captain America (House of M)"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1009268",
+                    "name": "Deadpool"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1009356",
+                    "name": "Human Torch"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1009368",
+                    "name": "Iron Man"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1010945",
+                    "name": "Magneto (House of M)"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1010791",
+                    "name": "Sub-Mariner"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1011309",
+                    "name": "Toro (Thomas Raymond)"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1009718",
+                    "name": "Wolverine"
+                }
+            ],
+            "returned": 11
+        },
+        "stories": {
+            "available": 9,
+            "collectionURI": "http:\/\/gateway.marvel.com\/v1\/public\/series\/1614\/stories",
+            "items": [
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/2209",
+                    "name": "1 of 3 - House of M",
+                    "type": "interiorStory"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/2211",
+                    "name": "2 of 3 - House of M",
+                    "type": "interiorStory"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/2213",
+                    "name": "3 of 3 - House of M",
+                    "type": "interiorStory"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/2352",
+                    "name": "1 of 1 - House of M Tie-In",
+                    "type": "interiorStory"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/2494",
+                    "name": "3 of 4 - Enema of the State",
+                    "type": "interiorStory"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/3825",
+                    "name": "1 of 1- House of M",
+                    "type": "interiorStory"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/3889",
+                    "name": "5 of 6 - Reflections",
+                    "type": "interiorStory"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/4246",
+                    "name": "House of M tie-in",
+                    "type": "interiorStory"
+                },
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/65954",
+                    "name": "HOUSE OF M: WORLD OF M 0 cover",
+                    "type": "cover"
+                }
+            ],
+            "returned": 9
+        },
+        "comics": {
+            "available": 1,
+            "collectionURI": "http:\/\/gateway.marvel.com\/v1\/public\/series\/1614\/comics",
+            "items": [
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/3512",
+                    "name": "HOUSE OF M: WORLD OF M FEATURING WOLVERINE TPB (Trade Paperback)"
+                }
+            ],
+            "returned": 1
+        },
+        "events": {
+            "available": 1,
+            "collectionURI": "http:\/\/gateway.marvel.com\/v1\/public\/series\/1614\/events",
+            "items": [
+                {
+                    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/events\/251",
+                    "name": "House of M"
+                }
+            ],
+            "returned": 1
+        },
+        "next": null,
+        "previous": null
+    }
+]

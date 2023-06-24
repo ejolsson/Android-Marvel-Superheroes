@@ -51,5 +51,5 @@ data class Thumbnail (
 )
 
 enum class Extension {
-    @Json(name = "jpg") jpg // was Jpg
+    @Json(name = "jpg") jpg
 }

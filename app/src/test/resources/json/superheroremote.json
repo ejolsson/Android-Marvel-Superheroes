@@ -1,0 +1,862 @@
+[
+  {
+    "id": 1009295,
+    "name": "Exodus",
+    "description": "",
+    "modified": "2013-10-24T13:17:29-0400",
+    "thumbnail": {
+      "path": "http:\/\/i.annihil.us\/u\/prod\/marvel\/i\/mg\/e\/20\/52695589e1721",
+      "extension": "jpg"
+    },
+    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1009295",
+    "comics": {
+      "available": 27,
+      "collectionURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1009295\/comics",
+      "items": [
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/7251",
+          "name": "Avengers (1963) #369"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/17788",
+          "name": "West Coast Avengers (1985) #101"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/7405",
+          "name": "Cable (1993) #30"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/8656",
+          "name": "Excalibur (1988) #71"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/8570",
+          "name": "Excalibur (1988) #106"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/91736",
+          "name": "Immortal X-Men (2022) #5"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/91741",
+          "name": "Immortal X-Men (2022) #10"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/53688",
+          "name": "Quicksilver (1997) #12"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/56062",
+          "name": "Uncanny X-Men (2016) #14"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/13845",
+          "name": "Uncanny X-Men (1963) #304"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/13848",
+          "name": "Uncanny X-Men (1963) #307"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/13856",
+          "name": "Uncanny X-Men (1963) #315"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/23179",
+          "name": "Uncanny X-Men Annual  (1999) #1"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/17989",
+          "name": "X-Force (1991) #25"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/79949",
+          "name": "X-Men (2019) #11"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/14312",
+          "name": "X-Men (1991) #25"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/14313",
+          "name": "X-Men (1991) #26"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/14331",
+          "name": "X-Men (1991) #42"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/851",
+          "name": "X-Men (2004) #162"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/18173",
+          "name": "X-Men Chronicles (1995) #2"
+        }
+      ],
+      "returned": 20
+    },
+    "series": {
+      "available": 20,
+      "collectionURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1009295\/series",
+      "items": [
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/series\/1991",
+          "name": "Avengers (1963 - 1996)"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/series\/1995",
+          "name": "Cable (1993 - 2002)"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/series\/2011",
+          "name": "Excalibur (1988 - 1998)"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/series\/31375",
+          "name": "Immortal X-Men (2022 - Present)"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/series\/20086",
+          "name": "Quicksilver (1997 - 1998)"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/series\/20612",
+          "name": "Uncanny X-Men (2016 - 2017)"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/series\/2258",
+          "name": "Uncanny X-Men (1963 - 2011)"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/series\/29312",
+          "name": "Uncanny X-Men Annual  (1999)"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/series\/3630",
+          "name": "West Coast Avengers (1985 - 1994)"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/series\/3633",
+          "name": "X-Force (1991 - 2004)"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/series\/27567",
+          "name": "X-Men (2019 - 2021)"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/series\/403",
+          "name": "X-Men (2004 - 2007)"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/series\/2265",
+          "name": "X-Men (1991 - 2001)"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/series\/3640",
+          "name": "X-Men Chronicles (1995)"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/series\/3754",
+          "name": "X-Men Legacy (2008 - 2012)"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/series\/3637",
+          "name": "X-Men Unlimited (1993 - 2003)"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/series\/1301",
+          "name": "X-Men: Day of the Atom (2005)"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/series\/2102",
+          "name": "X-Men: Prime (1995)"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/series\/1452",
+          "name": "X-Men: The Complete Age of Apocalypse Epic Book 1 (2005)"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/series\/1685",
+          "name": "X-Men: The Complete Age of Apocalypse Epic Book 4 (2006)"
+        }
+      ],
+      "returned": 20
+    },
+    "stories": {
+      "available": 32,
+      "collectionURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1009295\/stories",
+      "items": [
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/624",
+          "name": "X-MEN (2004) #162",
+          "type": "cover"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/15054",
+          "name": "AVENGERS (1963) #369",
+          "type": "cover"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/22419",
+          "name": "A Portrait of the Artist",
+          "type": "interiorStory"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/22601",
+          "name": "Crossing Swords",
+          "type": "interiorStory"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/24230",
+          "name": "CABLE (1993) #30",
+          "type": "cover"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/24495",
+          "name": "Racing the Night",
+          "type": "interiorStory"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/26136",
+          "name": "Heroes and Villains Part One",
+          "type": "interiorStory"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/26137",
+          "name": "Cover #26137",
+          "type": "cover"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/26138",
+          "name": "Heroes and Villains Part Two: Treachery",
+          "type": "interiorStory"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/26140",
+          "name": "Heroes and Villains Part Three: Foreshadowing",
+          "type": "interiorStory"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/26142",
+          "name": "Heroes and Villains Part Four: Full Circle",
+          "type": "interiorStory"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/28119",
+          "name": "...For What I Have Done",
+          "type": "interiorStory"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/28125",
+          "name": "Uncanny X-Men (1963) #307",
+          "type": "cover"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/28126",
+          "name": "Bloodties Part Four: Night Fog",
+          "type": "interiorStory"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/28141",
+          "name": "UNCANNY X-MEN (1963) #315",
+          "type": "cover"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/28142",
+          "name": "Peers",
+          "type": "interiorStory"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/29177",
+          "name": "Fatal Attractions: Dreams Fade",
+          "type": "interiorStory"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/29179",
+          "name": "Bloodties Part 2: Civil Disobedience!",
+          "type": "interiorStory"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/29216",
+          "name": "The Fall of Avalon",
+          "type": "cover"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/37792",
+          "name": "Cover #37792",
+          "type": "cover"
+        }
+      ],
+      "returned": 20
+    },
+    "events": {
+      "available": 3,
+      "collectionURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1009295\/events",
+      "items": [
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/events\/227",
+          "name": "Age of Apocalypse"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/events\/249",
+          "name": "Fatal Attractions"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/events\/308",
+          "name": "X-Men: Regenesis"
+        }
+      ],
+      "returned": 3
+    },
+    "urls": [
+      {
+        "type": "detail",
+        "url": "http:\/\/marvel.com\/characters\/648\/exodus?utm_campaign=apiRef&utm_source=f0c5210c2332d5d32edc3a40552edb27"
+      },
+      {
+        "type": "wiki",
+        "url": "http:\/\/marvel.com\/universe\/Exodus?utm_campaign=apiRef&utm_source=f0c5210c2332d5d32edc3a40552edb27"
+      },
+      {
+        "type": "comiclink",
+        "url": "http:\/\/marvel.com\/comics\/characters\/1009295\/exodus?utm_campaign=apiRef&utm_source=f0c5210c2332d5d32edc3a40552edb27"
+      }
+    ]
+  },
+  {
+    "id": 1009296,
+    "name": "Expediter",
+    "description": "",
+    "modified": "1969-12-31T19:00:00-0500",
+    "thumbnail": {
+      "path": "http:\/\/i.annihil.us\/u\/prod\/marvel\/i\/mg\/b\/40\/image_not_available",
+      "extension": "jpg"
+    },
+    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1009296",
+    "comics": {
+      "available": 0,
+      "collectionURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1009296\/comics",
+      "items": [],
+      "returned": 0
+    },
+    "series": {
+      "available": 0,
+      "collectionURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1009296\/series",
+      "items": [],
+      "returned": 0
+    },
+    "stories": {
+      "available": 0,
+      "collectionURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1009296\/stories",
+      "items": [],
+      "returned": 0
+    },
+    "events": {
+      "available": 0,
+      "collectionURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1009296\/events",
+      "items": [],
+      "returned": 0
+    },
+    "urls": [
+      {
+        "type": "detail",
+        "url": "http:\/\/marvel.com\/characters\/650\/expediter?utm_campaign=apiRef&utm_source=f0c5210c2332d5d32edc3a40552edb27"
+      },
+      {
+        "type": "wiki",
+        "url": "http:\/\/marvel.com\/universe\/Culloden,_Zoe?utm_campaign=apiRef&utm_source=f0c5210c2332d5d32edc3a40552edb27"
+      },
+      {
+        "type": "comiclink",
+        "url": "http:\/\/marvel.com\/comics\/characters\/1009296\/expediter?utm_campaign=apiRef&utm_source=f0c5210c2332d5d32edc3a40552edb27"
+      }
+    ]
+  },
+  {
+    "id": 1011199,
+    "name": "Ezekiel",
+    "description": "",
+    "modified": "1969-12-31T19:00:00-0500",
+    "thumbnail": {
+      "path": "http:\/\/i.annihil.us\/u\/prod\/marvel\/i\/mg\/5\/c0\/4c002f2268bd4",
+      "extension": "jpg"
+    },
+    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1011199",
+    "comics": {
+      "available": 8,
+      "collectionURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1011199\/comics",
+      "items": [
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/30310",
+          "name": "Amazing Spider-Man (1999) #635"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/2970",
+          "name": "AMAZING SPIDER-MAN VOL. 7: BOOK OF EZEKIEL TPB (Trade Paperback)"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/1333",
+          "name": "Amazing Spider-Man Vol. 7: The Book of Ezekiel (Trade Paperback)"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/43162",
+          "name": "Amazing Spider-Man (1999) #49"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/413",
+          "name": "Amazing Spider-Man (1999) #505"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/441",
+          "name": "Amazing Spider-Man (1999) #506"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/491",
+          "name": "Amazing Spider-Man (1999) #507"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/643",
+          "name": "Amazing Spider-Man (1999) #508"
+        }
+      ],
+      "returned": 8
+    },
+    "series": {
+      "available": 3,
+      "collectionURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1011199\/series",
+      "items": [
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/series\/454",
+          "name": "Amazing Spider-Man (1999 - 2013)"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/series\/1292",
+          "name": "AMAZING SPIDER-MAN VOL. 7: BOOK OF EZEKIEL TPB (2005)"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/series\/1291",
+          "name": "Amazing Spider-Man Vol. 7: The Book of Ezekiel (2004)"
+        }
+      ],
+      "returned": 3
+    },
+    "stories": {
+      "available": 8,
+      "collectionURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1011199\/stories",
+      "items": [
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/1138",
+          "name": "Interior #1138",
+          "type": "interiorStory"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/1139",
+          "name": "Amazing Spider-Man (1999) #506",
+          "type": "cover"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/1140",
+          "name": "Interior #1140",
+          "type": "interiorStory"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/1141",
+          "name": "Amazing Spider-Man (1999) #507",
+          "type": "cover"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/1142",
+          "name": "Interior #1142",
+          "type": "interiorStory"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/1145",
+          "name": "Amazing Spider-Man (1999) #508",
+          "type": "cover"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/69446",
+          "name": "Amazing Spider-Man (1999) #635",
+          "type": "cover"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/113185",
+          "name": "Amazing Spider-Man (1999) #49",
+          "type": "cover"
+        }
+      ],
+      "returned": 8
+    },
+    "events": {
+      "available": 0,
+      "collectionURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1011199\/events",
+      "items": [],
+      "returned": 0
+    },
+    "urls": [
+      {
+        "type": "detail",
+        "url": "http:\/\/marvel.com\/characters\/654\/ezekiel?utm_campaign=apiRef&utm_source=f0c5210c2332d5d32edc3a40552edb27"
+      },
+      {
+        "type": "wiki",
+        "url": "http:\/\/marvel.com\/universe\/Ezekiel?utm_campaign=apiRef&utm_source=f0c5210c2332d5d32edc3a40552edb27"
+      },
+      {
+        "type": "comiclink",
+        "url": "http:\/\/marvel.com\/comics\/characters\/1011199\/ezekiel?utm_campaign=apiRef&utm_source=f0c5210c2332d5d32edc3a40552edb27"
+      }
+    ]
+  },
+  {
+    "id": 1011317,
+    "name": "Ezekiel Stane",
+    "description": "",
+    "modified": "1969-12-31T19:00:00-0500",
+    "thumbnail": {
+      "path": "http:\/\/i.annihil.us\/u\/prod\/marvel\/i\/mg\/c\/50\/4ce5a64fd283a",
+      "extension": "jpg"
+    },
+    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1011317",
+    "comics": {
+      "available": 17,
+      "collectionURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1011317\/comics",
+      "items": [
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/21272",
+          "name": "Invincible Iron Man (2008) #1"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/21416",
+          "name": "Invincible Iron Man (2008) #2"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/21590",
+          "name": "Invincible Iron Man (2008) #3"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/21788",
+          "name": "Invincible Iron Man (2008) #4"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/22030",
+          "name": "Invincible Iron Man (2008) #5"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/22355",
+          "name": "Invincible Iron Man (2008) #6"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/40217",
+          "name": "Invincible Iron Man (2008) #519"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/40216",
+          "name": "Invincible Iron Man (2008) #521"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/40218",
+          "name": "Invincible Iron Man (2008) #522"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/40228",
+          "name": "Invincible Iron Man (2008) #523"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/40219",
+          "name": "Invincible Iron Man (2008) #524"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/40215",
+          "name": "Invincible Iron Man (2008) #525"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/42493",
+          "name": "Invincible Iron Man (2008) #526"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/23879",
+          "name": "Invincible Iron Man Vol. 1: The Five Nightmares (Trade Paperback)"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/20695",
+          "name": "The Order (2007) #8"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/20889",
+          "name": "The Order (2007) #9"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/21020",
+          "name": "The Order (2007) #10"
+        }
+      ],
+      "returned": 17
+    },
+    "series": {
+      "available": 3,
+      "collectionURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1011317\/series",
+      "items": [
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/series\/4889",
+          "name": "Invincible Iron Man (2008 - 2012)"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/series\/7043",
+          "name": "Invincible Iron Man Vol. 1: The Five Nightmares (2009 - Present)"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/series\/2537",
+          "name": "The Order (2007 - 2008)"
+        }
+      ],
+      "returned": 3
+    },
+    "stories": {
+      "available": 24,
+      "collectionURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1011317\/stories",
+      "items": [
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/44384",
+          "name": "The Order (2007) #8",
+          "type": "cover"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/44385",
+          "name": "1 of 5",
+          "type": "interiorStory"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/44730",
+          "name": "The Order (2007) #9",
+          "type": "cover"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/44731",
+          "name": "2 of 5",
+          "type": "interiorStory"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/45741",
+          "name": "The Order (2007) #10",
+          "type": "cover"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/45742",
+          "name": "3 of 5",
+          "type": "interiorStory"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/46978",
+          "name": "Invincible Iron Man (2008) #1",
+          "type": "interiorStory"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/47285",
+          "name": "Invincible Iron Man (2008) #2",
+          "type": "interiorStory"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/47587",
+          "name": "Invincible Iron Man (2008) #3",
+          "type": "interiorStory"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/47885",
+          "name": "Invincible Iron Man (2008) #4",
+          "type": "cover"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/47886",
+          "name": "Invincible Iron Man (2008) #4",
+          "type": "interiorStory"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/48572",
+          "name": "Invincible Iron Man (2008) #5",
+          "type": "cover"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/48573",
+          "name": "Invincible Iron Man (2008) #5",
+          "type": "interiorStory"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/49214",
+          "name": "Invincible Iron Man (2008) #6",
+          "type": "cover"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/49215",
+          "name": "Invincible Iron Man (2008) #6",
+          "type": "interiorStory"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/56300",
+          "name": "Interior #56300",
+          "type": "interiorStory"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/91239",
+          "name": "Interior #91239",
+          "type": "interiorStory"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/91241",
+          "name": "Interior #91241",
+          "type": "interiorStory"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/91243",
+          "name": "Interior #91243",
+          "type": "interiorStory"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/91245",
+          "name": "Interior #91245",
+          "type": "interiorStory"
+        }
+      ],
+      "returned": 20
+    },
+    "events": {
+      "available": 0,
+      "collectionURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1011317\/events",
+      "items": [],
+      "returned": 0
+    },
+    "urls": [
+      {
+        "type": "detail",
+        "url": "http:\/\/marvel.com\/characters\/2911\/ezekiel_stane?utm_campaign=apiRef&utm_source=f0c5210c2332d5d32edc3a40552edb27"
+      },
+      {
+        "type": "wiki",
+        "url": "http:\/\/marvel.com\/universe\/Stane,_Ezekiel?utm_campaign=apiRef&utm_source=f0c5210c2332d5d32edc3a40552edb27"
+      },
+      {
+        "type": "comiclink",
+        "url": "http:\/\/marvel.com\/comics\/characters\/1011317\/ezekiel_stane?utm_campaign=apiRef&utm_source=f0c5210c2332d5d32edc3a40552edb27"
+      }
+    ]
+  },
+  {
+    "id": 1009248,
+    "name": "Fabian Cortez",
+    "description": "",
+    "modified": "1969-12-31T19:00:00-0500",
+    "thumbnail": {
+      "path": "http:\/\/i.annihil.us\/u\/prod\/marvel\/i\/mg\/4\/f0\/4c0040603dda1",
+      "extension": "jpg"
+    },
+    "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1009248",
+    "comics": {
+      "available": 6,
+      "collectionURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1009248\/comics",
+      "items": [
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/90344",
+          "name": "S.W.O.R.D. (2020) #5"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/94676",
+          "name": "S.W.O.R.D. (2020) #7"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/13841",
+          "name": "Uncanny X-Men (1963) #300"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/13842",
+          "name": "Uncanny X-Men (1963) #301"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/13843",
+          "name": "Uncanny X-Men (1963) #302"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/comics\/91780",
+          "name": "Way of X (2021) #5"
+        }
+      ],
+      "returned": 6
+    },
+    "series": {
+      "available": 3,
+      "collectionURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1009248\/series",
+      "items": [
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/series\/31083",
+          "name": "S.W.O.R.D. (2020 - Present)"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/series\/2258",
+          "name": "Uncanny X-Men (1963 - 2011)"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/series\/31392",
+          "name": "Way of X (2021 - Present)"
+        }
+      ],
+      "returned": 3
+    },
+    "stories": {
+      "available": 6,
+      "collectionURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1009248\/stories",
+      "items": [
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/28110",
+          "name": "Legacies",
+          "type": "interiorStory"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/28113",
+          "name": "Dominion!",
+          "type": "interiorStory"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/28115",
+          "name": "Province",
+          "type": "interiorStory"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/201736",
+          "name": "cover from S.W.O.R.D. (2020) #5",
+          "type": "cover"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/204645",
+          "name": "cover from Way of X (2021) #5",
+          "type": "cover"
+        },
+        {
+          "resourceURI": "http:\/\/gateway.marvel.com\/v1\/public\/stories\/210473",
+          "name": "cover from S.W.O.R.D. (2020) #7",
+          "type": "cover"
+        }
+      ],
+      "returned": 6
+    },
+    "events": {
+      "available": 0,
+      "collectionURI": "http:\/\/gateway.marvel.com\/v1\/public\/characters\/1009248\/events",
+      "items": [],
+      "returned": 0
+    },
+    "urls": [
+      {
+        "type": "detail",
+        "url": "http:\/\/marvel.com\/characters\/2695\/fabian_cortez?utm_campaign=apiRef&utm_source=f0c5210c2332d5d32edc3a40552edb27"
+      },
+      {
+        "type": "wiki",
+        "url": "http:\/\/marvel.com\/universe\/Cortez,_Fabian?utm_campaign=apiRef&utm_source=f0c5210c2332d5d32edc3a40552edb27"
+      },
+      {
+        "type": "comiclink",
+        "url": "http:\/\/marvel.com\/comics\/characters\/1009248\/fabian_cortez?utm_campaign=apiRef&utm_source=f0c5210c2332d5d32edc3a40552edb27"
+      }
+    ]
+  }
+]
