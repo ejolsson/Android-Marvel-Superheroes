@@ -47,7 +47,6 @@ fun SuperHeroListScreen (viewModel: HeroViewModel, onHeroClick3: (Long) -> Unit)
 
     LaunchedEffect(Unit) {
         viewModel.getHeroes5()
-//        viewModel.countFavorites(heroListState)
     }
 
     SuperHeroListScreenContent(heroListState, favCount) { id ->

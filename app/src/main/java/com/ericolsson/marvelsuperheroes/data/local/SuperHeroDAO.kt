@@ -5,11 +5,12 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface SuperHeroDAO {
     @Query("SELECT * FROM superheros")
-    fun getAllSuperheros(): List<SuperHeroLocal>
+    fun getAllSuperheros(): Flow<List<SuperHeroLocal>>
 
     @Query("SELECT * FROM superheros WHERE id = :id")
     fun getHeroByName(id: Long): SuperHeroLocal

@@ -12,8 +12,10 @@ import com.ericolsson.marvelsuperheroes.domain.ComicsPresent
 import com.ericolsson.marvelsuperheroes.domain.SeriesPresent
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -49,10 +51,11 @@ class HeroViewModel @Inject constructor(
     // endregion
     fun getHeroes5() {
         viewModelScope.launch {
-            val result = withContext(Dispatchers.IO) {
-                repository.getHeroes4()
+            withContext(Dispatchers.IO) {
+                repository.getHeroes4().collect{ heroes ->
+                    _heroListState.update { heroes }
+                }
             }
-            _heroListState.update { result } // point where api data gets assigned
             Log.w("Tag", "_heroListState: ${_heroListState.value}")
         }
     }

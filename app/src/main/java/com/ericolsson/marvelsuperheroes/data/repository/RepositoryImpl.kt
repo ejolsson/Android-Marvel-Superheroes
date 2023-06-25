@@ -5,31 +5,26 @@ import com.ericolsson.marvelsuperheroes.SeriesRemote
 import com.ericolsson.marvelsuperheroes.data.local.LocalDataSource
 import com.ericolsson.marvelsuperheroes.data.local.SuperHeroDAO
 import com.ericolsson.marvelsuperheroes.data.local.SuperHeroLocal
-import com.ericolsson.marvelsuperheroes.data.mappers.LocalDetailToPresentationMapper
-import com.ericolsson.marvelsuperheroes.data.mappers.LocalToLocalDetailMapper
-import com.ericolsson.marvelsuperheroes.data.mappers.LocalToPresentationMapper
-import com.ericolsson.marvelsuperheroes.data.mappers.PresentationToLocalMapper
 import com.ericolsson.marvelsuperheroes.data.mappers.RemoteToLocalMapper
-import com.ericolsson.marvelsuperheroes.data.mappers.RemoteToPresentationMapper
 import com.ericolsson.marvelsuperheroes.data.remote.RemoteDataSource
 import com.ericolsson.marvelsuperheroes.data.remote.response.ComicsRemote
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.count
+import kotlinx.coroutines.flow.first
 import javax.inject.Inject
 
 class RepositoryImpl @Inject constructor(
     private val localDataSource: LocalDataSource,
     private val remoteDataSource: RemoteDataSource,
-    private val remoteToPresentationMapper: RemoteToPresentationMapper,
     private val remoteToLocalMapper: RemoteToLocalMapper,
-    private val localToPresentationMapper: LocalToPresentationMapper,
-    private val presentationToLocalMapper: PresentationToLocalMapper,
-    private val localDetailToPresentationMapper: LocalDetailToPresentationMapper,
-    private val localToLocalDetailMapper: LocalToLocalDetailMapper,
     private val dao: SuperHeroDAO
 ): Repository {
     // region Non-focus
-    override suspend fun getHeroes4(): List<SuperHeroLocal> {
+    override suspend fun getHeroes4(): Flow<List<SuperHeroLocal>> {
 
-        if (localDataSource.getHeroes3().isEmpty()) {
+        val localHeroes = localDataSource.getHeroes3().first()
+
+        if (localHeroes.isEmpty()) {
             Log.d("Tag", "No heroes stored locally. Going the fetch them!")
             val remoteSuperHeroes = remoteDataSource.getHeroes2()
 

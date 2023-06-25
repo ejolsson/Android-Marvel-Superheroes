@@ -1,12 +1,13 @@
 package com.ericolsson.marvelsuperheroes.data.local
 
+import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 class LocalDataSourceImpl @Inject constructor(
     private val dao: SuperHeroDAO
 ) : LocalDataSource {
     // region Non-focus
-    override fun getHeroes3(): List<SuperHeroLocal> {
+    override fun getHeroes3(): Flow<List<SuperHeroLocal>> {
         return dao.getAllSuperheros()
     }
 
