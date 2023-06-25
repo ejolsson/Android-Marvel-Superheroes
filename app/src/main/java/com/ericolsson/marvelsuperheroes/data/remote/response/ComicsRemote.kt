@@ -1,6 +1,5 @@
 package com.ericolsson.marvelsuperheroes.data.remote.response
 
-//import com.ericolsson.marvelsuperheroes.Thumbnail
 import com.squareup.moshi.Json
 
 data class ComicsRemote(

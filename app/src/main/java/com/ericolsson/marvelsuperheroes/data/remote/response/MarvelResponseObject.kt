@@ -31,20 +31,6 @@ data class ComicsItem (
     @Json(name = "name") val name: String
 )
 
-data class StoriesItem (
-    @Json(name = "resourceURI") val resourceURI: String,
-    @Json(name = "name") val name: String,
-    @Json(name = "type") val type: ItemType
-)
-
-enum class ItemType {
-    @Json(name = "Cover") Cover,
-    @Json(name = "Empty") Empty,
-    @Json(name = "InteriorStory") InteriorStory,
-    @Json(name = "Profile") Profile,
-    @Json(name = "Recap") Recap
-}
-
 data class Thumbnail (
     @Json(name = "path") val path: String,
     @Json(name = "extension") val extension: Extension

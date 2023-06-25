@@ -11,7 +11,7 @@ import com.ericolsson.marvelsuperheroes.ui.heroes.SuperHeroListScreen
 import com.ericolsson.marvelsuperheroes.ui.navigation.Screens
 
 @Composable
-fun NavigationGraph(viewModel: HeroViewModel) { // called in MainActivity, always runs/listens?
+fun NavigationGraph(viewModel: HeroViewModel) {
 
     val navController = rememberNavController()
 
@@ -35,15 +35,12 @@ fun NavigationGraph(viewModel: HeroViewModel) { // called in MainActivity, alway
              */
             val id = it.arguments?.getLong(Screens.SuperHeroDetailScreen.ARG_ID)
             val onFavClick: (Boolean) -> Unit = {}
-            if (id != null) { // id: 1009664 is thor
+            if (id != null) {
                 // actually call the detail screen
                 SuperHeroDetailScreen(viewModel = viewModel, id)
             } else {
                 navController.navigateUp()
             }
         }
-//        composable(Screens.SuperHeroListScreen.route) { backStackEntry ->
-//            val
-//        }
     }
 }

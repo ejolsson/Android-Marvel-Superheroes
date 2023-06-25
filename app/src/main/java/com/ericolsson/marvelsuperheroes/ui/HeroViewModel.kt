@@ -3,7 +3,6 @@ package com.ericolsson.marvelsuperheroes.ui
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.ericolsson.marvelsuperheroes.R
 import com.ericolsson.marvelsuperheroes.data.local.SuperHeroLocal
 import com.ericolsson.marvelsuperheroes.data.mappers.ComicsRemoteToPresentationMapper
 import com.ericolsson.marvelsuperheroes.data.mappers.SeriesRemoteToPresentationMapper
@@ -12,10 +11,8 @@ import com.ericolsson.marvelsuperheroes.domain.ComicsPresent
 import com.ericolsson.marvelsuperheroes.domain.SeriesPresent
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -27,9 +24,6 @@ class HeroViewModel @Inject constructor(
     private val seriesRemoteToPresentationMapper: SeriesRemoteToPresentationMapper,
     private val comicsRemoteToPresentationMapper: ComicsRemoteToPresentationMapper
     ): ViewModel() {
-
-    // region state management
-    private val apiKey = (R.string.marvel_api_key)
 
     // HeroList
     private val _heroListState = MutableStateFlow<List<SuperHeroLocal>>(emptyList())
@@ -48,7 +42,6 @@ class HeroViewModel @Inject constructor(
     private var _favCountState = MutableStateFlow(0)
     val favCountState: StateFlow<Int> get() = _favCountState
 
-    // endregion
     fun getHeroes5() {
         viewModelScope.launch {
             withContext(Dispatchers.IO) {
@@ -56,7 +49,7 @@ class HeroViewModel @Inject constructor(
                     _heroListState.update { heroes }
                 }
             }
-            Log.w("Tag", "_heroListState: ${_heroListState.value}")
+            Log.d("Tag", "_heroListState: ${_heroListState.value}")
         }
     }
 
@@ -69,11 +62,7 @@ class HeroViewModel @Inject constructor(
             Log.d("Tag Fav", "_heroState: ${_heroState.value}")
         }
     }
-//    fun insertSuperhero(hero: SuperHero) {
-//        viewModelScope.launch(Dispatchers.IO) {
-//            repository.insertHero(hero)
-//        }
-//    }
+
     fun getSeries5(heroId: Long) {
         viewModelScope.launch {
             val result = withContext(Dispatchers.IO) {
@@ -104,7 +93,7 @@ class HeroViewModel @Inject constructor(
                 hero
             }
             _heroState.value = hero
-            Log.w("Tag Fav", "hero.fav after: $hero")
+            Log.d("Tag Fav", "hero.fav after: $hero")
         }
     }
 

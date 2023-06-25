@@ -6,10 +6,6 @@ import javax.inject.Inject
 
 class LocalDetailToPresentationMapper @Inject constructor() {
 
-//    fun mapList(superHeroList: List<SuperHeroLocal>): List<SuperHero> {
-//        return superHeroList.map { map(it) }
-//    }
-
     fun map(superHeroDetailLocal: SuperHeroDetailLocal): SuperHeroDetail {
         return SuperHeroDetail(
             id = superHeroDetailLocal.id,

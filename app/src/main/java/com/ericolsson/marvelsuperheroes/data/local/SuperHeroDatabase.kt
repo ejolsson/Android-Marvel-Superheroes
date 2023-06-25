@@ -4,7 +4,6 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 import com.ericolsson.marvelsuperheroes.domain.SuperHero
 
-// 1 DAO file, all functions
 @Database(entities = [
     SuperHeroLocal::class,
     SuperHeroDetailLocal::class,

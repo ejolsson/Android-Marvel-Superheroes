@@ -4,8 +4,7 @@ import com.ericolsson.marvelsuperheroes.data.local.SuperHeroDetailLocal
 import com.ericolsson.marvelsuperheroes.domain.SuperHero
 import com.ericolsson.marvelsuperheroes.domain.SuperHeroDetail
 import javax.inject.Inject
-// SuperHeroDetail → SuperHeroDetailLocal // class way
-// SuperHero → SuperHeroDetailLocal // my way
+// SuperHero → SuperHeroDetailLocal
 class PresentationToLocalMapper @Inject constructor() {
 
     fun map(superHeroList: List<SuperHeroDetail>): List<SuperHeroDetailLocal> {

@@ -1,17 +1,13 @@
 package com.ericolsson.marvelsuperheroes.ui
 
-import android.util.Log
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.MaterialTheme
@@ -35,22 +31,15 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
-import com.ericolsson.marvelsuperheroes.data.local.SuperHeroDetailLocal
 import com.ericolsson.marvelsuperheroes.data.local.SuperHeroLocal
-import com.ericolsson.marvelsuperheroes.data.mappers.ComicsRemoteToPresentationMapper
-import com.ericolsson.marvelsuperheroes.data.mappers.SeriesRemoteToPresentationMapper
-import com.ericolsson.marvelsuperheroes.data.repository.Repository
 import com.ericolsson.marvelsuperheroes.domain.ComicsPresent
 import com.ericolsson.marvelsuperheroes.domain.SeriesPresent
-import com.ericolsson.marvelsuperheroes.domain.SuperHero
-import com.ericolsson.marvelsuperheroes.domain.SuperHeroDetail
 
 @Composable
 fun SuperHeroDetailScreen (viewModel: HeroViewModel, id: Long) {
 
-    val heroState by viewModel.heroState.collectAsState() // SuperHeroDetail
+    val heroState by viewModel.heroState.collectAsState()
     val seriesState by viewModel.seriesState.collectAsState()
     val comicsState by viewModel.comicsState.collectAsState()
 
@@ -81,7 +70,7 @@ fun SuperHeroDetailScreenContent(
         topBar = {
             DetailTopBar(hero, onFavClick2 = onFavClick3)
         }
-    ) {
+    ) { it ->
         LazyColumn(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(16.dp), contentPadding = it) {
             item {
                 Text(
@@ -123,7 +112,6 @@ fun SuperHeroDetailScreenContent(
     }
 }
 
-// region Detail items
 // Content
 @Composable
 fun HeroDetailItem(hero: SuperHeroLocal, modifier: Modifier = Modifier) {
@@ -132,7 +120,6 @@ fun HeroDetailItem(hero: SuperHeroLocal, modifier: Modifier = Modifier) {
             .fillMaxWidth()
             .height(450.dp)
     ) {
-//        Text(text = hero.description, style = typography.headlineMedium, modifier = Modifier.padding(8.dp))
         AsyncImage(
             model = hero.photo,
             contentDescription = hero.description,
@@ -185,10 +172,7 @@ fun ComicsItem(comics: ComicsPresent, modifier: Modifier = Modifier) {
     }
 }
 
-// endregion
-
 // TopBar
-@OptIn(ExperimentalMaterial3Api::class) // done
 @Composable
 fun DetailTopBar(hero: SuperHeroLocal, onFavClick2: (SuperHeroLocal) -> Unit) {
 
@@ -196,16 +180,6 @@ fun DetailTopBar(hero: SuperHeroLocal, onFavClick2: (SuperHeroLocal) -> Unit) {
         title = { androidx.compose.material.Text(
             text = hero.name, style = androidx.compose.material3.MaterialTheme.typography.headlineLarge, modifier = Modifier.padding(8.dp)
         ) },
-/*        navigationIcon = {
-            val onBackClick
-            IconButton(onClick = onBackClick) {
-                androidx.compose.material.Icon(
-                    imageVector = Icons.Default.KeyboardArrowLeft,
-                    contentDescription = "Back"
-                )
-            }
-        },
- */
         actions = {
             FavoriteHeart(hero = hero, onFavClick1 = onFavClick2)
         }
@@ -218,23 +192,17 @@ fun FavoriteHeart(hero: SuperHeroLocal, modifier: Modifier = Modifier, onFavClic
     Row (
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier.clickable {
-                onFavClick1(hero) // SuperHero.id
-//            Log.d("Tag Fav", "onFavClick1, ${hero.name} fav status: ${hero.favorite}")
+                onFavClick1(hero) 
         }
     ) {
         Icon(
             imageVector = Icons.Default.Favorite,
             contentDescription = "Favorite",
-//            tint = if (isFavorite) MaterialTheme.colors.primary else Color.LightGray,
             tint = if (hero.favorite) Color.Yellow else Color.LightGray,
             modifier = Modifier.size(32.dp)
         )
-//        Spacer(modifier = Modifier.width(4.dp))
-//        Text(text = if (hero.favorite) "Favorite" else "Not favorite")
     }
 }
-
-// region Preview Items
 
 @Preview(showBackground = true)
 @Composable
@@ -250,16 +218,10 @@ fun DetailTopBar_Preview() {
     DetailTopBar(heroSample, onFavClick)
 }
 
-//@Preview
-//@Composable
-//fun FavoriteHeart_Preview(hero: SuperHero, onFavClick2: (Boolean) -> Unit) {
-//    FavoriteHeart(heroSample, true)
-//}
-
 val heroSample = SuperHeroLocal(
     id = 1009664,
     name = "Thor",
-    photo = "\"http://i.annihil.us/u/prod/marvel/i/mg/d/d0/5269657a74350.jpg",
+    photo = "http://i.annihil.us/u/prod/marvel/i/mg/d/d0/5269657a74350.jpg",
     description = "God of lightening",
     favorite = true
 )
@@ -267,21 +229,9 @@ val seriesSample = listOf(
     SeriesPresent(
         id = 16450,
         title = "A+X (2012 - 2014)",
-        description = "Short description", // "et ready for action-packed stories featuring team-ups from your favorite Marvel heroes every month! First, a story where Wolverine and Hulk come together, and then Captain America and Cable meet up! But will each partner's combined strength be enough?"
+        description = "Short description",
         photo = "http://i.annihil.us/u/prod/marvel/i/mg/5/d0/511e88a20ae34.jpg",
-    ),
-//    SeriesPresent(
-//        id = 6079,
-//        title = "Adam: Legend of the Blue Marvel (2008)",
-//        description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
-//        photo = "http://i.annihil.us/u/prod/marvel/i/mg/3/20/5449710ac36d2.jpg",
-//    ),
-//    SeriesPresent(
-//        id = 27392,
-//        title = "Aero (2019 - 2020)",
-//        description = "",
-//        photo = "http://i.annihil.us/u/prod/marvel/i/mg/3/00/5d128077da440.jpg",
-//    )
+    )
 )
 
 val comicsSample = listOf(
@@ -298,5 +248,3 @@ val comicsSample = listOf(
         photo = "http://i.annihil.us/u/prod/marvel/i/mg/3/20/646d0d81b6341.jpg",
     )
 )
-
-// endregion

@@ -10,5 +10,3 @@ interface RemoteDataSource {
     suspend fun getSeries2(id: Long): SeriesRemote
     suspend fun getComics2(id: Long): ComicsRemote
 }
-
-// use interface for testing and separation of prod RemoteDataSource

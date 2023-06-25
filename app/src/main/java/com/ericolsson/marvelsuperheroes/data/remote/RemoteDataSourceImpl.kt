@@ -4,6 +4,7 @@ import com.ericolsson.marvelsuperheroes.SeriesRemote
 import com.ericolsson.marvelsuperheroes.data.MarvelApi
 import com.ericolsson.marvelsuperheroes.data.remote.response.ComicsRemote
 import com.ericolsson.marvelsuperheroes.data.remote.response.MarvelResponseObject
+import com.ericolsson.marvelsuperheroes.data.remote.response.SuperHeroRemote
 import javax.inject.Inject
 
 class RemoteDataSourceImpl @Inject constructor(private val api: MarvelApi): RemoteDataSource {
@@ -25,9 +26,10 @@ class RemoteDataSourceImpl @Inject constructor(private val api: MarvelApi): Remo
     override suspend fun getComics2(id: Long): ComicsRemote {
         return api.getComics1(id,1,apikey,hash,2)
     }
-    suspend fun getHeroes3(): MarvelResponseObject { // todo: for testing
-        return api.getHeroes1(1, apikey, hash, 3, 800)
-        // return result.filter { it.name.startsWith("B") }
+    suspend fun getHeroesT(): List<SuperHeroRemote> {
+        val result = api.getHeroes1(1, apikey, hash, 3, 800)
+        return result.data.results.filter {
+            it.name.startsWith("F")
+        }
     }
-
 }

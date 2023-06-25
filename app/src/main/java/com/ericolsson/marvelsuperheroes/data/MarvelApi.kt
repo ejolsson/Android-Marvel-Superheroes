@@ -24,7 +24,6 @@ interface MarvelApi {
         @Query("apikey") apikey: String,
         @Query("hash") hash: String,
         @Query("name") name: String,
-//        @Query("characterId") characterId: Int
     ): MarvelResponseObject
 
     @GET("/v1/public/characters/{characterId}/series")

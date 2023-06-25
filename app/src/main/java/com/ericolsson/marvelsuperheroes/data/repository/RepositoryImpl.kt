@@ -1,6 +1,5 @@
 package com.ericolsson.marvelsuperheroes.data.repository
 
-import android.util.Log
 import com.ericolsson.marvelsuperheroes.SeriesRemote
 import com.ericolsson.marvelsuperheroes.data.local.LocalDataSource
 import com.ericolsson.marvelsuperheroes.data.local.SuperHeroDAO
@@ -9,8 +8,8 @@ import com.ericolsson.marvelsuperheroes.data.mappers.RemoteToLocalMapper
 import com.ericolsson.marvelsuperheroes.data.remote.RemoteDataSource
 import com.ericolsson.marvelsuperheroes.data.remote.response.ComicsRemote
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.count
 import kotlinx.coroutines.flow.first
+import util.Log
 import javax.inject.Inject
 
 class RepositoryImpl @Inject constructor(
@@ -19,7 +18,7 @@ class RepositoryImpl @Inject constructor(
     private val remoteToLocalMapper: RemoteToLocalMapper,
     private val dao: SuperHeroDAO
 ): Repository {
-    // region Non-focus
+
     override suspend fun getHeroes4(): Flow<List<SuperHeroLocal>> {
 
         val localHeroes = localDataSource.getHeroes3().first()
@@ -30,7 +29,7 @@ class RepositoryImpl @Inject constructor(
 
             localDataSource.insertHeroes(remoteToLocalMapper.mapList(remoteSuperHeroes))
         }
-        return localDataSource.getHeroes3() //localToPresentationMapper.mapLocalSuperHeroes(localDataSource.getHeroes3())
+        return localDataSource.getHeroes3()
     }
 
     override suspend fun insertHero(hero: SuperHeroLocal) {
@@ -38,7 +37,6 @@ class RepositoryImpl @Inject constructor(
     }
 
     override suspend fun getHeroByName4(heroId: Long): SuperHeroLocal {
-//        return localToPresentationMapper.map(localDataSource.getHeroByName3(heroId))
         return localDataSource.getHeroByName3(heroId)
     }
 
@@ -49,7 +47,7 @@ class RepositoryImpl @Inject constructor(
     override suspend fun getComics4(id: Long): ComicsRemote {
         return remoteDataSource.getComics2(id)
     }
-    // endregion
+
     // Insert "favorite" SuperHero to SuperHeroDetailLocal
     override suspend fun insertFav(superHeroLocal: SuperHeroLocal) {
         localDataSource.insertHero(superHeroLocal)

@@ -31,7 +31,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.layout.HorizontalAlignmentLine
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
@@ -39,7 +38,7 @@ import com.ericolsson.marvelsuperheroes.data.local.SuperHeroLocal
 import com.ericolsson.marvelsuperheroes.ui.FavoriteHeart
 import com.ericolsson.marvelsuperheroes.ui.HeroViewModel
 
-@Composable // done
+@Composable
 fun SuperHeroListScreen (viewModel: HeroViewModel, onHeroClick3: (Long) -> Unit) {
 
     val heroListState by viewModel.heroListState.collectAsState()
@@ -51,7 +50,6 @@ fun SuperHeroListScreen (viewModel: HeroViewModel, onHeroClick3: (Long) -> Unit)
 
     SuperHeroListScreenContent(heroListState, favCount) { id ->
         onHeroClick3(id)
-//        Log.d("Tag", "$id cell clicked")
     }
 }
 
@@ -72,30 +70,29 @@ fun SuperHeroListScreenContent(heroes: List<SuperHeroLocal>, favs: Int, onHeroCl
         topBar = {
             ListTopBar(favs)
         },
-        bottomBar = {
-            ListBottomBar()
-        }
+//        bottomBar = {
+//            ListBottomBar()
+//        }
     ) {
         LazyColumn(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(16.dp), contentPadding = it) {
             items(heroes, key = { it.id }) { hero ->
                 SuperHeroItem(hero = hero, onHeroClick1 = onHeroClick2)
-//                Log.d("Tag", "LazyColumn > items > hero: $hero")
             }
         }
     }
 }
 
-@Composable // done
+@Composable
 fun SuperHeroItem(hero: SuperHeroLocal, modifier: Modifier = Modifier, onHeroClick1: (Long) -> Unit) {
     Card(
         modifier = modifier
             .fillMaxWidth()
             .height(300.dp)
-            .clickable { onHeroClick1(hero.id) } // should pass hero
+            .clickable { onHeroClick1(hero.id) }
     ) {
         AsyncImage(
-            model = hero.photo, // hardcode: heroDefault.thumbnail.path,
-            contentDescription = hero.description,// heroDefault.name,
+            model = hero.photo,
+            contentDescription = hero.description,
             modifier = Modifier
                 .fillMaxWidth()
                 .weight(1f),
@@ -115,7 +112,7 @@ fun SuperHeroItem(hero: SuperHeroLocal, modifier: Modifier = Modifier, onHeroCli
 }
 
 @Preview(showBackground = true)
-@Composable // done, not used??
+@Composable
 fun SuperHeroItem_Preview() {
     SuperHeroItem(
         SuperHeroLocal(
@@ -128,7 +125,7 @@ fun SuperHeroItem_Preview() {
 }
 
 // TopBar
-@OptIn(ExperimentalMaterial3Api::class) // done
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ListTopBar(favs: Int = 0) {
 
@@ -138,13 +135,13 @@ fun ListTopBar(favs: Int = 0) {
 }
 
 @Preview
-@Composable // done
+@Composable
 fun ListTopBar_Preview() {
     ListTopBar()
 }
 
 // BottomBar
-@Composable // done
+@Composable
 fun ListBottomBar(favs: Int = 0) {
     BottomAppBar() {
         Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceAround) {
@@ -154,13 +151,13 @@ fun ListBottomBar(favs: Int = 0) {
     }
 }
 
-@Preview // done
+@Preview
 @Composable
 fun MyBottomBar_Preview() {
     ListBottomBar()
 }
 
-@Composable // done
+@Composable
 fun BottomBarItem(text: String, icon: ImageVector) {
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
         Icon(imageVector = icon, contentDescription = icon.name)
@@ -168,7 +165,7 @@ fun BottomBarItem(text: String, icon: ImageVector) {
     }
 }
 
-@Preview // done
+@Preview
 @Composable
 fun BottomBarItem_Preview() {
     BottomBarItem(text = "Home", icon = Icons.Default.Home)

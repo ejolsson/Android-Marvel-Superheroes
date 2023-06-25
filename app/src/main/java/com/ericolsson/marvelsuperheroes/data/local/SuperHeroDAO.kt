@@ -16,7 +16,7 @@ interface SuperHeroDAO {
     fun getHeroByName(id: Long): SuperHeroLocal
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertAll(superHeroLocal: List<SuperHeroLocal>)
+    fun insertAll(superHeroLocalList: List<SuperHeroLocal>)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertSuperhero(superHeroLocal: SuperHeroLocal)

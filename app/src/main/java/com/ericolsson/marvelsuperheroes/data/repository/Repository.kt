@@ -11,7 +11,7 @@ interface Repository {
     suspend fun getHeroByName4(id: Long): SuperHeroLocal
     suspend fun getSeries4(id: Long): SeriesRemote
     suspend fun getComics4(id: Long): ComicsRemote
-    suspend fun insertFav(superHeroLocal: SuperHeroLocal) // type?
+    suspend fun insertFav(superHeroLocal: SuperHeroLocal)
     suspend fun deleteFav(superHeroLocal: SuperHeroLocal)
 //    suspend fun countFavs(superHeroLocalList: List<SuperHeroLocal>): Int
 }
