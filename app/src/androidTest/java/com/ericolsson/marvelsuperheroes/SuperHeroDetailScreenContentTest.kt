@@ -19,7 +19,27 @@ class SuperHeroDetailScreenContentTest {
     val onFavClick: (SuperHeroLocal) -> Unit = {}
 
     @Test
-    fun given_FavClick_When_False_Then_True() {
+    fun given_screen_when_launched_then_Details_displayed () {
+        with(composeRule) {
+
+            // Given
+            setContent {
+                SuperHeroDetailScreenContent(
+                    hero = heroSample,
+                    series = seriesSample,
+                    comics = comicsSample,
+                    onFavClick3 = onFavClick
+                )
+            }
+            // When
+
+            // Then
+            onNodeWithText("Details").assertIsDisplayed()
+        }
+    }
+
+    @Test
+    fun given_screen_when_launched_then_Favorites_displayed () {
         with(composeRule) {
 
             // Given
@@ -35,7 +55,6 @@ class SuperHeroDetailScreenContentTest {
 
             // Then
             onNodeWithContentDescription("Favorite").assertExists()
-            onNodeWithText("Details").assertIsDisplayed()
         }
     }
 }
