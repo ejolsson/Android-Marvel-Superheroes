@@ -44,3 +44,29 @@ fun generateSuperHeroLocalList(): List<SuperHeroLocal> {
         )
     }
 }
+
+val generateSuperHeroLocalListFlowHard = generateSuperHeroLocalList().asFlow()
+
+fun generateSuperHeroLocalListFlow(): Flow<List<SuperHeroLocal>> {
+    var heroListFlow: List<SuperHeroLocal>
+    heroListFlow = (0 until 5).map {
+        SuperHeroLocal(
+            id = Random.nextLong(),
+            "Name $it",
+            "Photo $it",
+            "Description $it",
+            false
+        )
+    }
+    return flowOf(heroListFlow)
+}
+
+fun generateSuperHeroSingle(): SuperHeroLocal {
+    return SuperHeroLocal(
+        id = 1009664,
+        name = "Thor",
+        photo = "http://i.annihil.us/u/prod/marvel/i/mg/d/d0/5269657a74350.jpg",
+        description = "God of lightening",
+        favorite = false
+    )
+}
