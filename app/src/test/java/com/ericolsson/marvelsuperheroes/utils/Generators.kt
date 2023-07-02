@@ -6,6 +6,9 @@ import com.ericolsson.marvelsuperheroes.data.remote.response.ComicsItem
 import com.ericolsson.marvelsuperheroes.data.remote.response.Extension
 import com.ericolsson.marvelsuperheroes.data.remote.response.SuperHeroRemote
 import com.ericolsson.marvelsuperheroes.data.remote.response.Thumbnail
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.asFlow
+import kotlinx.coroutines.flow.flowOf
 import kotlin.random.Random
 
 fun generateSuperHeroRemoteList(): List<SuperHeroRemote> {

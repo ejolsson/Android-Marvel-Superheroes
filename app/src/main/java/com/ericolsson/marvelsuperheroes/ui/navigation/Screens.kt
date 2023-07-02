@@ -1,7 +1,6 @@
 package com.ericolsson.marvelsuperheroes.ui.navigation
 
 import com.ericolsson.marvelsuperheroes.ui.navigation.Screens.SuperHeroDetailScreen.ARG_ID
-import util.Log
 
 /**
  * This file essentially provides a schema for 2 strings that outline screens for the navigation graph. 2 strings are:

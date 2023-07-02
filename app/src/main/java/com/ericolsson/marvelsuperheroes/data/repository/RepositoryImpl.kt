@@ -9,7 +9,7 @@ import com.ericolsson.marvelsuperheroes.data.remote.RemoteDataSource
 import com.ericolsson.marvelsuperheroes.data.remote.response.ComicsRemote
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
-import util.Log
+import android.util.Log
 import javax.inject.Inject
 
 class RepositoryImpl @Inject constructor(

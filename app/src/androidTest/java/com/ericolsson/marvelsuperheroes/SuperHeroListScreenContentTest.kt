@@ -39,9 +39,3 @@ class SuperHeroListScreenContentTest {
         }
     }
 }
-
-/*
-    SuperHeroListScreenContent
-
-        SuperHeroItem - heros load
- */

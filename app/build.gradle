@@ -70,6 +70,7 @@ dependencies {
     implementation 'androidx.compose.material:material:1.4.3' // for rememberScaffoldState
     implementation "androidx.compose.material:material-icons-extended:1.4.3"
     implementation "androidx.lifecycle:lifecycle-viewmodel-compose:1.0.0-alpha05" // to use viewModel function in favorite
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1' // added last
 
     implementation 'com.google.code.gson:gson:2.10.1'
 
@@ -112,6 +113,8 @@ dependencies {
     androidTestImplementation 'androidx.compose.ui:ui-test-junit4'
     debugImplementation 'androidx.compose.ui:ui-tooling'
     debugImplementation 'androidx.compose.ui:ui-test-manifest'
+    testImplementation 'org.mockito:mockito-core:3.11.2'
+    testImplementation 'org.mockito:mockito-inline:3.12.4'
 
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'

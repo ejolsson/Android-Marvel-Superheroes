@@ -74,7 +74,7 @@ fun SuperHeroDetailScreenContent(
         LazyColumn(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(16.dp), contentPadding = it) {
             item {
                 Text(
-                    text = "Details",
+                    text = "Details", // tested, pass
                     style = MaterialTheme.typography.h4,
                     modifier = Modifier
                         .fillMaxWidth()
@@ -181,7 +181,7 @@ fun DetailTopBar(hero: SuperHeroLocal, onFavClick2: (SuperHeroLocal) -> Unit) {
             text = hero.name, style = androidx.compose.material3.MaterialTheme.typography.headlineLarge, modifier = Modifier.padding(8.dp)
         ) },
         actions = {
-            FavoriteHeart(hero = hero, onFavClick1 = onFavClick2)
+            FavoriteHeart(hero = hero, onFavClick1 = onFavClick2)  // tested, pass
         }
     )
 }
@@ -218,6 +218,7 @@ fun DetailTopBar_Preview() {
     DetailTopBar(heroSample, onFavClick)
 }
 
+// region Sample Data
 val heroSample = SuperHeroLocal(
     id = 1009664,
     name = "Thor",
@@ -248,3 +249,5 @@ val comicsSample = listOf(
         photo = "http://i.annihil.us/u/prod/marvel/i/mg/3/20/646d0d81b6341.jpg",
     )
 )
+
+// endregion
