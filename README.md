@@ -15,7 +15,7 @@ When you tap on the Hero, you will see the detail showing:
 * Photo of the series
 * Title
 * Description
-* * The user can mark heroes as favorites
+* The user can mark heroes as favorites
 
 ## Screenshots
 
